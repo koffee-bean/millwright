@@ -1,0 +1,449 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Millwright</title>
+<link rel="canonical" href="https://millwrightdata.com/">
+<meta name="description" content="Millwright. Sid Srivastava. Data platform, governance, and AI advisory for companies in semiconductor, health, hospitality, games, and SaaS. Built on 13 years of running these platforms in production. Seattle. Clients anywhere.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+</head><body>
+<style>
+:root{
+  --bg:#F1F4F7;--surface:#FFFFFF;--surface-2:#E6EBF0;--ink:#101820;--ink-2:#3A4652;--muted:#5E6B77;
+  --line:#D3DAE2;--line-strong:#AAB5C0;--accent:#1A47B8;--accent-ink:#FFFFFF;--accent-soft:#E3EAFB;
+  --signal:#B8690F;--signal-soft:#FBEEDC;--focus:#1A47B8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1319;--surface:#151B23;--surface-2:#1C242E;--ink:#E9EEF3;--ink-2:#C3CCD5;--muted:#93A0AD;
+    --line:#26303B;--line-strong:#3B4855;--accent:#8AAAFF;--accent-ink:#0B1633;--accent-soft:#1B2740;
+    --signal:#E2A353;--signal-soft:#2E2417;--focus:#8AAAFF;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1319;--surface:#151B23;--surface-2:#1C242E;--ink:#E9EEF3;--ink-2:#C3CCD5;--muted:#93A0AD;
+  --line:#26303B;--line-strong:#3B4855;--accent:#8AAAFF;--accent-ink:#0B1633;--accent-soft:#1B2740;
+  --signal:#E2A353;--signal-soft:#2E2417;--focus:#8AAAFF;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:"Archivo","Helvetica Neue",Arial,sans-serif;margin:0;text-wrap:balance;letter-spacing:-0.01em}
+.mono{font-family:"IBM Plex Mono","SFMono-Regular",Menlo,Consolas,monospace}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{font-family:"Archivo",sans-serif;font-weight:800;font-size:17px;color:var(--ink);letter-spacing:-0.01em}
+.brand span{color:var(--muted);font-weight:500}
+.links{display:flex;gap:22px;font-size:14.5px;font-weight:500}
+.links a{color:var(--ink-2)}
+@media (max-width:720px){.links{display:none}}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:4px;font-weight:600;font-size:14.5px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);white-space:nowrap}
+.btn:hover{text-decoration:none;filter:brightness(1.06)}
+.btn.ghost{background:transparent;color:var(--accent)}
+
+/* sections */
+section{padding-block:clamp(56px,8vw,96px);border-bottom:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:200px 1fr;gap:32px clamp(24px,5vw,72px)}
+@media (max-width:820px){.grid{grid-template-columns:1fr;gap:20px}}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:6px}
+.eyebrow b{color:var(--signal);font-weight:500}
+h2{font-size:clamp(26px,3.4vw,36px);font-weight:700;line-height:1.15;margin-bottom:18px}
+.lede{font-size:clamp(17px,1.5vw,19.5px);color:var(--ink-2);max-width:62ch}
+p{margin:0 0 14px}
+p:last-child{margin-bottom:0}
+
+/* hero */
+.hero{padding-block:clamp(56px,9vw,120px)}
+.hero h1{font-size:clamp(36px,6vw,72px);font-weight:800;line-height:1.02;letter-spacing:-0.025em;max-width:16ch}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{margin-top:26px;max-width:58ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;align-items:center}
+.cta small{color:var(--muted);font-size:14px}
+.hero-meta{margin-top:44px;display:flex;flex-wrap:wrap;gap:8px 28px;font-size:13.5px;color:var(--muted)}
+.hero-meta span b{color:var(--ink);font-weight:600}
+
+/* industries as a lineage strip */
+.lineage{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.lineage::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:var(--line-strong)}
+.lineage li{padding:0 20px 0 0;position:relative}
+.lineage li + li{padding-left:20px}
+.lineage li::before{content:"";position:absolute;left:0;top:3px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.lineage li + li::before{left:20px}
+.lineage .yrs{display:block;margin-top:30px;font-size:12.5px;color:var(--muted)}
+.lineage h3{font-size:19px;font-weight:700;margin:6px 0 4px}
+.lineage .co{font-size:14px;color:var(--muted);margin-bottom:10px}
+.lineage p{font-size:15px;color:var(--ink-2)}
+@media (max-width:900px){
+  .lineage{grid-template-columns:1fr;gap:26px}
+  .lineage::before{top:0;bottom:0;left:6px;right:auto;width:1px;height:auto}
+  .lineage li,.lineage li + li{padding:0 0 0 30px}
+  .lineage li::before,.lineage li + li::before{left:0;top:6px}
+  .lineage .yrs{margin-top:0}
+}
+.also{margin-top:36px;font-size:15px;color:var(--muted)}
+
+/* spec table */
+.spec{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.spec th,.spec td{text-align:left;padding:14px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.spec th{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:28px;color:var(--signal);width:150px;letter-spacing:-0.02em;line-height:1.1;padding-right:20px}
+.spec td{color:var(--ink-2);font-size:16px}
+.spec td small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.spec tr:last-child th,.spec tr:last-child td{border-bottom:0}
+@media (max-width:520px){.spec th{width:110px;font-size:22px}}
+
+/* work areas */
+.areas{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:760px){.areas{grid-template-columns:1fr}}
+.area{background:var(--surface);padding:26px 26px 28px}
+.area h3{font-size:19px;font-weight:700;margin-bottom:10px}
+.area p{font-size:15.5px;color:var(--ink-2)}
+.area .ex{margin-top:14px;font-size:13.5px;color:var(--muted);font-family:"IBM Plex Mono",monospace;line-height:1.5}
+.area .ex::before{content:"e.g. ";color:var(--signal)}
+
+/* stack */
+.stack{display:flex;flex-wrap:wrap;gap:8px}
+.stack span{font-family:"IBM Plex Mono",monospace;font-size:13px;padding:6px 10px;border:1px solid var(--line-strong);border-radius:3px;color:var(--ink-2);background:var(--surface)}
+.stack-group{margin-bottom:22px}
+.stack-group:last-child{margin-bottom:0}
+.stack-label{font-size:13px;color:var(--muted);margin-bottom:10px;font-weight:500}
+
+/* talks */
+.talk{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.talk:last-child{border-bottom:0}
+.talk .when{font-family:"IBM Plex Mono",monospace;font-size:13.5px;color:var(--muted);padding-top:3px}
+.talk h3{font-size:18px;font-weight:700}
+.talk p{font-size:15px;color:var(--ink-2);margin-top:4px}
+.talk .tag{display:inline-block;margin-top:8px;font-size:12px;padding:3px 8px;border-radius:3px;background:var(--signal-soft);color:var(--signal);font-weight:600;letter-spacing:.03em}
+@media (max-width:520px){.talk{grid-template-columns:1fr;gap:4px}}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.tl li:last-child{border-bottom:0}
+.tl .when{font-family:"IBM Plex Mono",monospace;font-size:13.5px;color:var(--muted);padding-top:3px}
+.tl .role{font-weight:600}
+.tl .co{color:var(--muted);font-size:15px}
+@media (max-width:520px){.tl li{grid-template-columns:1fr;gap:2px}}
+.edu{margin-top:30px;padding-top:22px;border-top:1px solid var(--line-strong);font-size:15px;color:var(--ink-2)}
+.edu div{margin-bottom:6px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:760px){.contact{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);padding:26px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{font-size:15.5px;color:var(--ink-2)}
+.card .btn{margin-top:16px}
+.card .alt{margin-top:14px;font-size:14px;color:var(--muted)}
+
+/* how I work */
+.rules{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:0}
+.rules li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
+.rules li:last-child{border-bottom:1px solid var(--line)}
+.rules .k{font-weight:600}
+.rules p{font-size:15.5px;color:var(--ink-2)}
+@media (max-width:520px){.rules li{grid-template-columns:1fr;gap:4px}}
+
+/* definition */
+.define{padding-block:40px 8px}
+.define{border-bottom:0}
+.define p{max-width:64ch}
+.define .word{font-family:"Archivo",sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.01em}
+.define .ipa{font-family:"IBM Plex Mono",monospace;color:var(--muted);font-size:14px;margin-left:8px}
+.define .pos{font-style:italic;color:var(--muted);margin-left:8px;font-size:15px}
+.define p{font-size:15px;color:var(--ink-2);margin-top:8px}
+.define .origin{color:var(--muted);font-size:14px}
+
+footer{padding-block:24px 48px;font-size:13.5px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px}
+footer a{color:var(--muted)}
+</style>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Millwright <span>/ Sid Srivastava</span></a>
+    <div class="links">
+      <a href="#industries">Industries</a>
+      <a href="#work">Work with me</a>
+      <a href="#how">How I work</a>
+      <a href="#background">Background</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn" href="#contact">Book a call</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <h1>The machinery behind your data should just <em>turn</em>.</h1>
+    <p class="lede">I build and fix data platforms for a living. Since 2013 I have run data architecture, governance, and ML platforms in semiconductor manufacturing, digital health, hospitality, and AAA games, and I now lead four platform teams at a major game publisher. Millwright is how I bring that work to companies that need a senior hand without a senior hire.</p>
+    <div class="cta">
+      <a class="btn" href="#contact">Book a call</a>
+      <a class="btn ghost" href="#work">See engagements</a>
+      <small>Thirty minutes. You talk, I listen, you leave with a first read.</small>
+    </div>
+    <div class="hero-meta">
+      <span><b>Sid Srivastava</b>, Founder</span>
+      <span><b>Senior Director</b>, Data Architecture &amp; AI/ML Platforms, 2K Games</span>
+      <span><b>Executive MBA</b>, BYU Marriott. <b>MS Computer Science</b>, Data Science, WSU</span>
+    </div>
+  </div>
+</header>
+
+<section id="industries">
+  <div class="wrap grid">
+    <div class="eyebrow"><b>01</b> &nbsp;Industries</div>
+    <div>
+      <h2>Four industries, one discipline.</h2>
+      <p class="lede">Every one of these had different regulators, different data volumes, and different ideas about what "done" means. What carried across was the platform work: governed storage, reliable pipelines, a semantic layer people trust, and a path from a model to production.</p>
+      <ul class="lineage" style="margin-top:40px">
+        <li>
+          <span class="yrs mono">2017 to 2023</span>
+          <h3>Semiconductor</h3>
+          <div class="co">Micron Technology, Boise</div>
+          <p>Data models over high-volume manufacturing and sensor telemetry across fabs. Spark partitioning and tuning to keep query cost predictable as volumes grew. Pipelines for a SaaS MLOps venture at 99.8% uptime.</p>
+        </li>
+        <li>
+          <span class="yrs mono">2023 to 2024</span>
+          <h3>Digital health</h3>
+          <div class="co">Bonafide Health (Pharmavite), Las Vegas</div>
+          <p>The data and ML foundation for a fast-growing DTC subscription health business. PHI, PII, and card data under HIPAA, PCI DSS, and SOX. Supported growth analytics through a $425M acquisition.</p>
+        </li>
+        <li>
+          <span class="yrs mono">2024</span>
+          <h3>Hospitality</h3>
+          <div class="co">MGM Resorts International, Las Vegas</div>
+          <p>Enterprise lakehouse on Azure and Databricks. Chaired a cross-business governance council. Power BI semantic models over dbt gold tables fed by a dozen marketing and finance systems.</p>
+        </li>
+        <li>
+          <span class="yrs mono">2024 to now</span>
+          <h3>Games</h3>
+          <div class="co">2K Games, Seattle</div>
+          <p>Shared data and ML platforms on AWS, Snowflake, and Databricks for multiple studios. Player telemetry standards, agentic analytics in production, a 70,000-dataset catalog, and FinOps across the estate.</p>
+        </li>
+      </ul>
+      <p class="also">Earlier: utilities (Puget Sound Energy, data architect) and consulting (ZS Associates, technology architect).</p>
+    </div>
+  </div>
+</section>
+
+<section id="numbers">
+  <div class="wrap grid">
+    <div class="eyebrow"><b>02</b> &nbsp;On record</div>
+    <div>
+      <h2>Numbers I can stand behind.</h2>
+      <table class="spec">
+        <tr><th>70,000+</th><td>Datasets catalogued across Snowflake and Databricks in a metadata platform rollout, delivered ahead of schedule<small>2K Games, DataHub Cloud selected over Atlan and Dawiso</small></td></tr>
+        <tr><th>4</th><td>Teams I lead today: data governance, data quality, data architecture, and MLOps, alongside the AI platform<small>2K Games, 8 direct reports across multiple studios</small></td></tr>
+        <tr><th>$425M</th><td>Acquisition supported by the growth analytics foundation I built for a regulated DTC health business<small>Bonafide Health (Pharmavite)</small></td></tr>
+        <tr><th>99.8%</th><td>Pipeline uptime for a SaaS MLOps venture, with CI/CD on GitLab and Airflow and PySpark workflows feeding high-volume training jobs<small>Micron Technology</small></td></tr>
+        <tr><th>~30%</th><td>End-to-end lift in data discovery, quality, and reliability from data quality rules with SLAs, continuous monitoring, and CI/CD gate checks<small>Bonafide Health, Monte Carlo integrated with the catalog stack</small></td></tr>
+        <tr><th>25%</th><td>Shorter report cycles from a governed analytics serving layer over the lakehouse<small>MGM Resorts, with a 20% gain in data accuracy and pipeline efficiency</small></td></tr>
+        <tr><th>~40,000</th><td>Compliance hotline calls transcribed into Snowflake to feed a weekly theme-summarizing agent, later extended to real-time in-call signals<small>2K Games</small></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap grid">
+    <div class="eyebrow"><b>03</b> &nbsp;Work with me</div>
+    <div>
+      <h2>Three ways in.</h2>
+      <p class="lede">I work best on problems where the platform is the bottleneck: the models are ready but nobody trusts the data, the cloud bill has no owner, or the AI roadmap needs a foundation before it needs a vendor. Pick the shape that matches how urgent it is.</p>
+      <div class="areas" style="margin-top:32px">
+        <div class="area">
+          <h3>Platform diagnostic</h3>
+          <p>Two weeks, fixed fee. I read your architecture, your cost data, and your governance as it actually runs, then hand you a written findings memo with a fix-first order. Good when a number moved and nobody can say why, or before you sign a large vendor contract.</p>
+          <div class="ex">Warehouse and cluster spend review. Catalog and lineage gap analysis. A second opinion on an AI analytics vendor shortlist.</div>
+        </div>
+        <div class="area">
+          <h3>Build engagement</h3>
+          <p>Four to eight weeks, defined deliverable. I design it, build it with your engineers, document it, and leave it running in your accounts. Your team owns it on day one.</p>
+          <div class="ex">Metadata catalog rollout. FinOps dashboards and workload policies. A semantic layer with governed metrics. A model-to-production pipeline with CI gates.</div>
+        </div>
+        <div class="area">
+          <h3>Ongoing advisory</h3>
+          <p>Monthly, on call. A senior data and AI platform leader in your leadership meetings, without the hire. Roadmaps, vendor negotiations, executive readouts, and hiring plans. Available as a fractional head of data platforms for teams that need one or two days a week.</p>
+          <div class="ex">Build-versus-buy calls on AI tooling. Org design for the first governance and MLOps functions. Reviewing the data platform line in the budget.</div>
+        </div>
+        <div class="area">
+          <h3>Speaking and workshops</h3>
+          <p>Conference talks, panels, and half-day internal workshops on data governance, AI platform architecture, and platform economics. Recent stages: Data Innovation Summit Stockholm and Big Data LDN.</p>
+          <div class="ex">Running one data quality standard across teams that ship very different products. FinOps for Snowflake and Databricks estates.</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:19px;margin-top:48px;margin-bottom:8px">Across every engagement</h3>
+      <p style="color:var(--ink-2);font-size:15.5px;margin-bottom:24px">The same four areas of expertise show up whichever shape you choose.</p>
+      <div class="areas">
+        <div class="area">
+          <h3>AI-ready data platform</h3>
+          <p>Platform-neutral target states that avoid single-vendor lock-in: open table formats, a semantic layer, policy enforcement, and lineage. Structured vendor evaluations with real criteria and a decision gate.</p>
+          <div class="ex">Trino or DuckDB over Iceberg, Cube and MetricFlow, OPA, OpenLineage, DataHub. Per-user identity propagation instead of shared service principals.</div>
+        </div>
+        <div class="area">
+          <h3>Governance for regulated data</h3>
+          <p>Operating models with real owners and stewards, not a policy deck. Tokenization, redaction, fine-grained access, and audit-ready logging for data that regulators care about.</p>
+          <div class="ex">HIPAA and PHI, PCI DSS, SOX, GDPR and CCPA data-subject rights, COPPA and age-gating for player safety.</div>
+        </div>
+        <div class="area">
+          <h3>Cost and FinOps</h3>
+          <p>Warehouse and cluster economics: workload policies, auto-suspend and auto-scale tuning, tagging, budgets, and unit economics that leadership can read. Vendor escalation when the bill is the vendor's fault.</p>
+          <div class="ex">Surfaced a Databricks bug driving runaway S3 cost from Delta metadata, and drove it to a fix and credits.</div>
+        </div>
+        <div class="area">
+          <h3>MLOps and agentic analytics</h3>
+          <p>The path from experimentation to production: feature pipelines, model registry, scheduled scoring, CI/CD gates. Agents grounded in governed metrics, with human review where it matters.</p>
+          <div class="ex">AI listening agents over customer service interactions. An AI pull request reviewer enforced as a CI merge gate on a data engineering monorepo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap grid">
+    <div class="eyebrow"><b>04</b> &nbsp;How I work</div>
+    <div>
+      <h2>Ground rules.</h2>
+      <p class="lede">I have sat on the buying side of enough consulting engagements to know what goes wrong. These are the terms I hold myself to.</p>
+      <ul class="rules">
+        <li><div class="k">Scope in writing</div><p>After the intro call you get a one-page scope: the problem, what done looks like, the timeline, and the price. If it changes, the page changes first.</p></li>
+        <li><div class="k">Work in the open</div><p>You see the work as it happens, in your repos and your accounts, with a short written update at the end of every week. No reveal at the end.</p></li>
+        <li><div class="k">Your team owns it</div><p>Everything I build is documented and runs in your infrastructure under your credentials. When I leave, nothing leaves with me.</p></li>
+        <li><div class="k">No vendor commissions</div><p>I recommend tools I have run in production, and I take no referral fees from any of them. When I say buy, it is because I would buy it.</p></li>
+        <li><div class="k">Honest fit</div><p>If your problem is not one I have solved before, I will say so on the intro call and point you to someone who has.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap grid">
+    <div class="eyebrow"><b>05</b> &nbsp;Stack</div>
+    <div>
+      <h2>Tools I have run in production.</h2>
+      <div class="stack-group" style="margin-top:28px">
+        <div class="stack-label">Storage and compute</div>
+        <div class="stack">
+          <span>Snowflake</span><span>Databricks</span><span>Unity Catalog</span><span>Delta</span><span>Iceberg</span><span>Spark</span><span>AWS</span><span>Azure</span><span>GCP</span><span>SAP HANA</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-label">Pipelines and streaming</div>
+        <div class="stack">
+          <span>Airflow (Astronomer)</span><span>dbt</span><span>Fivetran</span><span>Kafka / Confluent</span><span>Terraform</span><span>GitHub Actions</span><span>GitLab CI</span><span>Azure DevOps</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-label">Governance, quality, and semantics</div>
+        <div class="stack">
+          <span>DataHub</span><span>Alation</span><span>Atlan</span><span>Monte Carlo</span><span>Soda</span><span>Cube</span><span>MetricFlow</span><span>OpenLineage</span><span>OPA</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-label">ML, AI, and serving</div>
+        <div class="stack">
+          <span>Mosaic AI</span><span>Feature store</span><span>Model registry</span><span>Whisper</span><span>Claude / Claude Code</span><span>Copilot</span><span>Power BI</span><span>Looker</span><span>Tableau</span><span>Sigma</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="speaking">
+  <div class="wrap grid">
+    <div class="eyebrow"><b>06</b> &nbsp;Speaking</div>
+    <div>
+      <h2>Talks.</h2>
+      <div class="talk">
+        <div class="when">Sep 2026</div>
+        <div>
+          <h3>Big Data LDN, London</h3>
+          <p>Data quality and observability across a multi-studio gaming estate, presented with Soda.</p>
+          <span class="tag">UPCOMING · SEP 23</span>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="when">May 2026</div>
+        <div>
+          <h3>Data Innovation Summit, Stockholm</h3>
+          <p>Data quality in multi-studio gaming pipelines: how to run one standard across studios that ship very different games.</p>
+        </div>
+      </div>
+      <p style="margin-top:22px;font-size:15px;color:var(--muted)">Open to conference talks, panels, and internal workshops on data governance, AI platform architecture, and FinOps.</p>
+    </div>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap grid">
+    <div class="eyebrow"><b>07</b> &nbsp;Background</div>
+    <div>
+      <h2>Where I have worked.</h2>
+      <ul class="tl">
+        <li><div class="when">Dec 2024 to now</div><div><div class="role">Senior Director, Data Architecture &amp; AI/ML Platforms</div><div class="co">2K Games (Take-Two Interactive), Seattle</div></div></li>
+        <li><div class="when">Jul to Nov 2024</div><div><div class="role">Director, Data Architecture</div><div class="co">MGM Resorts International, Las Vegas</div></div></li>
+        <li><div class="when">Jan 2023 to Jul 2024</div><div><div class="role">Director, Data Engineering &amp; MLOps</div><div class="co">Bonafide Health (Pharmavite), Las Vegas</div></div></li>
+        <li><div class="when">Jan 2017 to Jan 2023</div><div><div class="role">Principal Data Engineer, Data Team Lead</div><div class="co">Micron Technology, Boise</div></div></li>
+        <li><div class="when">May 2016 to Jan 2017</div><div><div class="role">Data Architect</div><div class="co">Puget Sound Energy, Seattle</div></div></li>
+        <li><div class="when">Oct 2013 to Jun 2015</div><div><div class="role">Technology Architect</div><div class="co">ZS Associates, Pune</div></div></li>
+      </ul>
+      <div class="edu">
+        <div><b>Executive MBA</b>, Brigham Young University, Marriott School of Business</div>
+        <div><b>MS Computer Science</b> (Data Science emphasis), Washington State University</div>
+        <div><b>BS Electrical Engineering</b>, Institute of Engineering and Technology, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap grid">
+    <div class="eyebrow"><b>08</b> &nbsp;Contact</div>
+    <div>
+      <h2>Bring the hard problem.</h2>
+      <div class="contact" style="margin-top:24px">
+        <div class="card">
+          <h3>Book a call</h3>
+          <p>Thirty minutes, no charge, no pitch. Bring the number that moved, the bill that grew, or the roadmap you are not sure about. You leave with a first read and a straight answer on whether I am the right person.</p>
+          <a class="btn" href="mailto:sid@millwrightdata.com?subject=Intro%20call%20via%20Millwright" id="book-call">Pick a time</a>
+          <div class="alt">Replace this link with your Cal.com or Calendly URL before launch.</div>
+        </div>
+        <div class="card">
+          <h3>Email</h3>
+          <p>Prefer to write it down first? Send a few lines about what you are dealing with. I read everything and reply within a couple of days.</p>
+          <a class="btn ghost" href="mailto:sid@millwrightdata.com?subject=Hello%20from%20Millwright">sid@millwrightdata.com</a>
+          <div class="alt">Or find me on <a href="https://www.linkedin.com/in/srivastava-sid" target="_blank" rel="noopener">LinkedIn</a>. Based in the Seattle area, working with clients anywhere.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="define">
+  <div class="wrap">
+    <span class="word">millwright</span><span class="ipa">/ˈmɪl.raɪt/</span><span class="pos">noun</span>
+    <p>The craftsman who designed, built, and kept the machinery of a mill, so that the whole works turned. The miller ground the flour. The millwright made sure he could.</p>
+    <p class="origin">Origin: Middle English, from <i>mill</i> + <i>wright</i>, a maker or builder, from Old English <i>wyrhta</i>, worker.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Millwright · Sid Srivastava · Seattle, Washington · millwrightdata.com</div>
+    <div>Views are my own and not those of any employer. Company and product names belong to their owners.</div>
+  </div>
+</footer>
+</body></html>
