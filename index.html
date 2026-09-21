@@ -54,6 +54,7 @@ ul,ol{margin:0;padding:0}
 .site-header .brand{margin-right:auto}
 .hdr-flags{display:inline-flex;gap:8px;align-items:center;margin-right:-8px}
 .hdr-flag{position:relative;display:inline-flex;padding:0;border:0;background:none;cursor:help;border-radius:50%;line-height:0}
+.hdr-flag::before{content:"";position:absolute;inset:-4px;border-radius:50%}
 .hdr-flag .flag{width:22px;height:22px;border-radius:50%;box-shadow:0 0 0 1px rgba(27,27,25,.1);display:block;transition:transform .18s ease,box-shadow .18s ease}
 .hdr-flag:hover .flag,.hdr-flag:focus-visible .flag,.hdr-flag.is-open .flag{transform:scale(1.12);box-shadow:0 0 0 1px rgba(27,27,25,.25)}
 .hdr-tip{position:absolute;top:calc(100% + 12px);right:-4px;z-index:40;width:max-content;max-width:min(280px,calc(100vw - 48px));background:var(--ink);color:rgba(255,255,255,.72);font-size:13px;font-weight:500;line-height:1.45;text-align:left;padding:9px 13px;border-radius:8px;box-shadow:0 8px 24px rgba(27,27,25,.2);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .18s ease,transform .18s ease,visibility .18s;pointer-events:none}
@@ -239,9 +240,10 @@ section.band + section{border-top:0}
 .stats li.is-on{opacity:1;transform:none;pointer-events:auto}
 .stat-n{font-size:56px;font-weight:730;letter-spacing:-0.03em;line-height:1}
 .stat-l{font-size:16px;margin-top:10px}
-.ach-dots{display:flex;gap:8px;margin-top:var(--s3)}
-.ach-dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.35);cursor:pointer;transition:background .3s ease,transform .3s ease}
-.ach-dots button[aria-selected="true"]{background:#fff;transform:scale(1.25)}
+.ach-dots{display:flex;gap:0;margin-top:calc(var(--s3) - 8px);margin-left:-8px}
+.ach-dots button{position:relative;width:24px;height:24px;border-radius:50%;border:0;padding:0;background:none;cursor:pointer}
+.ach-dots button::before{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:rgba(255,255,255,.35);transition:background .3s ease,transform .3s ease}
+.ach-dots button[aria-selected="true"]::before{background:#fff;transform:scale(1.25)}
 .ach-dots button:focus-visible{outline-color:#fff}
 @media (prefers-reduced-motion:reduce){.stats li{transition:none}}
 
