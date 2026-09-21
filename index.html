@@ -173,12 +173,10 @@ section{padding:var(--band-y) 0;border-top:1px solid var(--hairline)}
 .pk-day b{display:block;font-size:16px;font-weight:660;margin-top:2px}
 .pk-day[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
 .pk-day[aria-pressed="true"] small{color:rgba(255,255,255,.7)}
-.pk-times{display:flex;flex-wrap:wrap;gap:10px;margin-top:var(--s2);list-style:none}
-.pk-time{display:inline-block;border:1.5px solid var(--ink);border-radius:10px;padding:11px 16px;font-size:16px;font-weight:640;color:var(--ink);background:transparent}
+.pk-times{display:flex;flex-wrap:nowrap;gap:10px;margin-top:var(--s2);list-style:none;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.pk-times::-webkit-scrollbar{display:none}
+.pk-time{display:inline-block;flex:none;white-space:nowrap;border:1.5px solid var(--ink);border-radius:10px;padding:11px 16px;font-size:16px;font-weight:640;color:var(--ink);background:transparent}
 .pk-time:hover{background:var(--ink);color:#fff;text-decoration:none}
-.pk-more{margin-top:var(--s3)}
-.pk-more label{display:block;font-size:15px;font-weight:640;margin-bottom:6px}
-.pk-more select{font:inherit;font-size:16px;width:100%;padding:12px;border:1px solid var(--muted);border-radius:6px;background:var(--bg);color:var(--ink)}
 .pk-foot{font-size:14px;color:var(--muted);margin:var(--s2) 0 0}
 .pk-foot a{color:var(--ink);font-weight:640;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
@@ -189,6 +187,13 @@ section{padding:var(--band-y) 0;border-top:1px solid var(--hairline)}
 .field textarea{min-height:120px;resize:vertical}
 .form-note{font-size:13px;color:var(--muted);margin-top:var(--s2)}
 .form-status{margin:var(--s2) 0 0;font-size:15px;color:var(--ink);min-height:1.5em}
+.entities{margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--hairline);display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.ent{display:flex;gap:14px;align-items:flex-start}
+.ent-tag{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:28px;border:1.5px solid var(--ink);border-radius:6px;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--ink);margin-top:1px}
+.ent b{display:block;font-size:17px;font-weight:660;margin-bottom:4px}
+.ent p{margin:0;font-size:15px;color:var(--muted);line-height:1.5}
+.ent p a{font-weight:640;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:760px){.entities{grid-template-columns:1fr}}
 .form-status.err{color:#9B2C2C}
 .form-done{font-size:18px;color:var(--ink);margin:0}
 .btn[disabled]{opacity:.6;cursor:default}
@@ -449,7 +454,7 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
       </div>
       <div class="rv" style="--d:.1s">
         <h3 class="c-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><span>Email me</span></h3>
-        <form id="contact-form" action="https://formspree.io/f/FORMSPREE_ID" method="POST" data-formspree="FORMSPREE_ID">
+        <form id="contact-form" action="https://formspree.io/f/xkjgrnzz" method="POST" data-formspree="xkjgrnzz">
           <input type="hidden" name="_subject" value="New inquiry from millwrightdata.com">
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
           <div class="field-row">
@@ -462,6 +467,16 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
         <p class="form-note">Or email <a href="mailto:sid@millwrightdata.com">sid@millwrightdata.com</a> directly.</p>
+      </div>
+    </div>
+    <div class="entities rv">
+      <div class="ent">
+        <span class="ent-tag" aria-hidden="true">US</span>
+        <div><b>Millwright Data LLC, United States</b><p>Registered in Washington. I am a US citizen based in Seattle, so any US company can engage me directly: W-9, invoicing in USD, no sponsorship or visa steps.</p></div>
+      </div>
+      <div class="ent">
+        <span class="ent-tag" aria-hidden="true">EU</span>
+        <div><b>EU company, registered in Estonia</b><p>Established through <a href="https://www.e-resident.gov.ee/" target="_blank" rel="noopener">Estonian e-Residency</a>, so clients in the European Union can contract with and be invoiced by an EU entity in EUR.</p></div>
       </div>
     </div>
   </div>
@@ -488,7 +503,7 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
       <div>
         <a class="brand" href="#top" aria-label="Millwright home"><img class="wordmark small" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjAAAAB6CAYAAAChrWlMAAAMuUlEQVR42u2d0W7sug1FPcb8xEE+VtSXuw83vWeaJhmPRxI3ybWA4KBFO7IoktqUafv28fFng1TY579t8O/2h98GAABw5Y4J0tEwAQAAZGfHBKk4MAEAACBgIBKGCQAAAAED0cQLt44AAKAMN5p4ES9nfQVTAwAAAgZGsarvBQEDAAAycAsJ8QIAAICAgWXYwrE65gYAAAQMjBAvNO0CAAACBhAvAAAAUaCJNx4efS808AIAgBScwCBeAAAAEDAwDcMEAAAACJho4sWr74UnkAAAAAEDocRLNDsdA/9MdEwAqJNjAAETGsSLj50aawMAgICB64qfa/C5xp7ALgBAMYmAAZdNmYABAKBABQQM4gWkqzESGgBiAxAwiJcBRHkCKYOY4GkvgDoQ7wgYKntwSS5UYwAACBhgY8RmAFCqsCRvIWDSbcScviDEAH7zEd5DAvDJHRMgXgZuquY8/qpxEZqQ4RQAfPIQ/S8ImDSbYZbENEuEqYmJGX5EQgMAQMAs3VxHbHiqX5juIuuGmADgdo8nnHyt9c3Tv3cvYlzVDyGSlAA/APwOuyPwLtinQhOvp3gxUWEVwc5eJyEm6k8AGeILsQHD/HLH+VzGziZeqolTNhLA14F4dxZ4mQWMp0h45qQtmWNmqVK45QcAEISsAsZbvBib4HQBZUXmCWD4nRu8wE7YPjtOt1y8RDh96c727vgVgEx8A0j6ZUYBczgaP4N4qSxSTT1gAV+HZRjxLpUv0wsYEx07s3ixJPOg/wUAIBCZBIynSLhRQS0VRYgJIBYoOmZD/4u4r++JJq76xNFRwZEAO0MIuG0JqgLvZXYM+XYysOIblEcDb4ZvLrGRQIhNguKCeFe1z44hp4qXiMmHjbWmEAXicVbs2PbPSfSZP2INTnNPEByKH2mMKl4UNnZzGBPRBuoCICrtwv8eEUORmF7AeIqEDG/aVRQwRsAClPdxBdFGA2+APe6OAS+Jl9+c8dhqYQXmQB8CAMwqeLHPRaL2wCi/rA5BUkD5k9AA0saqsXQx7HPHeMPGNir1kGvPC+zA2xcN++AvIr975vdk3oJ+D+gEii+ryyJeOBkA+Dm5tgVjPDL6pPn2xrW17fkJ9Kh82F7Y1B7HOnt9qzfomX7TvuRue9MHPfaxq2P2aLeQaNrVSur//TsG/Fkhn7Nv/vMx8G/E9ams6WjbnL2uR99uDjFuQnHeHmLhJ/t9tdeIuHt1rMpPMLUnNlPeXy8T6QRGte/lKBwwGcWEhxie8cSDBVtbpYrQtnxFyZXT1ePJZtkXnTC8Mta7IiaDAHq0WWZBZ1EEjDkGvSV39qpBfiapG2ubUiSboGBSE5GH4/q8O9axXb9dlrHItGBxf5oIt5A8qyETva6KwqSqWMwiGlTWuweIZ29fz3CqfBDK/8ZzRlv0KAKGpt2/C5a5ybaKQEEk+sX9Tyeqx6bbX7d6bY/isZa1nzGloNsx+qWk4iFesm8uHmOa4DwrFgurhJRRqf9qmyOhPxtLeyquWsS57EGN7SkWDkdbtMnz9lqX7rTO1atthXhblUy7+Jxnzv9Mr1dWsd6CxsBKW4Sdt6qA8QooxaZdmtF87F6tclN5wssWrafKps0JQb5ChVy6aE1VBQxNu/8ffEZQMc/k1zUrxrqoeFl1KmSF4++VuVW4ZZxqjooCxus+rGLTrgkGOv0v+RJ85rl+F0d88uOcmGJONURdi3r9u7hhVRy9etMuSSbvPLO/tM5Ecgx+p51DraidQs/7LmZIxb6XA6dyvS6btOYks5qNu03c/p63z2evgS2s/qsKklKC/C4UyDTt/sPN2ymgDNUem1bf1Lyvrw/yid/y6ndrMjr/k8+ex30KgXcXMqhawvAQVV18s6EXZc48+1b3Y4Gz1nj16UsP6Hej7XP11rdNEjKePtgFY+Kda1Wxj6kJGK9E2gXFSwpVHCDpZxZNZ22a+fSlb+tOX7LErQnYwQb55qsnDCZoz1WCzoLaR0LAeCnuZ8GmJl4UEqQlGbMLjlmlaFgVa7ZonJu4LfqisW8T1q4N+B3F4tjDFmkLV8+nkFTFS8WmXdugEtlPX1aMk+kFkyZmB9voY1EqqGQFlKeAUe17Wc2N4ISENu9OOcBE5hYpFpqQHUbZ45XbSOonHJ5izpR/c09klHcdwTatpl21a+AFdjmEWrXTlwgblFexZtv1E+cVvT8jGmGPbf3tJAqzRdydgkrt1pGXeIlSIazcbDzHzCpSKwipn+LJgthxRf+LDRzLFvlrG2jb9o2fIDYC58PVJzCK4sVDIHQCJ1zFmmFumU9fbGHsRl7/FswG0ezdg/iCl7AeymoBo9j3ot60m3VTRcDVZeXTNo1YGG4HYpeCrpyAUf1Io9L1qDop/S+xk4BteU9fVD96mnXzyfZ0UAtg90xvKR5qnz150NO0qwkfcKxb0a3cMIz4Km2HZz5hwa6XfOggYLyqv8hNu9UDyByCJ0uiMJH4yygQZ41X9Skp/FE7t8r75QoBQ9Pue+KlFQ84yLE5zhBSFmTuABBQwHj1vZhYpR25uqcXJe66R/Y7RfFtQX+TBt7vfSaCwPXqfwnh63uwYH93kczBaW8BbViRxpym5oLRidiIHRADn1tccOwTF5K+F/1bNB6bQGfMcsm0JZhblP6X2Q28Ftx3Zs2jJ49hSfZJRke88LI6yCUaMm8UELPAgnn2DHEiPeNTAg1nTyNesvS/VPNHS+pDkT6/4bVOmTb9NtBvvtqmWv9LSr/ckwRPxJfDeTtwpUq2imjqQvOxze/2BcLgf6/79ukbI2K+icTsmVjon3O3BetnQXJDqrH3wQvYii1MBDGlFJD0v8RYty6YD1Im4IXXaV/EjPpm3d60w2+iJYIYjSqYl7IPNLbi+14iJzocGDwqZMXbn1n7yTxvEfQ3r3vmehwD5ofAvW6TMCfSe+BAVBQvkZKsCY7Ji8diboizr8UC20G1QDFRX3v3ujqxLOeX03x9DxyISooyY4VYpZk26wccs/hxF7C9JfH10RwTrr8tsEEr5h9p+x13AYe7Qtam3czzqdL/kmHdjdgqwYiN7Ri0xsc25vYn+beQeNrfNDJNu/PEFE8gEbDVr/uW2C4t0fodb2y6I/eRdnI84t1n35ESMPS9IASopPOILhO8pqwJOGMstAchYyfmb9uYUxfyzDibhLPd1RfZeXyk8WqSNbHrQYWvG9MEx2RDjXVNlnQNbZL/ty//9sV55dkTUrzALhF7oIBWSiSzxYvnXG2SvdTGBF079YBxQ5Hy8zht8aZsgceyZPE9dd33C8at3rSb4eSFRI9oUvUFpfjK2v+SPf4beU9KbBybyKcEaNolCCAPioLrnfii/0W3CCV+EEfHC3+n4uQVAROp72UWt4WL7RV0VXpRqve/ZGrcrV6sUFTlERY0Nb/ALmwEnjjKkQjpf2HTWxHvbOL+xZG6H/ECuzhzOXU9+8kfaqoTSCimSMQ5hRoVajxBFUFA9MR+Gr3oJfdPZj9h0OhNu614UACo+3MXiPNK4r0X9GsT9FnE05u23QWTAvfB/aAXJb+fKIqXKjFmIr+ZUcRk8CH6X15kF5t81abdrIGu+i2iqtV61ltHFjxOvOzeg/rMlWvkhC7OWp+Ovf2XH2gOxjMWM9Vn1BXXzRIHfrQ1rtZsrfb9I/vld/tnAWef/9IYPzeWjNh6nbuIeFFLrlmPtUlCVFcZN4FGnFzmtv19RcZvec+cCyzEwRo7ea/vS7bdRU4AbkKO6ylePEUT/S+5xYs5+8KqmK+yiY78zdv297Tl2Xj9TT/sD+N1Yl7O30KJs7uAI9C0S8WfXajh0/N8w8gBYUV0E/OlbHnpHd8P0cqwf/k/Vu97qVYVeiZsm+RPbEz6Cb7iOmS5zWUB11z96R4T8w2LIgx3xEs6Jc/Ggd8or/loe9H/EjNGyEX6eaML+MkpAUPTrsb1tETjmuCYbBzEGSKy1ppb8piabTvpJ9D2jb4XpaTanX67O8yjJ/Ep1c3pHb/uyeMsutjwtqXSN3YoWubb5FHIdKX9+/bx8ceSJwgLGAD25L+zhz+CHACicYzawzBlXW4fH3+wAgAArCzQRj2BRHFWmB0TAABAMPEC8O2beAEAAEYLlw3xAiPhFhIAQF7BoMAs0UL/S3E4gQEAyEf2kw7e1wP0wAAAJMMwASBgAAAAtODpI0DAAAAAQExo4gUAyMWReG6cvsC/cAIDAJAHY36AgAEAANCBJ48AAQMAAOHEi2EGeIQeGACAPGTsf0G8wLdwAgMAkIOMmzziBRAwAACAeAEEDAAAAOIF3KAHBgAgBxn6XxAucBo+5ggAEJ/Im35PMAdAwAAAQHJ6EuEFzvwHXOHiHuVWJRQAAAAASUVORK5CYII=" alt="Millwright" width="560" height="122"></a><br>
         <a class="foot-mail" href="mailto:sid@millwrightdata.com">sid@millwrightdata.com</a>
-        <p class="legal">© 2026 Millwright · Seattle, Washington. Views are my own and not those of any employer.</p>
+        <p class="legal">© 2026 Millwright Data LLC · Seattle, Washington, United States. Also operating through an EU company registered in Estonia. Views are my own and not those of any employer.</p>
         <p class="legal"><sup class="fn">1</sup> Company names and logos belong to their respective owners and identify work I contributed to as an employee or consultant. No sponsorship or endorsement is implied.</p>
         <div class="foot-links">
           <a href="https://www.linkedin.com/in/srivastava-sid" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
@@ -551,14 +566,12 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
   }
   if(!days.length)return;
   var wrap=document.createElement('div');
-  wrap.innerHTML='<p class="pk-title">Pick a time that works</p><p class="pk-note">Times shown in '+tz.replace(/_/g,' ')+'. Pick one and you will confirm on the next screen.</p><ul class="pk-days" role="tablist" aria-label="Choose a day"></ul><ul class="pk-times" aria-label="Available times"></ul><div class="pk-more"><label for="pk-select">More times</label><select id="pk-select"><option value="">Choose a time</option></select></div><p class="pk-foot">Nothing that works? <a href="'+CAL+'" target="_blank" rel="noopener">See the full calendar</a> or email <a href="mailto:sid@millwrightdata.com">sid@millwrightdata.com</a>.</p>';
-  var daysEl=wrap.querySelector('.pk-days'),timesEl=wrap.querySelector('.pk-times'),sel=wrap.querySelector('#pk-select'),btns=[];
+  wrap.innerHTML='<p class="pk-title">Pick a time that works</p><p class="pk-note">Times shown in '+tz.replace(/_/g,' ')+'. Scroll for more, pick one, and you will confirm on the next screen.</p><ul class="pk-days" role="tablist" aria-label="Choose a day"></ul><ul class="pk-times" aria-label="Available times"></ul><p class="pk-foot">Nothing that works? <a href="'+CAL+'" target="_blank" rel="noopener">See the full calendar</a> or email <a href="mailto:sid@millwrightdata.com">sid@millwrightdata.com</a>.</p>';
+  var daysEl=wrap.querySelector('.pk-days'),timesEl=wrap.querySelector('.pk-times'),btns=[];
   function show(n){
     btns.forEach(function(b,j){b.setAttribute('aria-pressed',j===n?'true':'false')});
-    var slots=days[n],picks=[];
-    [0,3,6,9,12].forEach(function(k){if(slots[k])picks.push(slots[k])});
-    timesEl.innerHTML='';picks.forEach(function(t){var li=document.createElement('li'),a=document.createElement('a');a.className='pk-time';a.href=slotUrl(t);a.target='_blank';a.rel='noopener';a.textContent=fmtTime(t);li.appendChild(a);timesEl.appendChild(li)});
-    sel.innerHTML='<option value="">Choose a time</option>';slots.forEach(function(t){var o=document.createElement('option');o.value=slotUrl(t);o.textContent=fmtTime(t);sel.appendChild(o)});
+    timesEl.innerHTML='';days[n].forEach(function(t){var li=document.createElement('li'),a=document.createElement('a');a.className='pk-time';a.href=slotUrl(t);a.target='_blank';a.rel='noopener';a.textContent=fmtTime(t);li.appendChild(a);timesEl.appendChild(li)});
+    timesEl.scrollLeft=0;
   }
   days.forEach(function(slots,n){
     var li=document.createElement('li'),b=document.createElement('button'),p=parts(slots[0],tz);
@@ -566,7 +579,6 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
     b.innerHTML='<small>'+p.weekday+'</small><b>'+new Intl.DateTimeFormat('en-US',{timeZone:tz,month:'short',day:'numeric'}).format(slots[0])+'</b>';
     b.addEventListener('click',function(){show(n)});li.appendChild(b);daysEl.appendChild(li);btns.push(b);
   });
-  sel.addEventListener('change',function(){if(sel.value){window.open(sel.value,'_blank','noopener');sel.value=''}});
   show(0);
   box.replaceChild(wrap,fallback);
 })();
