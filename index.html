@@ -48,8 +48,20 @@ ul,ol{margin:0;padding:0}
 .site-header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--hairline)}
 .site-header .container{height:var(--header-h);display:flex;align-items:center;gap:28px}
 .site-header .brand{margin-right:auto}
-.hdr-flags{display:inline-flex;gap:6px;align-items:center;margin-right:-8px}
-.hdr-flags .flag{width:22px;height:22px;border-radius:50%;box-shadow:0 0 0 1px rgba(27,27,25,.1)}
+.hdr-flags{display:inline-flex;gap:8px;align-items:center;margin-right:-8px}
+.hdr-flag{position:relative;display:inline-flex;padding:0;border:0;background:none;cursor:help;border-radius:50%;line-height:0}
+.hdr-flag .flag{width:22px;height:22px;border-radius:50%;box-shadow:0 0 0 1px rgba(27,27,25,.1);display:block;transition:transform .18s ease,box-shadow .18s ease}
+.hdr-flag:hover .flag,.hdr-flag:focus-visible .flag,.hdr-flag.is-open .flag{transform:scale(1.12);box-shadow:0 0 0 1px rgba(27,27,25,.25)}
+.hdr-tip{position:absolute;top:calc(100% + 12px);right:-4px;z-index:40;width:max-content;max-width:min(280px,calc(100vw - 48px));background:var(--ink);color:rgba(255,255,255,.72);font-size:13px;font-weight:500;line-height:1.45;text-align:left;padding:9px 13px;border-radius:8px;box-shadow:0 8px 24px rgba(27,27,25,.2);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .18s ease,transform .18s ease,visibility .18s;pointer-events:none}
+.hdr-tip b{display:block;color:#fff;font-weight:660;margin-top:1px}
+.hdr-tip::after{content:"";position:absolute;bottom:100%;right:12px;border:6px solid transparent;border-bottom-color:var(--ink)}
+.hdr-flag:hover .hdr-tip,.hdr-flag:focus-visible .hdr-tip,.hdr-flag.is-open .hdr-tip{opacity:1;visibility:visible;transform:none}
+@media (max-width:860px){
+.hdr-tip{right:auto;left:50%;transform:translate(-50%,-4px)}
+.hdr-tip::after{right:auto;left:50%;margin-left:-6px}
+.hdr-flag:hover .hdr-tip,.hdr-flag:focus-visible .hdr-tip,.hdr-flag.is-open .hdr-tip{transform:translateX(-50%)}
+}
+@media (prefers-reduced-motion:reduce){.hdr-flag .flag,.hdr-tip{transition:none}}
 .brand{font-weight:740;font-size:22px;letter-spacing:-0.02em;color:var(--ink)}
 .brand:hover{text-decoration:none}
 .brand{display:inline-flex;align-items:center}
@@ -67,6 +79,8 @@ ul,ol{margin:0;padding:0}
 /* hero */
 .hero{padding:56px 0 40px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:start}
+.hero-grid>*{min-width:0}
+.h1-rot{min-width:0}
 .hero .lede{font-size:clamp(18px,1.6vw,21px);line-height:1.5;color:var(--ink);max-width:60ch;margin-top:var(--s3)}
 .hero-cta{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap;margin-top:var(--s3)}
 .hero-cta .note{color:var(--muted);font-size:15px}
@@ -274,7 +288,10 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
       <a href="#contact">Contact</a>
       <a href="#writing">Writing</a>
     </nav>
-    <span class="hdr-flags" title="Millwright Data LLC, United States · Millwright Data OÜ, European Union"><svg class="flag" role="img" aria-label="United States entity"><use href="#flag-us"/></svg><svg class="flag" role="img" aria-label="European Union entity"><use href="#flag-eu"/></svg></span>
+    <span class="hdr-flags">
+      <button type="button" class="hdr-flag" aria-label="Operates as Millwright Data LLC, United States"><svg class="flag" aria-hidden="true"><use href="#flag-us"/></svg><span class="hdr-tip" aria-hidden="true">Operates as: <b>Millwright Data LLC, United States</b></span></button>
+      <button type="button" class="hdr-flag" aria-label="Operates as Millwright Data OÜ, European Union"><svg class="flag" aria-hidden="true"><use href="#flag-eu"/></svg><span class="hdr-tip" aria-hidden="true">Operates as: <b>Millwright Data OÜ, European Union</b></span></button>
+    </span>
     <a class="btn" href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a>
   </div>
 </header>
@@ -528,7 +545,7 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
     h1.style.removeProperty('--h1-size');
     var avail=col.getBoundingClientRect().width,size=parseFloat(getComputedStyle(h1).fontSize),n=0;
     function widest(){var m=0;words.forEach(function(w){m=Math.max(m,w.getBoundingClientRect().width)});return m+gear.getBoundingClientRect().width+size*0.18}
-    while(widest()>avail&&size>36&&n<20){size=Math.floor(size*0.96);h1.style.setProperty('--h1-size',size+'px');n++}
+    while(widest()>avail&&size>26&&n<40){size=Math.floor(size*0.96);h1.style.setProperty('--h1-size',size+'px');n++}
   }
   fit();
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
@@ -557,6 +574,15 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
     e.preventDefault();
     Cal("modal",{calLink:a.getAttribute('href').replace('https://cal.com/','')});
   });
+})();
+(function(){
+  var flags=[].slice.call(document.querySelectorAll('.hdr-flag'));if(!flags.length)return;
+  function closeAll(except){flags.forEach(function(f){if(f!==except)f.classList.remove('is-open')})}
+  flags.forEach(function(f){
+    f.addEventListener('click',function(e){e.preventDefault();var on=f.classList.contains('is-open');closeAll();if(!on)f.classList.add('is-open')});
+  });
+  document.addEventListener('click',function(e){if(!e.target.closest||!e.target.closest('.hdr-flag'))closeAll()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
 })();
 (function(){
   var box=document.getElementById('picker'),fallback=document.getElementById('book-call');
