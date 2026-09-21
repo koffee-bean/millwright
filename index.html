@@ -31,7 +31,7 @@
 html{scroll-behavior:smooth;scroll-padding-top:var(--header-h)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--face);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;color-scheme:light}
-a{color:var(--accent);text-decoration:none}
+a{color:var(--accent);text-decoration:none;text-decoration-color:var(--accent)}
 a:hover{text-decoration:underline;text-underline-offset:3px}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 h1,h2,h3{margin:0;font-family:var(--face);text-wrap:balance}
@@ -83,7 +83,7 @@ ul,ol{margin:0;padding:0}
 .gear{width:.62em;height:.62em;fill:var(--accent);flex:none;animation:spin 9s linear infinite;transform-origin:50% 50%}
 @keyframes spin{to{transform:rotate(360deg)}}
 .rot-w{display:inline-grid;text-align:left}
-.rot-w>span{grid-area:1/1;opacity:0;transform:translateY(.35em);transition:opacity .45s ease,transform .45s ease;white-space:nowrap}
+.rot-w>span{grid-area:1/1;opacity:0;transform:translateY(.35em);transition:opacity .45s ease,transform .45s ease;white-space:nowrap;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:.06em;text-underline-offset:.1em}
 .rot-w>span.is-on{opacity:1;transform:none}
 .rot-w>span.is-off{opacity:0;transform:translateY(-.35em)}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -158,23 +158,43 @@ section{padding:var(--band-y) 0;border-top:1px solid var(--hairline)}
 
 /* contact */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:var(--s4)}
-.contact-grid > div{padding-right:var(--s5)}
+.contact-grid > div{padding-right:var(--s5);min-width:0}
 .contact-grid > div + div{border-left:1px solid var(--hairline);padding-left:var(--s5);padding-right:0}
 .contact-grid p{color:var(--ink);font-size:18px}
 .c-eyebrow{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:660;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:var(--s3)}
 .c-eyebrow svg{width:18px;height:18px;flex:none}
+.picker{margin-top:var(--s3)}
+.pk-title{font-size:22px;font-weight:680;letter-spacing:-.01em;margin:0 0 6px}
+.pk-note{font-size:15px;color:var(--muted);margin:0 0 var(--s2)}
+.pk-days{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;list-style:none}
+.pk-days::-webkit-scrollbar{display:none}
+.pk-day{flex:none;border:1px solid var(--hairline);background:var(--bg2);border-radius:10px;padding:9px 12px;text-align:center;cursor:pointer;font:inherit;color:var(--ink);min-width:78px;white-space:nowrap}
+.pk-day small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:660}
+.pk-day b{display:block;font-size:16px;font-weight:660;margin-top:2px}
+.pk-day[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.pk-day[aria-pressed="true"] small{color:rgba(255,255,255,.7)}
+.pk-times{display:flex;flex-wrap:nowrap;gap:10px;margin-top:var(--s2);list-style:none;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.pk-times::-webkit-scrollbar{display:none}
+.pk-time{display:inline-block;flex:none;white-space:nowrap;border:1.5px solid var(--ink);border-radius:10px;padding:11px 16px;font-size:16px;font-weight:640;color:var(--ink);background:transparent}
+.pk-time:hover{background:var(--ink);color:#fff;text-decoration:none}
+.pk-foot{font-size:14px;color:var(--muted);margin:var(--s2) 0 0}
+.pk-foot a{color:var(--ink);font-weight:640;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
 .field label .opt{font-weight:400;color:var(--muted)}
 .field{display:grid;gap:6px;margin-bottom:var(--s2)}
 .field label{font-size:16px;font-weight:640}
 .field input,.field textarea{font:inherit;font-size:16px;background:var(--bg);border:1px solid var(--muted);border-radius:6px;padding:14px 12px;color:var(--ink);width:100%}
 .field textarea{min-height:120px;resize:vertical}
-.form-note{font-size:14px;color:var(--muted);margin-top:var(--s2)}
+.form-note{font-size:13px;color:var(--muted);margin-top:var(--s2)}
 .form-status{margin:var(--s2) 0 0;font-size:15px;color:var(--ink);min-height:1.5em}
+.entities{margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--hairline);display:flex;gap:var(--s4) var(--s5);flex-wrap:wrap}
+.ent{display:flex;gap:12px;align-items:center}
+.ent .flag{width:36px;height:36px;flex:none;border-radius:50%;box-shadow:0 0 0 1px rgba(27,27,25,.08)}
+.ent b{font-size:17px;font-weight:660}
 .form-status.err{color:#9B2C2C}
 .form-done{font-size:18px;color:var(--ink);margin:0}
 .btn[disabled]{opacity:.6;cursor:default}
-.form-note a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.form-note a{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:3px}
 @media (max-width:760px){.contact-grid{grid-template-columns:1fr;gap:var(--s4)}.contact-grid > div{padding-right:0}.contact-grid > div + div{border-left:0;padding-left:0}.field-row{grid-template-columns:1fr}}
 
 /* writing */
@@ -215,7 +235,7 @@ html.js .rv.in{opacity:1;transform:none}
 footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--muted);font-size:16px}
 .foot-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--s6);align-items:start}
 @media (max-width:860px){.foot-grid{grid-template-columns:1fr;gap:var(--s4)}}
-.foot-mail{display:inline-block;margin-top:var(--s2);color:var(--ink);font-size:17px;font-weight:500;text-decoration:underline;text-underline-offset:4px}
+.foot-mail{display:inline-block;margin-top:var(--s2);color:var(--ink);font-size:17px;font-weight:500;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:4px}
 .foot-grid .brand{font-size:20px}
 .foot-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:var(--s4)}
 .foot-links a{color:var(--muted);display:inline-flex}
@@ -425,11 +445,13 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
       <div class="rv">
         <h3 class="c-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Book a call</span></h3>
         <p>Thirty minutes, no strings. Bring the number that moved, the bill that grew, or the roadmap you are not sure about. You will leave with a first read and a straight answer on whether we are a fit.</p>
-        <a class="btn" id="book-call" href="https://cal.com/millwright-data" target="_blank" rel="noopener">Pick a time</a>
+        <div class="picker" id="picker">
+          <a class="btn" id="book-call" href="https://cal.com/millwright-data" target="_blank" rel="noopener">Pick a time</a>
+        </div>
       </div>
       <div class="rv" style="--d:.1s">
         <h3 class="c-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><span>Email me</span></h3>
-        <form id="contact-form" action="https://formspree.io/f/FORMSPREE_ID" method="POST" data-formspree="FORMSPREE_ID">
+        <form id="contact-form" action="https://formspree.io/f/xkjgrnzz" method="POST" data-formspree="xkjgrnzz">
           <input type="hidden" name="_subject" value="New inquiry from millwrightdata.com">
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
           <div class="field-row">
@@ -443,6 +465,10 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
         </form>
         <p class="form-note">Or email <a href="mailto:sid@millwrightdata.com">sid@millwrightdata.com</a> directly.</p>
       </div>
+    </div>
+    <div class="entities rv">
+      <div class="ent"><svg class="flag" viewBox="0 0 40 40" aria-hidden="true"><defs><clipPath id="usc"><circle cx="20" cy="20" r="20"/></clipPath></defs><g clip-path="url(#usc)"><rect x="0" y="0.000" width="40" height="3.127" fill="#B22234"/><rect x="0" y="3.077" width="40" height="3.127" fill="#fff"/><rect x="0" y="6.154" width="40" height="3.127" fill="#B22234"/><rect x="0" y="9.231" width="40" height="3.127" fill="#fff"/><rect x="0" y="12.308" width="40" height="3.127" fill="#B22234"/><rect x="0" y="15.385" width="40" height="3.127" fill="#fff"/><rect x="0" y="18.462" width="40" height="3.127" fill="#B22234"/><rect x="0" y="21.538" width="40" height="3.127" fill="#fff"/><rect x="0" y="24.615" width="40" height="3.127" fill="#B22234"/><rect x="0" y="27.692" width="40" height="3.127" fill="#fff"/><rect x="0" y="30.769" width="40" height="3.127" fill="#B22234"/><rect x="0" y="33.846" width="40" height="3.127" fill="#fff"/><rect x="0" y="36.923" width="40" height="3.127" fill="#B22234"/><rect x="0" y="0" width="19" height="21.6" fill="#3C3B6E"/><g fill="#fff"><polygon points="2.20,1.40 2.42,2.09 3.15,2.09 2.56,2.52 2.79,3.21 2.20,2.78 1.61,3.21 1.84,2.52 1.25,2.09 1.98,2.09"/><polygon points="5.80,1.40 6.02,2.09 6.75,2.09 6.16,2.52 6.39,3.21 5.80,2.78 5.21,3.21 5.44,2.52 4.85,2.09 5.58,2.09"/><polygon points="9.40,1.40 9.62,2.09 10.35,2.09 9.76,2.52 9.99,3.21 9.40,2.78 8.81,3.21 9.04,2.52 8.45,2.09 9.18,2.09"/><polygon points="13.00,1.40 13.22,2.09 13.95,2.09 13.36,2.52 13.59,3.21 13.00,2.78 12.41,3.21 12.64,2.52 12.05,2.09 12.78,2.09"/><polygon points="16.60,1.40 16.82,2.09 17.55,2.09 16.96,2.52 17.19,3.21 16.60,2.78 16.01,3.21 16.24,2.52 15.65,2.09 16.38,2.09"/><polygon points="2.20,4.50 2.42,5.19 3.15,5.19 2.56,5.62 2.79,6.31 2.20,5.88 1.61,6.31 1.84,5.62 1.25,5.19 1.98,5.19"/><polygon points="5.80,4.50 6.02,5.19 6.75,5.19 6.16,5.62 6.39,6.31 5.80,5.88 5.21,6.31 5.44,5.62 4.85,5.19 5.58,5.19"/><polygon points="9.40,4.50 9.62,5.19 10.35,5.19 9.76,5.62 9.99,6.31 9.40,5.88 8.81,6.31 9.04,5.62 8.45,5.19 9.18,5.19"/><polygon points="13.00,4.50 13.22,5.19 13.95,5.19 13.36,5.62 13.59,6.31 13.00,5.88 12.41,6.31 12.64,5.62 12.05,5.19 12.78,5.19"/><polygon points="16.60,4.50 16.82,5.19 17.55,5.19 16.96,5.62 17.19,6.31 16.60,5.88 16.01,6.31 16.24,5.62 15.65,5.19 16.38,5.19"/><polygon points="2.20,7.60 2.42,8.29 3.15,8.29 2.56,8.72 2.79,9.41 2.20,8.98 1.61,9.41 1.84,8.72 1.25,8.29 1.98,8.29"/><polygon points="5.80,7.60 6.02,8.29 6.75,8.29 6.16,8.72 6.39,9.41 5.80,8.98 5.21,9.41 5.44,8.72 4.85,8.29 5.58,8.29"/><polygon points="9.40,7.60 9.62,8.29 10.35,8.29 9.76,8.72 9.99,9.41 9.40,8.98 8.81,9.41 9.04,8.72 8.45,8.29 9.18,8.29"/><polygon points="13.00,7.60 13.22,8.29 13.95,8.29 13.36,8.72 13.59,9.41 13.00,8.98 12.41,9.41 12.64,8.72 12.05,8.29 12.78,8.29"/><polygon points="16.60,7.60 16.82,8.29 17.55,8.29 16.96,8.72 17.19,9.41 16.60,8.98 16.01,9.41 16.24,8.72 15.65,8.29 16.38,8.29"/><polygon points="2.20,10.70 2.42,11.39 3.15,11.39 2.56,11.82 2.79,12.51 2.20,12.08 1.61,12.51 1.84,11.82 1.25,11.39 1.98,11.39"/><polygon points="5.80,10.70 6.02,11.39 6.75,11.39 6.16,11.82 6.39,12.51 5.80,12.08 5.21,12.51 5.44,11.82 4.85,11.39 5.58,11.39"/><polygon points="9.40,10.70 9.62,11.39 10.35,11.39 9.76,11.82 9.99,12.51 9.40,12.08 8.81,12.51 9.04,11.82 8.45,11.39 9.18,11.39"/><polygon points="13.00,10.70 13.22,11.39 13.95,11.39 13.36,11.82 13.59,12.51 13.00,12.08 12.41,12.51 12.64,11.82 12.05,11.39 12.78,11.39"/><polygon points="16.60,10.70 16.82,11.39 17.55,11.39 16.96,11.82 17.19,12.51 16.60,12.08 16.01,12.51 16.24,11.82 15.65,11.39 16.38,11.39"/><polygon points="2.20,13.80 2.42,14.49 3.15,14.49 2.56,14.92 2.79,15.61 2.20,15.18 1.61,15.61 1.84,14.92 1.25,14.49 1.98,14.49"/><polygon points="5.80,13.80 6.02,14.49 6.75,14.49 6.16,14.92 6.39,15.61 5.80,15.18 5.21,15.61 5.44,14.92 4.85,14.49 5.58,14.49"/><polygon points="9.40,13.80 9.62,14.49 10.35,14.49 9.76,14.92 9.99,15.61 9.40,15.18 8.81,15.61 9.04,14.92 8.45,14.49 9.18,14.49"/><polygon points="13.00,13.80 13.22,14.49 13.95,14.49 13.36,14.92 13.59,15.61 13.00,15.18 12.41,15.61 12.64,14.92 12.05,14.49 12.78,14.49"/><polygon points="16.60,13.80 16.82,14.49 17.55,14.49 16.96,14.92 17.19,15.61 16.60,15.18 16.01,15.61 16.24,14.92 15.65,14.49 16.38,14.49"/><polygon points="2.20,16.90 2.42,17.59 3.15,17.59 2.56,18.02 2.79,18.71 2.20,18.28 1.61,18.71 1.84,18.02 1.25,17.59 1.98,17.59"/><polygon points="5.80,16.90 6.02,17.59 6.75,17.59 6.16,18.02 6.39,18.71 5.80,18.28 5.21,18.71 5.44,18.02 4.85,17.59 5.58,17.59"/><polygon points="9.40,16.90 9.62,17.59 10.35,17.59 9.76,18.02 9.99,18.71 9.40,18.28 8.81,18.71 9.04,18.02 8.45,17.59 9.18,17.59"/><polygon points="13.00,16.90 13.22,17.59 13.95,17.59 13.36,18.02 13.59,18.71 13.00,18.28 12.41,18.71 12.64,18.02 12.05,17.59 12.78,17.59"/><polygon points="16.60,16.90 16.82,17.59 17.55,17.59 16.96,18.02 17.19,18.71 16.60,18.28 16.01,18.71 16.24,18.02 15.65,17.59 16.38,17.59"/></g></g></svg><b>Millwright Data LLC, United States</b></div>
+      <div class="ent"><svg class="flag" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#003399"/><g fill="#FFCC00"><polygon points="34.00,17.70 34.52,19.29 36.19,19.29 34.84,20.27 35.35,21.86 34.00,20.88 32.65,21.86 33.16,20.27 31.81,19.29 33.48,19.29"/><polygon points="32.12,24.70 32.64,26.29 34.31,26.29 32.96,27.27 33.48,28.86 32.12,27.88 30.77,28.86 31.29,27.27 29.94,26.29 31.61,26.29"/><polygon points="27.00,29.82 27.52,31.41 29.19,31.41 27.84,32.40 28.35,33.99 27.00,33.00 25.65,33.99 26.16,32.40 24.81,31.41 26.48,31.41"/><polygon points="20.00,31.70 20.52,33.29 22.19,33.29 20.84,34.27 21.35,35.86 20.00,34.88 18.65,35.86 19.16,34.27 17.81,33.29 19.48,33.29"/><polygon points="13.00,29.82 13.52,31.41 15.19,31.41 13.84,32.40 14.35,33.99 13.00,33.00 11.65,33.99 12.16,32.40 10.81,31.41 12.48,31.41"/><polygon points="7.88,24.70 8.39,26.29 10.06,26.29 8.71,27.27 9.23,28.86 7.88,27.88 6.52,28.86 7.04,27.27 5.69,26.29 7.36,26.29"/><polygon points="6.00,17.70 6.52,19.29 8.19,19.29 6.84,20.27 7.35,21.86 6.00,20.88 4.65,21.86 5.16,20.27 3.81,19.29 5.48,19.29"/><polygon points="7.88,10.70 8.39,12.29 10.06,12.29 8.71,13.27 9.23,14.86 7.88,13.88 6.52,14.86 7.04,13.27 5.69,12.29 7.36,12.29"/><polygon points="13.00,5.58 13.52,7.16 15.19,7.16 13.84,8.15 14.35,9.74 13.00,8.75 11.65,9.74 12.16,8.15 10.81,7.16 12.48,7.16"/><polygon points="20.00,3.70 20.52,5.29 22.19,5.29 20.84,6.27 21.35,7.86 20.00,6.88 18.65,7.86 19.16,6.27 17.81,5.29 19.48,5.29"/><polygon points="27.00,5.58 27.52,7.16 29.19,7.16 27.84,8.15 28.35,9.74 27.00,8.75 25.65,9.74 26.16,8.15 24.81,7.16 26.48,7.16"/><polygon points="32.12,10.70 32.64,12.29 34.31,12.29 32.96,13.27 33.48,14.86 32.12,13.88 30.77,14.86 31.29,13.27 29.94,12.29 31.61,12.29"/></g><text x="20" y="24.6" text-anchor="middle" font-family="Archivo,Arial,sans-serif" font-size="12.5" font-weight="700" fill="#fff">EU</text></svg><b>Millwright Data OÜ, European Union</b></div>
     </div>
   </div>
 </section>
@@ -468,7 +494,7 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
       <div>
         <a class="brand" href="#top" aria-label="Millwright home"><img class="wordmark small" src="data:image/png;base64,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" alt="Millwright" width="560" height="122"></a><br>
         <a class="foot-mail" href="mailto:sid@millwrightdata.com">sid@millwrightdata.com</a>
-        <p class="legal">© 2026 Millwright · Seattle, Washington. Views are my own and not those of any employer.</p>
+        <p class="legal">© 2026 Millwright Data LLC · Seattle, Washington, United States. Millwright Data OÜ · Estonia, European Union. Views are my own and not those of any employer.</p>
         <p class="legal"><sup class="fn">1</sup> Company names and logos belong to their respective owners and identify work I contributed to as an employee or consultant. No sponsorship or endorsement is implied.</p>
         <div class="foot-links">
           <a href="https://www.linkedin.com/in/srivastava-sid" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
@@ -509,6 +535,43 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
     nxt.classList.remove('is-off');nxt.classList.add('is-on');
     setTimeout(function(){cur.classList.remove('is-off')},500);
   },2600);
+})();
+(function(){
+  var box=document.getElementById('picker'),fallback=document.getElementById('book-call');
+  if(!box||!fallback||!window.Intl||!Intl.DateTimeFormat.prototype.formatToParts)return;
+  var CAL='https://cal.com/millwright-data',HOST_TZ='America/Los_Angeles',START=9,END=16;
+  var tz=(Intl.DateTimeFormat().resolvedOptions().timeZone)||HOST_TZ;
+  function parts(d,z){var o={};new Intl.DateTimeFormat('en-US',{timeZone:z,hourCycle:'h23',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',weekday:'short'}).formatToParts(d).forEach(function(x){o[x.type]=x.value});return o}
+  function offMin(z,d){var o=parts(d,z);return (Date.UTC(+o.year,+o.month-1,+o.day,+o.hour,+o.minute,+o.second)-d.getTime())/60000}
+  function hostTime(y,m,d,h,mi){var g=Date.UTC(y,m,d,h,mi);return new Date(g-offMin(HOST_TZ,new Date(g))*60000)}
+  function ymd(d,z){var o=parts(d,z);return o.year+'-'+o.month+'-'+o.day}
+  function fmtTime(d){return new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit'}).format(d)}
+  function slotUrl(d){var k=ymd(d,tz);return CAL+'?date='+k+'&month='+k.slice(0,7)+'&slot='+encodeURIComponent(d.toISOString())}
+  var now=new Date(),h=parts(now,HOST_TZ),y=+h.year,m=+h.month-1,d0=+h.day,days=[];
+  for(var i=0;days.length<8&&i<20;i++){
+    var probe=hostTime(y,m,d0+i,12,0),wd=parts(probe,HOST_TZ).weekday;
+    if(wd==='Sat'||wd==='Sun')continue;
+    var slots=[];
+    for(var hh=START;hh<=END;hh++)for(var mm=0;mm<60;mm+=30){if(hh===END&&mm>0)break;var t=hostTime(y,m,d0+i,hh,mm);if(t.getTime()>now.getTime()+60*60000)slots.push(t)}
+    if(slots.length)days.push(slots);
+  }
+  if(!days.length)return;
+  var wrap=document.createElement('div');
+  wrap.innerHTML='<p class="pk-title">Pick a time that works</p><p class="pk-note">Times shown in '+tz.replace(/_/g,' ')+'. Scroll for more, pick one, and you will confirm on the next screen.</p><ul class="pk-days" role="tablist" aria-label="Choose a day"></ul><ul class="pk-times" aria-label="Available times"></ul><p class="pk-foot">Nothing that works? <a href="'+CAL+'" target="_blank" rel="noopener">See the full calendar</a> or email <a href="mailto:sid@millwrightdata.com">sid@millwrightdata.com</a>.</p>';
+  var daysEl=wrap.querySelector('.pk-days'),timesEl=wrap.querySelector('.pk-times'),btns=[];
+  function show(n){
+    btns.forEach(function(b,j){b.setAttribute('aria-pressed',j===n?'true':'false')});
+    timesEl.innerHTML='';days[n].forEach(function(t){var li=document.createElement('li'),a=document.createElement('a');a.className='pk-time';a.href=slotUrl(t);a.target='_blank';a.rel='noopener';a.textContent=fmtTime(t);li.appendChild(a);timesEl.appendChild(li)});
+    timesEl.scrollLeft=0;
+  }
+  days.forEach(function(slots,n){
+    var li=document.createElement('li'),b=document.createElement('button'),p=parts(slots[0],tz);
+    b.type='button';b.className='pk-day';b.setAttribute('role','tab');b.setAttribute('aria-pressed',n===0?'true':'false');
+    b.innerHTML='<small>'+p.weekday+'</small><b>'+new Intl.DateTimeFormat('en-US',{timeZone:tz,month:'short',day:'numeric'}).format(slots[0])+'</b>';
+    b.addEventListener('click',function(){show(n)});li.appendChild(b);daysEl.appendChild(li);btns.push(b);
+  });
+  show(0);
+  box.replaceChild(wrap,fallback);
 })();
 (function(){
   var f=document.getElementById('contact-form');if(!f)return;
