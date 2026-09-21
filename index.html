@@ -170,6 +170,10 @@ section{padding:var(--band-y) 0;border-top:1px solid var(--hairline)}
 .field input,.field textarea{font:inherit;font-size:16px;background:var(--bg);border:1px solid var(--muted);border-radius:6px;padding:14px 12px;color:var(--ink);width:100%}
 .field textarea{min-height:120px;resize:vertical}
 .form-note{font-size:14px;color:var(--muted);margin-top:var(--s2)}
+.form-status{margin:var(--s2) 0 0;font-size:15px;color:var(--ink);min-height:1.5em}
+.form-status.err{color:#9B2C2C}
+.form-done{font-size:18px;color:var(--ink);margin:0}
+.btn[disabled]{opacity:.6;cursor:default}
 .form-note a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 @media (max-width:760px){.contact-grid{grid-template-columns:1fr;gap:var(--s4)}.contact-grid > div{padding-right:0}.contact-grid > div + div{border-left:0;padding-left:0}.field-row{grid-template-columns:1fr}}
 
@@ -243,7 +247,7 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
       <a href="#contact">Contact</a>
       <a href="#writing">Writing</a>
     </nav>
-    <a class="btn" href="#contact">Book a call</a>
+    <a class="btn" href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a>
   </div>
 </header>
 
@@ -254,7 +258,7 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
       <h1><span class="h1-l">Machinery that</span><span class="h1-l">keeps your</span><span class="h1-l h1-rot"><svg class="gear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.7 7.7 0 0 0-1.7-1L15 3.3H9l-.3 2.6a7.7 7.7 0 0 0-1.7 1l-2.5-1-2 3.5L4.6 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.7 7.7 0 0 0 1.7 1L9 20.7h6l.3-2.6a7.7 7.7 0 0 0 1.7-1l2.5 1 2-3.5L19.4 13ZM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7Z"/></svg><span class="visually-hidden">business</span><span class="rot-w" aria-hidden="true"><span data-word="game studio" class="is-on">game studio</span><span data-word="semiconductor fab">semiconductor fab</span><span data-word="clinic">clinic</span><span data-word="casino">casino</span><span data-word="SaaS product">SaaS product</span><span data-word="utility">utility</span><span data-word="compliance team">compliance team</span></span></span><span class="h1-l">turning.</span></h1>
       <p class="lede">After 15 years running data platforms in semiconductor manufacturing, healthcare, hospitality, AAA games, SaaS, and compliance, I now bring that work to you. Architecture, governance, cost, and the path from a model to production, built to hold up when the business leans on it.</p>
       <div class="hero-cta">
-        <a class="btn" href="#contact">Book a call</a>
+        <a class="btn" href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a>
         <span class="note">Thirty minutes, free. No pitch.</span>
       </div>
     </div>
@@ -310,28 +314,28 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
         <p class="wb-meta">Two weeks, fixed fee.</p>
         <p class="wb-line">A number moved and nobody can say why, or you are about to sign a large vendor contract. I read your architecture, cost data, and governance as it actually runs and hand you a written findings memo with a fix-first order.</p>
         <p class="wb-eg">Warehouse and cluster spend review, catalog and lineage gap analysis, or a second opinion on an AI vendor shortlist.</p>
-        <p class="wx-cta"><a href="#contact">Book a call</a></p>
+        <p class="wx-cta"><a href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a></p>
       </li>
       <li class="wb-cell rv" style="--d:0.08s">
         <div class="wb-head"><span class="wb-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.1 2.1 0 1 1-3-3L12 9"/><path d="M17.6 12.4 20 10l-6-6-2.4 2.4"/><path d="M14 4 8 10"/><path d="m18 3 3 3"/></svg></span><h3 class="wb-tier">Build</h3></div>
         <p class="wb-meta">Two to four sprints, defined deliverable.</p>
         <p class="wb-line">You know what you need and want it built properly. I design it, build it with your engineers, document it, and leave it running in your accounts. Your team owns it on day one.</p>
         <p class="wb-eg">A metadata catalog rollout, FinOps dashboards and workload policies, a semantic layer with governed metrics, or a model-to-production pipeline with CI gates.</p>
-        <p class="wx-cta"><a href="#contact">Book a call</a></p>
+        <p class="wx-cta"><a href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a></p>
       </li>
       <li class="wb-cell rv" style="--d:0.16s">
         <div class="wb-head"><span class="wb-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h5"/><path d="M17.5 17.5 16 16.3V14"/><circle cx="16" cy="16" r="6"/></svg></span><h3 class="wb-tier">Retainer</h3></div>
         <p class="wb-meta">On-call, monthly advisory.</p>
         <p class="wb-line">Your team has the people, but you want a senior data and AI platform leader to stress-test the plan. Roadmaps, vendor negotiations, executive readouts, and hiring plans.</p>
         <p class="wb-eg">Build-versus-buy calls on AI tooling, org design for your first governance and MLOps functions, or reviewing the data platform line in the budget.</p>
-        <p class="wx-cta"><a href="#contact">Book a call</a></p>
+        <p class="wx-cta"><a href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a></p>
       </li>
       <li class="wb-cell rv" style="--d:0.24s">
         <div class="wb-head"><span class="wb-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span><h3 class="wb-tier">Head of Data Platforms (Fractional)</h3></div>
         <p class="wb-meta">Two to three days a week.</p>
         <p class="wb-line">You need a data platform leader before you are ready to hire one. I set the roadmap with your leadership team, then the hiring plan and the metrics you run on, and hand it to whoever comes next.</p>
         <p class="wb-eg">The platform roadmap for a new product, hiring your first data engineer, or getting AI spend under control.</p>
-        <p class="wx-cta"><a href="#contact">Book a call</a></p>
+        <p class="wx-cta"><a href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a></p>
       </li>
     </ul>
     <div class="caps">
@@ -378,7 +382,7 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
       </div>
     </div>
     <div class="cta-row">
-      <a class="btn" href="#contact">Book a call</a>
+      <a class="btn" href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a>
       <span>Or <a href="#contact">email me</a>.</span>
     </div>
   </div>
@@ -421,11 +425,13 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
       <div class="rv">
         <h3 class="c-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Book a call</span></h3>
         <p>Thirty minutes, no strings. Bring the number that moved, the bill that grew, or the roadmap you are not sure about. You will leave with a first read and a straight answer on whether we are a fit.</p>
-        <a class="btn" id="book-call" href="mailto:sid@millwrightdata.com?subject=Intro%20call%20via%20Millwright">Pick a time</a>
+        <a class="btn" id="book-call" href="https://cal.com/millwright-data" target="_blank" rel="noopener">Pick a time</a>
       </div>
       <div class="rv" style="--d:.1s">
         <h3 class="c-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><span>Email me</span></h3>
-        <form id="contact-form" action="mailto:sid@millwrightdata.com" method="post" enctype="text/plain">
+        <form id="contact-form" action="https://formspree.io/f/FORMSPREE_ID" method="POST" data-formspree="FORMSPREE_ID">
+          <input type="hidden" name="_subject" value="New inquiry from millwrightdata.com">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
           <div class="field-row">
           <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
           <div class="field"><label for="f-company">Company <span class="opt">(optional)</span></label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
@@ -433,6 +439,7 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
           <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
           <div class="field"><label for="f-msg">How can I help you?</label><textarea id="f-msg" name="message" required></textarea></div>
           <button class="btn" type="submit">Send it</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
         <p class="form-note">Or email <a href="mailto:sid@millwrightdata.com">sid@millwrightdata.com</a> directly.</p>
       </div>
@@ -505,11 +512,25 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
 })();
 (function(){
   var f=document.getElementById('contact-form');if(!f)return;
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    var g=function(id){return (document.getElementById(id).value||'').trim()};
+  var id=f.getAttribute('data-formspree')||'',live=id&&id!=='FORMSPREE_ID',status=f.querySelector('.form-status'),btn=f.querySelector('button[type=submit]');
+  var g=function(n){return (document.getElementById(n).value||'').trim()};
+  function mailto(){
     var body='Name: '+g('f-name')+'\nCompany: '+g('f-company')+'\nEmail: '+g('f-email')+'\n\n'+g('f-msg');
     window.location.href='mailto:sid@millwrightdata.com?subject='+encodeURIComponent('Hello from Millwright ('+g('f-name')+')')+'&body='+encodeURIComponent(body);
+  }
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!live){mailto();return}
+    btn.disabled=true;status.className='form-status';status.textContent='Sending…';
+    fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)}).then(function(r){
+      if(!r.ok)throw new Error('bad status');
+      var done=document.createElement('p');done.className='form-done';
+      done.textContent='Thanks, '+(g('f-name').split(' ')[0]||'')+'. Your note is in my inbox and I will reply within one business day.';
+      f.replaceWith(done);
+    }).catch(function(){
+      btn.disabled=false;status.className='form-status err';
+      status.textContent='That did not go through. Please email sid@millwrightdata.com directly.';
+    });
   });
 })();
 (function(){
