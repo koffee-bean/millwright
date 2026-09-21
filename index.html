@@ -31,7 +31,7 @@
 html{scroll-behavior:smooth;scroll-padding-top:var(--header-h)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--face);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;color-scheme:light}
-a{color:var(--accent);text-decoration:none}
+a{color:var(--accent);text-decoration:none;text-decoration-color:var(--accent)}
 a:hover{text-decoration:underline;text-underline-offset:3px}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 h1,h2,h3{margin:0;font-family:var(--face);text-wrap:balance}
@@ -83,7 +83,7 @@ ul,ol{margin:0;padding:0}
 .gear{width:.62em;height:.62em;fill:var(--accent);flex:none;animation:spin 9s linear infinite;transform-origin:50% 50%}
 @keyframes spin{to{transform:rotate(360deg)}}
 .rot-w{display:inline-grid;text-align:left}
-.rot-w>span{grid-area:1/1;opacity:0;transform:translateY(.35em);transition:opacity .45s ease,transform .45s ease;white-space:nowrap}
+.rot-w>span{grid-area:1/1;opacity:0;transform:translateY(.35em);transition:opacity .45s ease,transform .45s ease;white-space:nowrap;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:.06em;text-underline-offset:.1em}
 .rot-w>span.is-on{opacity:1;transform:none}
 .rot-w>span.is-off{opacity:0;transform:translateY(-.35em)}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -158,23 +158,41 @@ section{padding:var(--band-y) 0;border-top:1px solid var(--hairline)}
 
 /* contact */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:var(--s4)}
-.contact-grid > div{padding-right:var(--s5)}
+.contact-grid > div{padding-right:var(--s5);min-width:0}
 .contact-grid > div + div{border-left:1px solid var(--hairline);padding-left:var(--s5);padding-right:0}
 .contact-grid p{color:var(--ink);font-size:18px}
 .c-eyebrow{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:660;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:var(--s3)}
 .c-eyebrow svg{width:18px;height:18px;flex:none}
+.picker{margin-top:var(--s3)}
+.pk-title{font-size:22px;font-weight:680;letter-spacing:-.01em;margin:0 0 6px}
+.pk-note{font-size:15px;color:var(--muted);margin:0 0 var(--s2)}
+.pk-days{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;list-style:none}
+.pk-days::-webkit-scrollbar{display:none}
+.pk-day{flex:none;border:1px solid var(--hairline);background:var(--bg2);border-radius:10px;padding:9px 12px;text-align:center;cursor:pointer;font:inherit;color:var(--ink);min-width:78px;white-space:nowrap}
+.pk-day small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:660}
+.pk-day b{display:block;font-size:16px;font-weight:660;margin-top:2px}
+.pk-day[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.pk-day[aria-pressed="true"] small{color:rgba(255,255,255,.7)}
+.pk-times{display:flex;flex-wrap:wrap;gap:10px;margin-top:var(--s2);list-style:none}
+.pk-time{display:inline-block;border:1.5px solid var(--ink);border-radius:10px;padding:11px 16px;font-size:16px;font-weight:640;color:var(--ink);background:transparent}
+.pk-time:hover{background:var(--ink);color:#fff;text-decoration:none}
+.pk-more{margin-top:var(--s3)}
+.pk-more label{display:block;font-size:15px;font-weight:640;margin-bottom:6px}
+.pk-more select{font:inherit;font-size:16px;width:100%;padding:12px;border:1px solid var(--muted);border-radius:6px;background:var(--bg);color:var(--ink)}
+.pk-foot{font-size:14px;color:var(--muted);margin:var(--s2) 0 0}
+.pk-foot a{color:var(--ink);font-weight:640;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
 .field label .opt{font-weight:400;color:var(--muted)}
 .field{display:grid;gap:6px;margin-bottom:var(--s2)}
 .field label{font-size:16px;font-weight:640}
 .field input,.field textarea{font:inherit;font-size:16px;background:var(--bg);border:1px solid var(--muted);border-radius:6px;padding:14px 12px;color:var(--ink);width:100%}
 .field textarea{min-height:120px;resize:vertical}
-.form-note{font-size:14px;color:var(--muted);margin-top:var(--s2)}
+.form-note{font-size:13px;color:var(--muted);margin-top:var(--s2)}
 .form-status{margin:var(--s2) 0 0;font-size:15px;color:var(--ink);min-height:1.5em}
 .form-status.err{color:#9B2C2C}
 .form-done{font-size:18px;color:var(--ink);margin:0}
 .btn[disabled]{opacity:.6;cursor:default}
-.form-note a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.form-note a{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:3px}
 @media (max-width:760px){.contact-grid{grid-template-columns:1fr;gap:var(--s4)}.contact-grid > div{padding-right:0}.contact-grid > div + div{border-left:0;padding-left:0}.field-row{grid-template-columns:1fr}}
 
 /* writing */
@@ -215,7 +233,7 @@ html.js .rv.in{opacity:1;transform:none}
 footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--muted);font-size:16px}
 .foot-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--s6);align-items:start}
 @media (max-width:860px){.foot-grid{grid-template-columns:1fr;gap:var(--s4)}}
-.foot-mail{display:inline-block;margin-top:var(--s2);color:var(--ink);font-size:17px;font-weight:500;text-decoration:underline;text-underline-offset:4px}
+.foot-mail{display:inline-block;margin-top:var(--s2);color:var(--ink);font-size:17px;font-weight:500;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:4px}
 .foot-grid .brand{font-size:20px}
 .foot-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:var(--s4)}
 .foot-links a{color:var(--muted);display:inline-flex}
@@ -425,7 +443,9 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
       <div class="rv">
         <h3 class="c-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Book a call</span></h3>
         <p>Thirty minutes, no strings. Bring the number that moved, the bill that grew, or the roadmap you are not sure about. You will leave with a first read and a straight answer on whether we are a fit.</p>
-        <a class="btn" id="book-call" href="https://cal.com/millwright-data" target="_blank" rel="noopener">Pick a time</a>
+        <div class="picker" id="picker">
+          <a class="btn" id="book-call" href="https://cal.com/millwright-data" target="_blank" rel="noopener">Pick a time</a>
+        </div>
       </div>
       <div class="rv" style="--d:.1s">
         <h3 class="c-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><span>Email me</span></h3>
@@ -509,6 +529,46 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
     nxt.classList.remove('is-off');nxt.classList.add('is-on');
     setTimeout(function(){cur.classList.remove('is-off')},500);
   },2600);
+})();
+(function(){
+  var box=document.getElementById('picker'),fallback=document.getElementById('book-call');
+  if(!box||!fallback||!window.Intl||!Intl.DateTimeFormat.prototype.formatToParts)return;
+  var CAL='https://cal.com/millwright-data',HOST_TZ='America/Los_Angeles',START=9,END=16;
+  var tz=(Intl.DateTimeFormat().resolvedOptions().timeZone)||HOST_TZ;
+  function parts(d,z){var o={};new Intl.DateTimeFormat('en-US',{timeZone:z,hourCycle:'h23',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',weekday:'short'}).formatToParts(d).forEach(function(x){o[x.type]=x.value});return o}
+  function offMin(z,d){var o=parts(d,z);return (Date.UTC(+o.year,+o.month-1,+o.day,+o.hour,+o.minute,+o.second)-d.getTime())/60000}
+  function hostTime(y,m,d,h,mi){var g=Date.UTC(y,m,d,h,mi);return new Date(g-offMin(HOST_TZ,new Date(g))*60000)}
+  function ymd(d,z){var o=parts(d,z);return o.year+'-'+o.month+'-'+o.day}
+  function fmtTime(d){return new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit'}).format(d)}
+  function slotUrl(d){var k=ymd(d,tz);return CAL+'?date='+k+'&month='+k.slice(0,7)+'&slot='+encodeURIComponent(d.toISOString())}
+  var now=new Date(),h=parts(now,HOST_TZ),y=+h.year,m=+h.month-1,d0=+h.day,days=[];
+  for(var i=0;days.length<8&&i<20;i++){
+    var probe=hostTime(y,m,d0+i,12,0),wd=parts(probe,HOST_TZ).weekday;
+    if(wd==='Sat'||wd==='Sun')continue;
+    var slots=[];
+    for(var hh=START;hh<=END;hh++)for(var mm=0;mm<60;mm+=30){if(hh===END&&mm>0)break;var t=hostTime(y,m,d0+i,hh,mm);if(t.getTime()>now.getTime()+60*60000)slots.push(t)}
+    if(slots.length)days.push(slots);
+  }
+  if(!days.length)return;
+  var wrap=document.createElement('div');
+  wrap.innerHTML='<p class="pk-title">Pick a time that works</p><p class="pk-note">Times shown in '+tz.replace(/_/g,' ')+'. Pick one and you will confirm on the next screen.</p><ul class="pk-days" role="tablist" aria-label="Choose a day"></ul><ul class="pk-times" aria-label="Available times"></ul><div class="pk-more"><label for="pk-select">More times</label><select id="pk-select"><option value="">Choose a time</option></select></div><p class="pk-foot">Nothing that works? <a href="'+CAL+'" target="_blank" rel="noopener">See the full calendar</a> or email <a href="mailto:sid@millwrightdata.com">sid@millwrightdata.com</a>.</p>';
+  var daysEl=wrap.querySelector('.pk-days'),timesEl=wrap.querySelector('.pk-times'),sel=wrap.querySelector('#pk-select'),btns=[];
+  function show(n){
+    btns.forEach(function(b,j){b.setAttribute('aria-pressed',j===n?'true':'false')});
+    var slots=days[n],picks=[];
+    [0,3,6,9,12].forEach(function(k){if(slots[k])picks.push(slots[k])});
+    timesEl.innerHTML='';picks.forEach(function(t){var li=document.createElement('li'),a=document.createElement('a');a.className='pk-time';a.href=slotUrl(t);a.target='_blank';a.rel='noopener';a.textContent=fmtTime(t);li.appendChild(a);timesEl.appendChild(li)});
+    sel.innerHTML='<option value="">Choose a time</option>';slots.forEach(function(t){var o=document.createElement('option');o.value=slotUrl(t);o.textContent=fmtTime(t);sel.appendChild(o)});
+  }
+  days.forEach(function(slots,n){
+    var li=document.createElement('li'),b=document.createElement('button'),p=parts(slots[0],tz);
+    b.type='button';b.className='pk-day';b.setAttribute('role','tab');b.setAttribute('aria-pressed',n===0?'true':'false');
+    b.innerHTML='<small>'+p.weekday+'</small><b>'+new Intl.DateTimeFormat('en-US',{timeZone:tz,month:'short',day:'numeric'}).format(slots[0])+'</b>';
+    b.addEventListener('click',function(){show(n)});li.appendChild(b);daysEl.appendChild(li);btns.push(b);
+  });
+  sel.addEventListener('change',function(){if(sel.value){window.open(sel.value,'_blank','noopener');sel.value=''}});
+  show(0);
+  box.replaceChild(wrap,fallback);
 })();
 (function(){
   var f=document.getElementById('contact-form');if(!f)return;
