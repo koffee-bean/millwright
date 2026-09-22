@@ -221,10 +221,13 @@ def lookup(pages, section, slug):
     return next((p for p in pages[section] if p["slug"] == slug), None)
 
 
+SINGULAR = {"services": "Service", "industries": "Industry", "work": "Case study", "writing": "Article"}
+
+
 def related_card(p):
-    k = SECTIONS[p["section"]]["title"]
+    k = SINGULAR[p["section"]]
     stat = f'<div class="stat">{esc(p["stat"])}</div>' if p.get("stat") else ""
-    return (f'<li class="card"><span class="card-k">{esc(k[:-1] if k.endswith("s") else k)}</span>{stat}'
+    return (f'<li class="card"><span class="card-k">{esc(k)}</span>{stat}'
             f'<h3><a href="{p["url"]}">{esc(p["title"])}</a></h3><p>{esc(p["summary"])}</p>'
             f'<span class="more">Read it</span></li>')
 
@@ -286,7 +289,7 @@ def build_industry(p, pages):
   </div>
   <div class="container">{rel}</div>
 </section>
-{closing("Working in " + p["title"].lower() + "?", "Bring the number that moved or the bill that grew. You will leave the call with a first read and a straight answer on whether I can help.")}"""
+{closing("Working in " + (p["title"] if p["title"][1:] != p["title"][1:].lower() else p["title"].lower()) + "?", "Bring the number that moved or the bill that grew. You will leave the call with a first read and a straight answer on whether I can help.")}"""
     p["title_tag"] = f"{p['h1']} | Millwright Data"
     write(p["url"], render(p, body, "industries", [breadcrumb_ld(trail)]))
 

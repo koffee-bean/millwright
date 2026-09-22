@@ -9,11 +9,11 @@ services: diagnostic,retainer
 related: games-metadata-catalog
 -->
 <h2>How Snowflake actually charges you</h2>
-<p>A Snowflake bill has three parts: compute, storage, and a smaller set of serverless and cloud services charges. For most companies compute is the large one, and compute is driven by virtual warehouses.</p>
+<p>A Snowflake bill has three parts: compute, storage, and a smaller set of serverless and cloud services charges. For most companies compute is the largest, and compute is driven by virtual warehouses.</p>
 <ul>
 <li><strong>Warehouses bill while they are running, not while they are working.</strong> Billing is per second, with a 60-second minimum each time a warehouse starts or resumes. A warehouse that is awake and waiting costs the same as one running queries.</li>
 <li><strong>Each size up doubles the rate.</strong> An X-Small uses one credit an hour, a Small two, a Medium four, a Large eight, and so on. A Large running a job that a Small could finish in the same time costs four times as much.</li>
-<li><strong>Auto-suspend decides how long a warehouse idles.</strong> After the last query, a warehouse stays up until its auto-suspend timer runs out. A timer of ten minutes on a warehouse that receives a query every nine minutes never sleeps.</li>
+<li><strong>Auto-suspend decides how long a warehouse idles.</strong> After the last query, a warehouse stays up until its auto-suspend timer runs out. With a ten-minute timer, a warehouse that receives a query every nine minutes never sleeps.</li>
 <li><strong>Serverless features bill on their own.</strong> Automatic clustering, materialized view maintenance, search optimization, Snowpipe, and replication each consume credits outside your warehouses, so they do not show up where people usually look.</li>
 </ul>
 <p>Storage is rarely the problem. It is cheap per terabyte, and when it does grow quickly the cause is usually long time-travel retention or copies of large tables nobody cleaned up.</p>

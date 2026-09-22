@@ -115,7 +115,7 @@
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/work/">Case studies</a><span>/</span><span aria-current="page">Keeping ML training pipelines at 99.8% uptime</span></nav>
     <span class="eyebrow">Case study · Semiconductor</span>
     <h1>Keeping ML training pipelines at 99.8% uptime</h1>
-    <p class="page-lede">A semiconductor manufacturer built a SaaS product for machine learning operations, and its customers expected it to run like one. Underneath were high-volume manufacturing and sensor data and training jobs that could not wait.</p><div class="stat-band"><div><span class="n">99.8%</span><span class="l">uptime on the pipelines feeding ML training jobs</span></div><div><span class="n">6 years</span><span class="l">leading data engineering at the manufacturer</span></div><div><span class="n">2</span><span class="l">clouds managed through Terraform, AWS and GCP</span></div></div>
+    <p class="page-lede">A semiconductor manufacturer built a SaaS product for machine learning operations, and its customers expected it to run like one. Underneath were high-volume manufacturing and sensor data, and training jobs that could not wait.</p><div class="stat-band"><div><span class="n">99.8%</span><span class="l">uptime on the pipelines feeding ML training jobs</span></div><div><span class="n">6 years</span><span class="l">leading data engineering at the manufacturer</span></div><div><span class="n">2</span><span class="l">clouds managed through Terraform, AWS and GCP</span></div></div>
   </div>
 </section>
 <section class="page-body">
@@ -124,12 +124,12 @@
 <p>Semiconductor fabs produce enormous volumes of manufacturing and sensor data, and small shifts in that data can mean yield problems worth a great deal of money. The manufacturer had turned its machine learning work into a SaaS MLOps venture, which raised the bar. Internal users tolerate a late pipeline. Paying customers do not.</p>
 <p>The pipelines had to transform data in near real time, feed high-volume training jobs, and do it across two clouds, while data volumes kept growing as more fabs came online.</p>
 <h2>What I did</h2>
-<p><strong>Built pipelines as production software.</strong> Workflows ran on Airflow and PySpark, with CI/CD in GitLab and work tracked in JIRA. Every change went through review and automated tests before it reached production.</p>
+<p><strong>Built pipelines as production software.</strong> Workflows ran on Airflow and PySpark, with CI/CD in GitLab and work tracked in Jira. Every change went through review and automated tests before it reached production.</p>
 <p><strong>Managed infrastructure as code.</strong> Terraform defined the infrastructure across AWS and GCP, so environments matched and a rebuild was a command rather than a project.</p>
 <p><strong>Tuned for growth, not for today.</strong> Data models over manufacturing and sensor telemetry used Spark partitioning and tuning so that query performance and pipeline cost stayed predictable as volumes grew across fabs.</p>
 <p><strong>Changed how the team worked.</strong> I led a team of data engineers and analysts through roadmap planning, sprint delivery, and a move to a DevOps model, where the people who build a pipeline also run it. We worked with ML, finance, IT, and security to enforce data governance.</p>
 <h2>The result</h2>
-<p>The pipelines feeding ML training ran at 99.8% uptime. Over six years I also ran a financial systems migration on SAP and Snowflake as Scrum Master across onshore and offshore teams, using a data vault architecture.</p>
+<p>The pipelines feeding ML training ran at 99.8% uptime. During those six years, I also ran a financial systems migration on SAP and Snowflake as Scrum Master across onshore and offshore teams, using a data vault architecture.</p>
 <h2>What carries over to your team</h2>
 <ul>
 <li>If customers depend on a pipeline, give it the same engineering discipline as the product: review, tests, and CI/CD.</li>
@@ -139,7 +139,7 @@
 </ul><p class="provenance">This work comes from an in-house leadership role, not a Millwright Data client engagement. The company is not named. The figures are ones I can walk you through on a call.</p></div>
     <aside class="aside-box"><dl><dt>Industry</dt><dd>Semiconductor manufacturing</dd><dt>My role</dt><dd>Principal Data Engineer, team lead, in-house</dd><dt>Platforms</dt><dd>Airflow, PySpark, AWS, GCP, Terraform, GitLab CI</dd><dt>Also</dt><dd>Financial systems migration on SAP and Snowflake</dd></dl></aside>
   </div>
-  <div class="container"><div class="related"><h2>Related</h2><ul class="cards"><li class="card"><span class="card-k">Service</span><h3><a href="/services/build/">Build</a></h3><p>You know what you need and want it built properly. Designed, built with your engineers, documented, and running in your accounts.</p><span class="more">Read it</span></li><li class="card"><span class="card-k">Service</span><h3><a href="/services/diagnostic/">Diagnostic</a></h3><p>A number moved and nobody can say why, or a big vendor contract is on the table. Two weeks, a written memo, and a fix-first order.</p><span class="more">Read it</span></li><li class="card"><span class="card-k">Industrie</span><h3><a href="/industries/semiconductor/">Semiconductor</a></h3><p>High-volume manufacturing and sensor telemetry, pipeline cost that stays predictable as volumes grow, and ML that reaches production.</p><span class="more">Read it</span></li></ul></div></div>
+  <div class="container"><div class="related"><h2>Related</h2><ul class="cards"><li class="card"><span class="card-k">Service</span><h3><a href="/services/build/">Build</a></h3><p>You know what you need and want it built properly. Designed, built with your engineers, documented, and running in your accounts.</p><span class="more">Read it</span></li><li class="card"><span class="card-k">Service</span><h3><a href="/services/diagnostic/">Diagnostic</a></h3><p>A number moved and nobody can say why, or a big vendor contract is on the table. Two weeks, a written memo, and a fix-first order.</p><span class="more">Read it</span></li><li class="card"><span class="card-k">Industry</span><h3><a href="/industries/semiconductor/">Semiconductor</a></h3><p>High-volume manufacturing and sensor telemetry, pipeline cost that stays predictable as volumes grow, and ML that reaches production.</p><span class="more">Read it</span></li></ul></div></div>
 </section>
 <section class="cta-close band">
   <div class="container">

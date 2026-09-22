@@ -6,7 +6,7 @@ industry_slug: semiconductor
 stat: 99.8%
 description: How a semiconductor manufacturer's SaaS MLOps venture kept its Airflow and PySpark pipelines at 99.8% uptime while manufacturing and sensor data volumes grew across fabs.
 summary: A semiconductor manufacturer's SaaS MLOps venture needed pipelines that customers could count on. They ran at 99.8% uptime while volumes grew across fabs.
-lede: A semiconductor manufacturer built a SaaS product for machine learning operations, and its customers expected it to run like one. Underneath were high-volume manufacturing and sensor data and training jobs that could not wait.
+lede: A semiconductor manufacturer built a SaaS product for machine learning operations, and its customers expected it to run like one. Underneath were high-volume manufacturing and sensor data, and training jobs that could not wait.
 stats: 99.8%=uptime on the pipelines feeding ML training jobs|6 years=leading data engineering at the manufacturer|2=clouds managed through Terraform, AWS and GCP
 glance: Industry=Semiconductor manufacturing|My role=Principal Data Engineer, team lead, in-house|Platforms=Airflow, PySpark, AWS, GCP, Terraform, GitLab CI|Also=Financial systems migration on SAP and Snowflake
 services: build,diagnostic
@@ -15,12 +15,12 @@ services: build,diagnostic
 <p>Semiconductor fabs produce enormous volumes of manufacturing and sensor data, and small shifts in that data can mean yield problems worth a great deal of money. The manufacturer had turned its machine learning work into a SaaS MLOps venture, which raised the bar. Internal users tolerate a late pipeline. Paying customers do not.</p>
 <p>The pipelines had to transform data in near real time, feed high-volume training jobs, and do it across two clouds, while data volumes kept growing as more fabs came online.</p>
 <h2>What I did</h2>
-<p><strong>Built pipelines as production software.</strong> Workflows ran on Airflow and PySpark, with CI/CD in GitLab and work tracked in JIRA. Every change went through review and automated tests before it reached production.</p>
+<p><strong>Built pipelines as production software.</strong> Workflows ran on Airflow and PySpark, with CI/CD in GitLab and work tracked in Jira. Every change went through review and automated tests before it reached production.</p>
 <p><strong>Managed infrastructure as code.</strong> Terraform defined the infrastructure across AWS and GCP, so environments matched and a rebuild was a command rather than a project.</p>
 <p><strong>Tuned for growth, not for today.</strong> Data models over manufacturing and sensor telemetry used Spark partitioning and tuning so that query performance and pipeline cost stayed predictable as volumes grew across fabs.</p>
 <p><strong>Changed how the team worked.</strong> I led a team of data engineers and analysts through roadmap planning, sprint delivery, and a move to a DevOps model, where the people who build a pipeline also run it. We worked with ML, finance, IT, and security to enforce data governance.</p>
 <h2>The result</h2>
-<p>The pipelines feeding ML training ran at 99.8% uptime. Over six years I also ran a financial systems migration on SAP and Snowflake as Scrum Master across onshore and offshore teams, using a data vault architecture.</p>
+<p>The pipelines feeding ML training ran at 99.8% uptime. During those six years, I also ran a financial systems migration on SAP and Snowflake as Scrum Master across onshore and offshore teams, using a data vault architecture.</p>
 <h2>What carries over to your team</h2>
 <ul>
 <li>If customers depend on a pipeline, give it the same engineering discipline as the product: review, tests, and CI/CD.</li>
