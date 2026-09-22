@@ -1,0 +1,30 @@
+<!--
+title: The data foundation behind a $425M acquisition
+order: 2
+industry: Healthcare
+industry_slug: healthcare
+stat: $425M
+description: How a direct-to-consumer subscription health company built a governed Snowflake, dbt, and Airflow foundation for regulated data that supported its growth analytics and a $425M acquisition.
+summary: A fast-growing subscription health business needed governed data under HIPAA, PCI DSS, and SOX. The foundation supported its growth analytics and a $425M acquisition.
+lede: A fast-growing direct-to-consumer health business had marketing, sales, finance, and regulated customer data in separate tools, and growth decisions that depended on all of it. Then an acquisition put the numbers under a buyer's diligence.
+stats: $425M=acquisition supported by the growth analytics foundation|~30%=lift in data discovery, quality, and reliability|3=compliance regimes designed in: HIPAA, PCI DSS, SOX
+glance: Industry=Digital health, DTC subscription|My role=Principal Data Engineer, promoted to Director, Data Engineering & MLOps, in-house|Platforms=Snowflake, dbt, Airflow, Fivetran, Looker|Regulation=HIPAA, PCI DSS, SOX
+services: build,head-of-data
+-->
+<h2>The situation</h2>
+<p>The company sold health products by subscription, direct to consumers, and it was growing quickly. Its data sat in the tools that ran each function: marketing platforms, the subscription and billing system, finance systems, and customer records that included protected health information and payment card data.</p>
+<p>Growth questions cut across all of them. Which channels bring subscribers who stay? Where does retention drop? What is a customer worth? Each answer depended on joining data that lived in different places, under different rules. And when an acquisition came into view, those numbers had to hold up under a buyer's scrutiny.</p>
+<h2>What I did</h2>
+<p><strong>Built one governed foundation.</strong> Marketing, sales, finance, and regulated customer data landed in Snowflake through Fivetran and Airflow, and dbt modeled it into tested, documented tables. Growth metrics were defined once and served through Looker, so every team read the same numbers.</p>
+<p><strong>Designed compliance in from the start.</strong> Regulated fields were tokenized or redacted before they reached analysts. Encryption was backed by a key management service, access was fine-grained, and logging was audit-ready. The same controls covered HIPAA, PCI DSS, and SOX, rather than three separate efforts.</p>
+<p><strong>Made quality a contract.</strong> Data quality rules carried SLAs and SLOs, with continuous monitoring and alerting. Checks ran as CI/CD gates in GitHub Actions on the pipelines, so a broken change stopped before it reached a dashboard. A data observability tool tied into the catalog so problems surfaced with context.</p>
+<p><strong>Opened the path from model to production.</strong> Feature pipelines, scheduled scoring, and CI/CD gates gave the data science team's models a repeatable route into the business.</p>
+<h2>The result</h2>
+<p>Data discovery, quality, and reliability improved by roughly 30% end to end. The foundation carried the company's growth analytics and supported a $425M acquisition. I was promoted from Principal Data Engineer to Director, Data Engineering &amp; MLOps along the way.</p>
+<h2>What carries over to your team</h2>
+<ul>
+<li>Handle regulated data once, at the edge. Tokenize and redact on the way in and most analysts never need access to raw PHI or card data.</li>
+<li>One set of controls can satisfy several regimes. Map HIPAA, PCI DSS, and SOX requirements onto the same access, encryption, and logging design.</li>
+<li>Diligence rewards boring data. Tested models, documented definitions, and an audit trail answer a buyer's questions before they become concerns.</li>
+<li>Quality checks belong in the deployment path, not in a weekly report.</li>
+</ul>

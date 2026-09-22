@@ -1,0 +1,29 @@
+<!--
+title: Cataloguing 70,000 datasets across two data platforms
+order: 1
+industry: Games
+industry_slug: games
+stat: 70,000+
+description: How a multi-studio game publisher catalogued more than 70,000 datasets across Snowflake and Databricks, chose a metadata platform through a structured proof of concept, and finished ahead of schedule.
+summary: A publisher with several studios and two data platforms had no single place to find a dataset or see where it came from. A structured proof of concept picked the catalog, and the rollout finished early.
+lede: Several studios, two data platforms, and no single place to find a table, see who owns it, or trace where a number came from. The catalog had to work for both platforms and survive the next reorganization.
+stats: 70,000+=datasets catalogued across Snowflake and Databricks|2=data platforms under one catalog|Early=finished ahead of the rollout schedule
+glance: Industry=Games, multi-studio publisher|My role=Director, data architecture, in-house|Platforms=Snowflake, Databricks, AWS|Regulation=COPPA, GDPR, CCPA
+services: build,diagnostic
+-->
+<h2>The situation</h2>
+<p>A game publisher with several studios ran its data on two platforms, Snowflake and Databricks. Each studio had built its own pipelines, naming conventions, and habits over years. Nobody could say how many datasets existed, which ones were current, or who to ask about any of them.</p>
+<p>An estate like that has predictable costs. Analysts rebuild tables that already exist because they cannot find the original. Engineers are wary of retiring anything, so storage keeps growing. Privacy requests under GDPR and CCPA mean finding every copy of a player's data, which is hard without a list of where data lives. And any plan to put AI on top of the data needs metadata the AI can read.</p>
+<h2>What I did</h2>
+<p><strong>Ran a proof of concept instead of a vendor beauty contest.</strong> We compared three metadata platforms side by side, on our own estate, and I made the recommendation from what each one did with our metadata rather than from its demo.</p>
+<p><strong>Chose for openness.</strong> The recommendation went to the platform with an open metadata model and a strong API, so the catalog would not tie the company to either warehouse vendor and could feed lineage, access policy, and AI tooling later.</p>
+<p><strong>Covered both platforms from the start.</strong> The catalog ingested from Snowflake and Databricks alike, so a dataset's owner, description, and lineage lived in one place whichever platform held it.</p>
+<h2>The result</h2>
+<p>More than 70,000 datasets were catalogued across both platforms, and the rollout finished ahead of schedule. For the first time, an analyst in one studio could find and trust a table built by another, and privacy work could start from a list.</p>
+<h2>What carries over to your team</h2>
+<ul>
+<li>Write the evaluation criteria before the first demo. It turns a subjective choice into a scored one, and it gives leadership something to sign off on.</li>
+<li>Test on your own metadata. A catalog that looks clean on a vendor's sample can struggle with your naming conventions and volume.</li>
+<li>Automate ingestion first and ask people to curate second. Documentation projects that start with a blank page stall.</li>
+<li>Pick a catalog that outlives your warehouse choice. The metadata is the asset, and you will want it when you add lineage, access policy, or AI.</li>
+</ul>

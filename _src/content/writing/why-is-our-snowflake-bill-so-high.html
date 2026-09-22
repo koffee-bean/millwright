@@ -1,0 +1,57 @@
+<!--
+title: Why is our Snowflake bill so high?
+order: 1
+date: 2026-09-22
+description: Most high Snowflake bills come from warehouses that run longer and larger than the work needs. How Snowflake billing works, the usual causes, a query to find them, and the order to fix them in.
+summary: Usually because warehouses run longer and larger than the work needs. How billing works, the six usual causes, and the order to fix them in.
+answer: Almost always because warehouses run longer and larger than the work needs, not because you have too much data. Snowflake bills compute by the second while a warehouse is awake, so idle time, oversized warehouses, and pipelines that refresh more often than anyone reads the result are where most of the money goes.
+services: diagnostic,retainer
+related: games-metadata-catalog
+-->
+<h2>How Snowflake actually charges you</h2>
+<p>A Snowflake bill has three parts: compute, storage, and a smaller set of serverless and cloud services charges. For most companies compute is the large one, and compute is driven by virtual warehouses.</p>
+<ul>
+<li><strong>Warehouses bill while they are running, not while they are working.</strong> Billing is per second, with a 60-second minimum each time a warehouse starts or resumes. A warehouse that is awake and waiting costs the same as one running queries.</li>
+<li><strong>Each size up doubles the rate.</strong> An X-Small uses one credit an hour, a Small two, a Medium four, a Large eight, and so on. A Large running a job that a Small could finish in the same time costs four times as much.</li>
+<li><strong>Auto-suspend decides how long a warehouse idles.</strong> After the last query, a warehouse stays up until its auto-suspend timer runs out. A timer of ten minutes on a warehouse that receives a query every nine minutes never sleeps.</li>
+<li><strong>Serverless features bill on their own.</strong> Automatic clustering, materialized view maintenance, search optimization, Snowpipe, and replication each consume credits outside your warehouses, so they do not show up where people usually look.</li>
+</ul>
+<p>Storage is rarely the problem. It is cheap per terabyte, and when it does grow quickly the cause is usually long time-travel retention or copies of large tables nobody cleaned up.</p>
+<h2>The six usual causes</h2>
+<ol>
+<li><strong>Oversized warehouses.</strong> Someone sized up to fix a slow query once, and the warehouse never came back down. Bigger warehouses help queries that scan a lot of data or spill to disk. They do little for small, frequent queries.</li>
+<li><strong>Long auto-suspend timers.</strong> The cost of idle time is easy to miss because no query history shows it. The tradeoff is real, since a suspended warehouse loses its local cache and the next query reads from remote storage, but most warehouses can suspend in a minute or two without anyone noticing.</li>
+<li><strong>Over-refresh.</strong> A pipeline scheduled every 15 minutes runs 96 times a day. If the dashboard it feeds is read each morning, 95 of those runs buy nothing. This is the most common cause I find, and the easiest to fix.</li>
+<li><strong>One shared warehouse.</strong> When loading, transformation, BI, and ad hoc analysis share a warehouse, it has to be sized for the heaviest job and stays awake for the most frequent one. It also makes cost impossible to attribute.</li>
+<li><strong>BI tools that keep warehouses awake.</strong> Dashboards with auto-refresh, and BI tools that poll for metadata, send small queries often enough to stop a warehouse from ever suspending.</li>
+<li><strong>Serverless features left on.</strong> Automatic clustering on a table whose query patterns changed, or search optimization added for one investigation and never removed.</li>
+</ol>
+<h2>Find your own causes in an hour</h2>
+<p>Start with where the credits go. This query uses the account usage views, which lag real time by up to a few hours, and needs a role that can read the <code>SNOWFLAKE</code> database.</p>
+<pre><code>SELECT warehouse_name,
+       SUM(credits_used) AS credits_30d
+FROM snowflake.account_usage.warehouse_metering_history
+WHERE start_time &gt;= DATEADD(day, -30, CURRENT_TIMESTAMP())
+GROUP BY warehouse_name
+ORDER BY credits_30d DESC</code></pre>
+<p>Then, for the top three warehouses, look at three things:</p>
+<ul>
+<li><strong>Size and auto-suspend.</strong> <code>SHOW WAREHOUSES</code> lists both. Anything above Medium, or with auto-suspend above five minutes, deserves a reason.</li>
+<li><strong>What runs on it and how often.</strong> Group <code>query_history</code> by user, role, or query tag and by hour of day. A flat line of small queries through the night usually means a schedule or a dashboard.</li>
+<li><strong>Serverless spend.</strong> Check the automatic clustering, materialized view refresh, and search optimization history views for tables you no longer need them on.</li>
+</ul>
+<h2>Fix in this order</h2>
+<table>
+<thead><tr><th>Step</th><th>What changes</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td>1. Configuration</td><td>Right-size warehouses, shorten auto-suspend, turn off unused serverless features, add resource monitors with alerts</td><td>Hours</td></tr>
+<tr><td>2. Scheduling</td><td>Match each pipeline's refresh to how often its output is read, and stop dashboard auto-refresh that nobody watches</td><td>Days</td></tr>
+<tr><td>3. Attribution</td><td>Separate warehouses by workload or team, tag queries, and send each owner their own number</td><td>Weeks</td></tr>
+<tr><td>4. Architecture</td><td>Incremental models instead of full rebuilds, fewer copies of large tables, and moving work that does not need Snowflake elsewhere</td><td>A quarter</td></tr>
+</tbody>
+</table>
+<p>The order matters. Configuration changes are cheap and reversible, and they buy the time to do the harder work. Architecture changes are where the lasting savings are, but they take longest to pay back, and they are hard to prioritize before attribution tells you whose workload is expensive.</p>
+<h2>When the platform itself is the cause</h2>
+<p>Most cost problems are configuration. Occasionally the platform is at fault. I have seen a platform bug, on Databricks rather than Snowflake, drive runaway cloud storage costs that no amount of tuning on our side would have fixed. The way out was evidence: a clear timeline of the cost, the queries and metadata involved, and an executive readout that turned a support ticket into a vendor engagement. It ended in a fix and credits. If your costs rose sharply without a change on your side, collect that evidence before you start tuning.</p>
+<h2>Make cost a number someone owns</h2>
+<p>A bill cut once grows back. The durable fix is unit economics: cost per something the business cares about, such as per active customer, per report, or per model run, reported to the team that drives it. Once a team sees its own number trend up, most of the fixes above happen without anyone asking. Budgets and resource monitors then catch the rest before the invoice does.</p>

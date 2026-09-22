@@ -1,0 +1,21 @@
+<!--
+title: Semiconductor
+order: 1
+h1: Data platforms for semiconductor manufacturing
+description: Data platform, governance, and ML pipeline work for semiconductor manufacturers: high-volume sensor telemetry, fab data at scale, and models that reach production.
+summary: High-volume manufacturing and sensor telemetry, pipeline cost that stays predictable as volumes grow, and ML that reaches production.
+lede: Fabs produce more data than almost any other industry, most of it sensor telemetry that only matters if it reaches the right model or engineer in time. I spent six years running data platforms for a semiconductor manufacturer.
+glance: Data you live with=Sensor and tool telemetry, yield, test, and ERP data|What breaks=Query cost and runtime as volumes grow across fabs|Where I help=Pipelines, data modeling, and ML into production
+related: semiconductor-ml-pipelines
+services: build,diagnostic
+-->
+<h2>What is different about fab data</h2>
+<p>Volume is the obvious difference, but it is not the hard part. The hard part is that volume keeps growing while the questions stay urgent. A query that ran in seconds on one fab's telemetry takes minutes once the data from several fabs lands in the same tables, and a pipeline that was cheap last year becomes the biggest line in the cloud bill this year.</p>
+<p>Manufacturing data also crosses boundaries that other industries keep apart. One analysis might join tool telemetry, yield, test results, and finance data from an ERP system, each owned by a different team with its own idea of what a lot or a wafer means.</p>
+<h2>Where I help</h2>
+<ul>
+<li><strong>Pipelines that stay predictable.</strong> Spark partitioning and tuning so query performance and pipeline cost stay predictable as volumes grow, instead of being rediscovered every quarter.</li>
+<li><strong>Data models over telemetry.</strong> Models over high-volume manufacturing and sensor data that analysts and engineers can query without knowing how it was partitioned.</li>
+<li><strong>ML that reaches production.</strong> Airflow and PySpark workflows feeding high-volume training jobs, with CI/CD so a model change ships like any other code.</li>
+<li><strong>Finance and ERP data.</strong> Financial systems migrations, including ETL between SAP and Snowflake, run across onshore and offshore teams.</li>
+</ul>
