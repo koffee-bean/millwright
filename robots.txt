@@ -1,0 +1,15 @@
+# Millwright Data. Every crawler is welcome, AI search crawlers included.
+
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://millwrightdata.com/sitemap.xml
