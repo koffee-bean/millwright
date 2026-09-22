@@ -1,0 +1,18 @@
+# Millwright Data
+
+> Millwright Data is the data platform, governance, and AI advisory practice of Sid Srivastava. It helps companies that run on data with architecture, governance, cloud cost, and the path from a model to production.
+
+Millwright Data operates as Millwright Data LLC in the United States and Millwright Data OÜ in the European Union. Sid Srivastava has run data platforms in semiconductor manufacturing, digital health, hospitality, AAA games, SaaS, and utilities, on Snowflake, Databricks, and AWS.
+
+## Services
+
+- [Diagnostic](https://millwrightdata.com/#work): Two weeks, fixed fee. A written findings memo on architecture, cost, and governance, with a fix-first order.
+- [Build](https://millwrightdata.com/#work): Two to four sprints with a defined deliverable, built with the client's engineers and left running in the client's accounts.
+- [Retainer](https://millwrightdata.com/#work): On-call monthly advisory on roadmaps, vendor negotiations, and executive readouts.
+- [Head of Data](https://millwrightdata.com/#work): Fractional data platform leadership, two to three days a week.
+
+## Contact
+
+- [Book a thirty-minute intro call](https://cal.com/millwright-data)
+- [Email sid@millwrightdata.com](mailto:sid@millwrightdata.com)
+- [LinkedIn](https://www.linkedin.com/in/srivastava-sid)
