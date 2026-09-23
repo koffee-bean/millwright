@@ -1,0 +1,33 @@
+name: IndexNow
+
+# After each push to main, tell search engines which pages changed.
+# Run it by hand from the Actions tab with "all" ticked to submit every page.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      all:
+        description: Submit every URL in sitemap.xml
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pages: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Submit changed pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 _src/indexnow.py ${{ inputs.all && '--all' || '' }}
