@@ -221,13 +221,36 @@ def lookup(pages, section, slug):
     return next((p for p in pages[section] if p["slug"] == slug), None)
 
 
+PHOTO_PREFIX = {"services": "service", "industries": "industry", "work": "work", "writing": "writing"}
+
+
+def photo_name(section, slug=None):
+    """assets/img/<name>.webp for a page or a section hub, or None if there is no photo."""
+    name = f"{section}-hub" if slug is None else f"{PHOTO_PREFIX[section]}-{slug}"
+    return name if (ROOT / "assets" / "img" / f"{name}.webp").exists() else None
+
+
+def hero_img(name):
+    return (f'<figure class="head-img"><img src="/assets/img/{name}.webp" '
+            f'srcset="/assets/img/{name}-sm.webp 720w, /assets/img/{name}.webp 1200w" '
+            f'sizes="(max-width: 860px) 100vw, 440px" width="1200" height="900" alt="" fetchpriority="high"></figure>')
+
+
+def thumb(p):
+    name = photo_name(p["section"], p["slug"])
+    if not name:
+        return ""
+    return (f'<div class="thumb"><img src="/assets/img/{name}-sm.webp" width="720" height="540" '
+            f'alt="" loading="lazy" decoding="async"></div>')
+
+
 SINGULAR = {"services": "Service", "industries": "Industry", "work": "Case study", "writing": "Article"}
 
 
 def related_card(p):
     k = SINGULAR[p["section"]]
     stat = f'<div class="stat">{esc(p["stat"])}</div>' if p.get("stat") else ""
-    return (f'<li class="card"><span class="card-k">{esc(k)}</span>{stat}'
+    return (f'<li class="card">{thumb(p)}<span class="card-k">{esc(k)}</span>{stat}'
             f'<h3><a href="{p["url"]}">{esc(p["title"])}</a></h3><p>{esc(p["summary"])}</p>'
             f'<span class="more">Read it</span></li>')
 
@@ -240,14 +263,18 @@ def related_block(pages, refs):
 
 
 # ---------------------------------------------------------------- page types
-def page_head(eyebrow, h1, lede, trail, extra="", cls=""):
+def page_head(eyebrow, h1, lede, trail, extra="", cls="", img=None, after=""):
     lede_html = f'<p class="page-lede">{lede}</p>' if lede else ""
-    return f"""<section class="page-head{(' ' + cls) if cls else ''}">
-  <div class="container">
-    {crumbs(trail)}
+    text = f"""{crumbs(trail)}
     <span class="eyebrow">{esc(eyebrow)}</span>
     <h1>{h1}</h1>
-    {lede_html}{extra}
+    {lede_html}{extra}"""
+    if img:
+        text = f'<div class="head-grid"><div class="head-text">{text}</div>{hero_img(img)}</div>'
+    classes = " ".join(c for c in ["page-head", cls, "has-img" if img else ""] if c)
+    return f"""<section class="{classes}">
+  <div class="container">
+    {text}{after}
   </div>
 </section>"""
 
@@ -255,7 +282,8 @@ def page_head(eyebrow, h1, lede, trail, extra="", cls=""):
 def build_service(p, pages):
     trail = [("Services", "/services/"), (p["title"], p["url"])]
     head = page_head("Service", esc(p["title"]), esc(p["lede"]), trail,
-                     extra=f'<div class="meta-row"><b>{esc(p["meta_line"])}</b></div>')
+                     extra=f'<div class="meta-row"><b>{esc(p["meta_line"])}</b></div>',
+                     img=photo_name("services", p["slug"]))
     side = glance(pairs(p.get("glance")), book_btn())
     rel = related_block(pages, [lookup(pages, "work", s) for s in p.get("related", "").split(",") if s.strip()]
                         + [lookup(pages, "writing", s) for s in p.get("reading", "").split(",") if s.strip()])
@@ -277,7 +305,7 @@ def build_service(p, pages):
 
 def build_industry(p, pages):
     trail = [("Industries", "/industries/"), (p["title"], p["url"])]
-    head = page_head("Industry", esc(p["h1"]), esc(p["lede"]), trail)
+    head = page_head("Industry", esc(p["h1"]), esc(p["lede"]), trail, img=photo_name("industries", p["slug"]))
     side = glance(pairs(p.get("glance")), book_btn())
     rel = related_block(pages, [lookup(pages, "work", s) for s in p.get("related", "").split(",") if s.strip()]
                         + [lookup(pages, "services", s) for s in p.get("services", "").split(",") if s.strip()])
@@ -299,7 +327,7 @@ def build_work(p, pages):
     stats = "".join(f'<div><span class="n">{esc(k)}</span><span class="l">{esc(v)}</span></div>'
                     for k, v in pairs(p.get("stats")))
     head = page_head(f"Case study · {p['industry']}", esc(p["title"]), esc(p["lede"]), trail,
-                     extra=f'<div class="stat-band">{stats}</div>')
+                     img=photo_name("work", p["slug"]), after=f'<div class="stat-band">{stats}</div>')
     side = glance(pairs(p.get("glance")))
     prov = ('<p class="provenance">This work comes from an in-house leadership role, not a Millwright Data client engagement. '
             'The company is not named. The figures are ones I can walk you through on a call.</p>')
@@ -330,7 +358,7 @@ def build_article(p, pages):
     p["date_label"] = date.strftime("%B %-d, %Y")
     meta = (f'<div class="meta-row"><span>By <b>Sid Srivastava</b></span>'
             f'<span>{p["date_label"]}</span><span>{minutes} min read</span></div>')
-    head = page_head("Writing", esc(p["title"]), "", trail, extra=meta, cls="q")
+    head = page_head("Writing", esc(p["title"]), "", trail, extra=meta, cls="q", img=photo_name("writing", p["slug"]))
     answer = f'<div class="answer"><span class="k">Short answer</span><p>{p["answer"]}</p></div>'
     author = ('<div class="author"><img src="/assets/sid.jpg" alt="" width="60" height="60" loading="lazy">'
               '<p><b>Sid Srivastava</b>Founder of Millwright Data. He has run data platforms in semiconductor '
@@ -355,27 +383,27 @@ def build_article(p, pages):
 # ---------------------------------------------------------------- index pages
 def card_for(p):
     if p["section"] == "services":
-        icon = f'<span class="wb-ico" aria-hidden="true">{ICONS.get(p["slug"], "")}</span>'
+        icon = thumb(p) or f'<span class="wb-ico" aria-hidden="true">{ICONS.get(p["slug"], "")}</span>'
         return (f'<li class="card">{icon}<span class="card-k">{esc(p["meta_line"])}</span>'
                 f'<h3><a href="{p["url"]}">{esc(p["title"])}</a></h3><p>{esc(p["summary"])}</p>'
                 f'<span class="more">How it works</span></li>')
     if p["section"] == "work":
-        return (f'<li class="card"><span class="card-k">{esc(p["industry"])}</span><div class="stat">{esc(p["stat"])}</div>'
+        return (f'<li class="card">{thumb(p)}<span class="card-k">{esc(p["industry"])}</span><div class="stat">{esc(p["stat"])}</div>'
                 f'<h3><a href="{p["url"]}">{esc(p["title"])}</a></h3><p>{esc(p["summary"])}</p>'
                 f'<span class="more">Read the case study</span></li>')
-    return (f'<li class="card"><h3><a href="{p["url"]}">{esc(p["title"])}</a></h3>'
+    return (f'<li class="card">{thumb(p)}<h3><a href="{p["url"]}">{esc(p["title"])}</a></h3>'
             f'<p>{esc(p["summary"])}</p><span class="more">Read more</span></li>')
 
 
 def post_item(p):
-    return (f'<li><h3><a href="{p["url"]}">{esc(p["title"])}</a></h3><p>{esc(p["summary"])}</p>'
-            f'<span class="meta">{p["date_label"]} · {p["read_minutes"]} min read</span></li>')
+    return (f'<li>{thumb(p)}<div><h3><a href="{p["url"]}">{esc(p["title"])}</a></h3><p>{esc(p["summary"])}</p>'
+            f'<span class="meta">{p["date_label"]} · {p["read_minutes"]} min read</span></div></li>')
 
 
 def build_hub(section, items):
     cfg = SECTIONS[section]
     trail = [(cfg["title"], f"/{section}/")]
-    head = page_head(cfg["eyebrow"], esc(cfg["h1"]), esc(cfg["lede"]), trail)
+    head = page_head(cfg["eyebrow"], esc(cfg["h1"]), esc(cfg["lede"]), trail, img=photo_name(section))
     listing = (f'<ul class="post-list">{"".join(post_item(p) for p in items)}</ul>' if section == "writing"
                else f'<ul class="cards">{"".join(card_for(p) for p in items)}</ul>')
     body = f"""{head}

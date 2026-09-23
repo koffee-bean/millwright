@@ -44,6 +44,9 @@ Merging to `main` triggers a Pages build that usually finishes in under a minute
 | `_src/build.py` | The build script. Writes the inner pages, the section index pages, `sitemap.xml`, and `llms.txt` |
 | `services/`, `industries/`, `work/`, `writing/` | Generated pages. Do not edit by hand, since the next build overwrites them |
 | `assets/` | Shared stylesheet, script, wordmark, and headshot |
+| `assets/img/` | Page photos as WebP, with `CREDITS.md` naming each photographer |
+| `_src/photos/` | Original Unsplash photos, plus `credits.csv` |
+| `_src/photos.py` | Crops and tints the originals into `assets/img/` |
 | `privacy.html` | Privacy policy, linked from the footer |
 | `og-v2.png` | Social preview image, 1200 by 630, used by LinkedIn and link previews |
 | `site.webmanifest` | Name, icons, and colors for installed app tiles |
@@ -83,6 +86,8 @@ If any of these change, update `privacy.html` too, since it names each one.
 **Say "Millwright Data" in text, "Millwright" only in the logo.** Searching the bare word returns industrial millwrights, so every title, label, and sentence uses the full name. The wordmark artwork and its alt text stay "Millwright". The structured data in the page head uses the same name.
 
 **New pages come from new content files.** Copy an existing file in the same `_src/content/` folder, change the comment block at the top and the body, and run the build. The page, its section index, the home page links, the sitemap, and `llms.txt` all update together.
+
+**Every page can have a photo.** The build looks for `assets/img/<type>-<slug>.webp`, for example `service-build.webp`, `industry-games.webp`, or `work-hub.webp` for a section index. If the file exists, it appears in the page header and on that page's cards. If not, the page renders without one. To add or replace a photo, put the original in `_src/photos/` with that name as a `.jpg`, add a row to `credits.csv`, and run `python3 _src/photos.py`, then `python3 _src/build.py`. The photo script gives every image the same cream-and-navy tint so new ones match the set.
 
 **Articles answer first.** Each article's title is a question a buyer would type, and its `answer` field holds a direct answer in two sentences, shown in a box at the top. The detail follows.
 
