@@ -386,5 +386,5 @@ html.menu-open .menu-btn .x{display:block}
 @media (prefers-reduced-motion:reduce){.card .thumb img{transition:none}.card:hover .thumb img{transform:none}}
 .linkedin-latest{margin-top:var(--s5);max-width:720px}
 .linkedin-latest h2{font-size:clamp(24px,2.4vw,30px);margin:0}
-.share-line{margin-top:var(--s2);font-size:16px;color:var(--muted)}
-.share-line a{font-weight:660;text-decoration:underline;text-underline-offset:3px}
+.share-line{margin-top:var(--s2);font-size:15px;color:var(--muted)}
+.share-line a{font-weight:660;text-decoration:underline;text-underline-offset:4px}
