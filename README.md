@@ -67,6 +67,7 @@ Merging to `main` triggers a Pages build that usually finishes in under a minute
 |---|---|---|
 | Formspree | Delivering the contact form | Form action in `index.html` |
 | Cal.com | Booking, opening as an overlay over the page | Booking links in `index.html`, and `CAL` in `_src/build.py` |
+| LinkedIn | The latest post embedded on the Writing page | `LINKEDIN_POST` in `_src/build.py` |
 | Google Fonts | The Archivo typeface | Stylesheet link in `index.html` |
 
 If any of these change, update `privacy.html` too, since it names each one.

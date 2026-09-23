@@ -21,6 +21,10 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "_src"
 SITE = "https://millwrightdata.com"
 CAL = "https://cal.com/millwright-data"
+LINKEDIN = "https://www.linkedin.com/in/srivastava-sid"
+# The post shown under "Latest from LinkedIn" on /writing/. Paste the activity number
+# from a new post's URL here and rebuild to change it.
+LINKEDIN_POST = "7507253132435902464"
 TODAY = datetime.date.today().isoformat()
 
 SECTIONS = {
@@ -391,11 +395,24 @@ def post_item(p):
             f'<span class="meta">{p["date_label"]} · {p["read_minutes"]} min read</span></div></li>')
 
 
+def linkedin_block():
+    post = f"https://www.linkedin.com/feed/update/urn:li:activity:{LINKEDIN_POST}/"
+    return f"""<div class="linkedin-latest">
+      <h2>Latest from LinkedIn</h2>
+      <div class="post">
+        <iframe class="post-embed" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:{LINKEDIN_POST}" title="Latest LinkedIn post by Sid Srivastava" loading="lazy" allowfullscreen></iframe>
+        <p class="post-links"><a href="{post}" target="_blank" rel="noopener">Read it on LinkedIn</a> · <a href="{LINKEDIN}" target="_blank" rel="noopener">Follow for more</a></p>
+      </div>
+    </div>"""
+
+
 def build_hub(section, items):
     cfg = SECTIONS[section]
     trail = [(cfg["title"], f"/{section}/")]
-    head = page_head(cfg["eyebrow"], esc(cfg["h1"]), esc(cfg["lede"]), trail)
-    listing = (f'<ul class="post-list">{"".join(post_item(p) for p in items)}</ul>' if section == "writing"
+    share = (f'<p class="share-line">I share each piece on <a href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a> too.</p>'
+             if section == "writing" else "")
+    head = page_head(cfg["eyebrow"], esc(cfg["h1"]), esc(cfg["lede"]), trail, extra=share)
+    listing = (f'<ul class="post-list">{"".join(post_item(p) for p in items)}</ul>{linkedin_block()}' if section == "writing"
                else f'<ul class="cards">{"".join(card_for(p) for p in items)}</ul>')
     body = f"""{head}
 <section class="page-body"><div class="container">{listing}</div></section>
