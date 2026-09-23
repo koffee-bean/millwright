@@ -17,8 +17,8 @@ The originals are in `_src/photos/`. `python3 _src/photos.py` crops and tints th
 | `industry-saas` | SPurno Animation Studio | [Unsplash](https://unsplash.com/photos/80sl0xh63k0) |
 | `industry-compliance` | Cytonn Photography | [Unsplash](https://unsplash.com/photos/GJao3ZTX9gU) |
 | `industry-utilities` | Imam Fadly | [Unsplash](https://unsplash.com/photos/kHivKyO8E8U) |
-| `work-games-metadata-catalog` | Jan Antonin Kolar | [Unsplash](https://unsplash.com/photos/lRoX0shwjUQ) |
-| `work-health-data-foundation` | Beatriz Pérez Moya | [Unsplash](https://unsplash.com/photos/XN4T2PVUUgk) |
+| `work-games-metadata-catalog` | Marcel Strauß | [Unsplash](https://unsplash.com/photos/liNp6TqCCJw) |
+| `work-health-data-foundation` | Planet Volumes | [Unsplash](https://unsplash.com/photos/GM2FxUUjqh4) |
 | `work-semiconductor-ml-pipelines` | Vishnu Mohanan | [Unsplash](https://unsplash.com/photos/pfR18JNEMv8) |
 | `work-hospitality-governance` | Point3D Commercial Imaging Ltd. | [Unsplash](https://unsplash.com/photos/I1bcW_t4mPU) |
 | `writing-why-is-our-snowflake-bill-so-high` | Sasun Bughdaryan | [Unsplash](https://unsplash.com/photos/Ws4BtocwnxI) |
