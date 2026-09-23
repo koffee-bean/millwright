@@ -12,6 +12,7 @@ Standard library only. Run from anywhere:
     python3 _src/build.py
 """
 import datetime
+import hashlib
 import html
 import json
 import pathlib
@@ -215,10 +216,19 @@ def render(page_meta, body, section, jsonld_nodes, og_type="website"):
     return out
 
 
+def asset_versions(text):
+    """Stamp /assets/site.css and site.js with a short content hash, so browsers
+    fetch the new file after every change instead of a cached copy."""
+    for name in ("site.css", "site.js"):
+        digest = hashlib.sha1((ROOT / "assets" / name).read_bytes()).hexdigest()[:8]
+        text = re.sub(rf'/assets/{re.escape(name)}(\?v=\w+)?"', f'/assets/{name}?v={digest}"', text)
+    return text
+
+
 def write(url, text):
     target = ROOT / url.strip("/") / "index.html"
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(text, encoding="utf-8")
+    target.write_text(asset_versions(text), encoding="utf-8")
 
 
 def lookup(pages, section, slug):
@@ -439,7 +449,7 @@ def update_home(pages):
     text = inject(text, "writing", "".join(post_item(p) for p in pages["writing"]))
     text = inject(text, "industries", "".join(
         f'<li><a href="{p["url"]}">{esc(p["title"])}</a></li>' for p in pages["industries"]))
-    path.write_text(text, encoding="utf-8")
+    path.write_text(asset_versions(text), encoding="utf-8")
 
 
 def write_sitemap(pages):
