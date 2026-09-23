@@ -6,10 +6,6 @@ The originals are in `_src/photos/`. `python3 _src/photos.py` crops and tints th
 
 | Image | Photographer | Source |
 |---|---|---|
-| `services-hub` | dlxmedia.hu | [Unsplash](https://unsplash.com/photos/Lj6E1pzx3F8) |
-| `industries-hub` | Sincerely Media | [Unsplash](https://unsplash.com/photos/hrvxtlrtptg) |
-| `work-hub` | Isaac Smith | [Unsplash](https://unsplash.com/photos/AT77Q0Njnt0) |
-| `writing-hub` | Aaron Burden | [Unsplash](https://unsplash.com/photos/y02jEX_B0O0) |
 | `service-diagnostic` | Mediamodifier | [Unsplash](https://unsplash.com/photos/yx17UuZw1Ck) |
 | `service-build` | Sven Mieke | [Unsplash](https://unsplash.com/photos/fteR0e2BzKo) |
 | `service-retainer` | 2H Media | [Unsplash](https://unsplash.com/photos/TkHbz4Yk348) |

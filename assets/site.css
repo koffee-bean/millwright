@@ -59,7 +59,7 @@ ul,ol{margin:0;padding:0}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:start}
 .hero-grid>*{min-width:0}
 .h1-rot{min-width:0}
-.hero .lede{font-size:clamp(18px,1.6vw,21px);line-height:1.5;color:var(--ink);max-width:60ch;margin-top:var(--s3)}
+.hero .lede{font-size:clamp(18px,1.6vw,21px);line-height:1.5;color:var(--ink);max-width:60ch;margin-top:var(--s3);text-wrap:pretty}
 .hero-cta{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap;margin-top:var(--s3)}
 .hero-cta .note{color:var(--muted);font-size:15px}
 .credits p{font-size:17px}
@@ -92,22 +92,10 @@ ul,ol{margin:0;padding:0}
 /* logo row */
 .logo-row{list-style:none;display:flex;flex-wrap:wrap;gap:22px 40px;align-items:center;margin-top:var(--s3)}
 .logo-row li{display:flex;align-items:center}
-.logo-row{--k:1}
-.logo-row img{--h:36;height:calc(var(--h)*var(--k)*1px);width:auto;opacity:.72;display:block}
-.logo-row img[alt="2K Games"]{--h:32}
-.logo-row img[alt="MGM Resorts International"]{--h:38}
-.logo-row img[alt="Bonafide Health"]{--h:32}
-.logo-row img[alt="Pharmavite"]{--h:44}
-.logo-row img[alt="Micron Technology"]{--h:34}
-.logo-row img[alt="UnitedHealthcare"]{--h:44}
-.logo-row img[alt="NAVEX Global"]{--h:36}
-.logo-row img[alt="GRIN"]{--h:32}
-.logo-row img[alt="Fontainebleau Las Vegas"]{--h:52}
-.logo-row img[alt="Tata Consultancy Services"]{--h:40}
-.logo-row img[alt="Puget Sound Energy"]{--h:48}
-.logo-row img[alt="ZS Associates"]{--h:46}
-@media (max-width:860px){.logo-row{--k:.85}}
-@media (max-width:520px){.logo-row{gap:18px 28px;--k:.72}}
+.logo-row img{height:28px;width:auto;opacity:.72;display:block}
+.logo-row img[alt="Puget Sound Energy"],.logo-row img[alt="ZS Associates"]{height:42px}
+.logo-row img[alt="Fontainebleau Las Vegas"]{height:38px}
+@media (max-width:520px){.logo-row{gap:16px 28px}.logo-row img{height:22px}.logo-row img[alt="Puget Sound Energy"],.logo-row img[alt="ZS Associates"]{height:33px}.logo-row img[alt="Fontainebleau Las Vegas"]{height:30px}}
 
 /* sections */
 section{padding:var(--band-y) 0;border-top:1px solid var(--hairline)}
@@ -388,15 +376,6 @@ html.menu-open .menu-btn .x{display:block}
 @media (min-width:700px){.prose table{display:table}}
 
 /* photos */
-.head-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:var(--s4) 56px;align-items:center}
-.head-img{margin:0;border-radius:14px;overflow:hidden;background:var(--bg2);aspect-ratio:4/3;box-shadow:0 1px 0 rgba(27,27,25,.04),0 18px 40px -22px rgba(31,45,69,.35)}
-.head-img img{display:block;width:100%;height:100%;object-fit:cover}
-.page-head.has-img .page-lede{max-width:52ch}
-@media (max-width:860px){
-  .head-grid{grid-template-columns:1fr}
-  .head-grid{row-gap:28px}
-  .head-img{aspect-ratio:16/10;order:2}
-}
 .card .thumb{margin:calc(-1*var(--s3)) calc(-1*var(--s3)) var(--s3);aspect-ratio:16/9;overflow:hidden;border-radius:11px 11px 0 0;background:var(--bg2)}
 .card .thumb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .card:hover .thumb img{transform:scale(1.03)}

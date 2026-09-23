@@ -87,7 +87,7 @@ If any of these change, update `privacy.html` too, since it names each one.
 
 **New pages come from new content files.** Copy an existing file in the same `_src/content/` folder, change the comment block at the top and the body, and run the build. The page, its section index, the home page links, the sitemap, and `llms.txt` all update together.
 
-**Every page can have a photo.** The build looks for `assets/img/<type>-<slug>.webp`, for example `service-build.webp`, `industry-games.webp`, or `work-hub.webp` for a section index. If the file exists, it appears in the page header and on that page's cards. If not, the page renders without one. To add or replace a photo, put the original in `_src/photos/` with that name as a `.jpg`, add a row to `credits.csv`, and run `python3 _src/photos.py`, then `python3 _src/build.py`. The photo script gives every image the same cream-and-navy tint so new ones match the set.
+**Every page can have a photo.** The build looks for `assets/img/<type>-<slug>.webp`, for example `service-build.webp` or `industry-games.webp`. If the file exists, it appears as the thumbnail on that page's cards and in the article list. If not, the page renders without one. To add or replace a photo, put the original in `_src/photos/` with that name as a `.jpg`, add a row to `credits.csv`, and run `python3 _src/photos.py`, then `python3 _src/build.py`. The photo script gives every image the same cream-and-navy tint so new ones match the set.
 
 **Articles answer first.** Each article's title is a question a buyer would type, and its `answer` field holds a direct answer in two sentences, shown in a box at the top. The detail follows.
 
