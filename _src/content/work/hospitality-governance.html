@@ -1,0 +1,30 @@
+<!--
+title: Governed reporting across a dozen systems for a resort operator
+order: 4
+industry: Hospitality
+industry_slug: hospitality
+stat: 25%
+description: How a large resort and entertainment operator consolidated a dozen marketing and finance systems into a governed Azure Databricks lakehouse, cutting report cycles by 25% and improving data accuracy by 20%.
+summary: A resort operator had a dozen marketing and finance systems and no agreed version of the numbers. A governed lakehouse cut report cycles by 25%.
+lede: Direct, third-party, and on-property sales each told a different story, because a dozen marketing and finance systems each kept their own version of the truth. Leadership wanted one set of numbers, and a data platform ready for AI.
+stats: 25%=shorter report cycles|20%=better data accuracy and pipeline efficiency|A dozen=marketing and finance systems feeding one governed layer
+glance: Industry=Hospitality and entertainment|My role=Director, Data Architecture, in-house|Platforms=Azure, Databricks, Unity Catalog, dbt, Power BI|Length=Four months
+services: diagnostic,retainer
+-->
+<h2>The situation</h2>
+<p>A large resort and entertainment operator sells rooms, shows, and dining through its own channels, through third parties, and on property. Marketing and finance each ran their own systems, around a dozen in total, and reports built from them rarely agreed. Building a cross-channel report took a long time because every one started with reconciliation.</p>
+<p>At the same time, the business wanted to use AI on its data. That raised a harder question: if people cannot agree on the numbers, what would an AI system be grounded in?</p>
+<h2>What I did</h2>
+<p><strong>Set up governance people would actually use.</strong> I chaired a cross-business-unit governance council that agreed who owns each important dataset, who stewards it, and how changes are approved. Policies rolled out with company-wide training, so ownership was known rather than assumed.</p>
+<p><strong>Built a medallion lakehouse on Azure and Databricks.</strong> Raw data from each system landed once, was cleaned and conformed in a middle layer, and was modeled with dbt into governed gold tables. Unity Catalog controlled access to the gold layer. Metadata and end-to-end lineage were centralized so any number could be traced back to its source.</p>
+<p><strong>Served one set of numbers.</strong> Power BI semantic models sat on the dbt gold tables, with row-level security so each team saw what it should. Omni-channel dashboards covered direct, third-party, and on-property sales from the same definitions.</p>
+<p><strong>Set the AI direction.</strong> I defined how governed lakehouse data, semantic models, and lineage would ground downstream ML and AI analytics, so AI work would build on the governed path rather than a parallel, ungoverned one.</p>
+<h2>The result</h2>
+<p>Report cycles got 25% shorter. Data accuracy and pipeline efficiency improved by 20%. The work took four months, which is a useful data point on what a focused governance effort can do quickly when leadership backs it.</p>
+<h2>What carries over to your team</h2>
+<ul>
+<li>Governance is a decision about people before it is a tool. Agree on owners and a change process, then pick the catalog.</li>
+<li>Model once in a governed layer and let every dashboard read from it. Reconciliation work disappears when there is nothing left to reconcile.</li>
+<li>Row-level security in the semantic model lets you share one model widely instead of copying data for each audience.</li>
+<li>Decide how AI will be grounded before anyone builds a chatbot on raw tables.</li>
+</ul>

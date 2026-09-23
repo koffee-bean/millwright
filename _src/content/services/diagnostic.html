@@ -1,0 +1,31 @@
+<!--
+title: Diagnostic
+order: 1
+meta_line: Two weeks, fixed fee.
+description: A two-week, fixed-fee review of your data platform's architecture, cost, and governance, ending in a written findings memo with a fix-first order.
+summary: A number moved and nobody can say why, or a big vendor contract is on the table. Two weeks, a written memo, and a fix-first order.
+lede: A number moved and nobody can say why, or you are about to sign a large vendor contract. I read your architecture, cost data, and governance as they actually run, and hand you a written findings memo with a fix-first order.
+glance: Length=Two weeks|Price=Fixed fee, agreed before we start|You get=A written findings memo and a readout with your leadership team|I need=Read-only access to your warehouse, billing data, and pipeline repositories
+reading: why-is-our-snowflake-bill-so-high,is-our-data-ready-for-ai
+-->
+<h2>When a diagnostic fits</h2>
+<p>Most diagnostics start with one of a few moments. The warehouse bill grew faster than the business and nobody can explain the difference. Two teams bring different numbers for the same metric to the same meeting. A renewal or a new vendor contract is due, and nobody wants to sign it on instinct. Or leadership has asked for an AI plan, and the honest first question is whether the data underneath can carry one.</p>
+<p>In each case you need an outside read that is fast, specific, and written down. You do not need a transformation program.</p>
+<h2>What I look at</h2>
+<ul>
+<li><strong>Cost.</strong> Warehouse and cluster spend by workload, idle compute, oversized warehouses, pipelines that refresh more often than anyone reads the result, and whether spend can be traced to a team at all.</li>
+<li><strong>Architecture.</strong> How data moves from source to the numbers leadership sees, where it gets copied, and where a single failure would stop reporting.</li>
+<li><strong>Governance.</strong> Who owns each important dataset, whether lineage exists outside people's heads, and who can see regulated data.</li>
+<li><strong>AI readiness.</strong> Whether your metric definitions, access controls, and metadata could ground an AI assistant, or whether it would repeat today's inconsistencies faster.</li>
+</ul>
+<p>I read the platform as it actually runs, from query history, billing exports, and pipeline code, rather than from the architecture diagram.</p>
+<h2>What you get</h2>
+<p>A written findings memo. Every finding has an owner, an estimate of the effort to fix it, and a place in a fix-first order, so the week after the diagnostic is already planned. We close with a readout for your leadership team, and the memo is yours to keep.</p>
+<h2>How the two weeks run</h2>
+<ol>
+<li><strong>Days one and two.</strong> A kickoff call, read-only access, and conversations with the people who run the platform day to day.</li>
+<li><strong>Days three to eight.</strong> I work through billing, query history, pipeline code, and access policies, and check what I find against what people told me.</li>
+<li><strong>Days nine and ten.</strong> The memo, then the readout.</li>
+</ol>
+<h2>What it is not</h2>
+<p>A diagnostic changes nothing in your accounts. It is a read, not a build. If you want the findings fixed, that is a <a href="/services/build/">Build</a>, and the memo becomes its scope.</p>

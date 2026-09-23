@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do we need a semantic layer before we add AI to analytics? | Millwright Data</title>
+<meta name="description" content="If you want AI to answer questions about business metrics, a semantic layer is what keeps the answers consistent with your finance team. What it is, why AI makes it urgent, and how to start small.">
+<link rel="canonical" href="https://millwrightdata.com/writing/do-we-need-a-semantic-layer-before-ai/">
+<meta property="og:title" content="Do we need a semantic layer before we add AI to analytics? | Millwright Data">
+<meta property="og:description" content="If you want AI to answer questions about business metrics, a semantic layer is what keeps the answers consistent with your finance team. What it is, why AI makes it urgent, and how to start small.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://millwrightdata.com/writing/do-we-need-a-semantic-layer-before-ai/">
+<meta property="og:image" content="https://millwrightdata.com/og-v2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Millwright Data. Sid Srivastava. Data platforms, governance, and AI advisory. millwrightdata.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F8F5EF">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+<link rel="icon" type="image/png" sizes="64x64" media="(prefers-color-scheme: dark)" href="/favicon-dark-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@100..900&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<script>document.documentElement.className="js"</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://millwrightdata.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Writing",
+     "item": "https://millwrightdata.com/writing/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Do we need a semantic layer before we add AI to analytics?",
+     "item": "https://millwrightdata.com/writing/do-we-need-a-semantic-layer-before-ai/"
+    }
+   ]
+  },
+  {
+   "@type": "Article",
+   "headline": "Do we need a semantic layer before we add AI to analytics?",
+   "description": "If you want AI to answer questions about business metrics, a semantic layer is what keeps the answers consistent with your finance team. What it is, why AI makes it urgent, and how to start small.",
+   "url": "https://millwrightdata.com/writing/do-we-need-a-semantic-layer-before-ai/",
+   "author": {
+    "@type": "Person",
+    "@id": "https://millwrightdata.com/#sid",
+    "name": "Sid Srivastava",
+    "url": "https://millwrightdata.com/",
+    "sameAs": [
+     "https://www.linkedin.com/in/srivastava-sid",
+     "https://github.com/koffee-bean"
+    ]
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://millwrightdata.com/#llc",
+    "name": "Millwright Data",
+    "logo": {
+     "@type": "ImageObject",
+     "url": "https://millwrightdata.com/icon-512.png"
+    }
+   },
+   "image": "https://millwrightdata.com/og-v2.png",
+   "datePublished": "2026-09-22",
+   "wordCount": 715
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="flag-us" viewBox="0 0 40 40"><clipPath id="flag-us-clip"><circle cx="20" cy="20" r="20"/></clipPath><g clip-path="url(#flag-us-clip)"><rect x="0" y="0.000" width="40" height="3.127" fill="#B22234"/><rect x="0" y="3.077" width="40" height="3.127" fill="#fff"/><rect x="0" y="6.154" width="40" height="3.127" fill="#B22234"/><rect x="0" y="9.231" width="40" height="3.127" fill="#fff"/><rect x="0" y="12.308" width="40" height="3.127" fill="#B22234"/><rect x="0" y="15.385" width="40" height="3.127" fill="#fff"/><rect x="0" y="18.462" width="40" height="3.127" fill="#B22234"/><rect x="0" y="21.538" width="40" height="3.127" fill="#fff"/><rect x="0" y="24.615" width="40" height="3.127" fill="#B22234"/><rect x="0" y="27.692" width="40" height="3.127" fill="#fff"/><rect x="0" y="30.769" width="40" height="3.127" fill="#B22234"/><rect x="0" y="33.846" width="40" height="3.127" fill="#fff"/><rect x="0" y="36.923" width="40" height="3.127" fill="#B22234"/><rect x="0" y="0" width="19" height="21.6" fill="#3C3B6E"/><g fill="#fff"><polygon points="2.20,1.40 2.42,2.09 3.15,2.09 2.56,2.52 2.79,3.21 2.20,2.78 1.61,3.21 1.84,2.52 1.25,2.09 1.98,2.09"/><polygon points="5.80,1.40 6.02,2.09 6.75,2.09 6.16,2.52 6.39,3.21 5.80,2.78 5.21,3.21 5.44,2.52 4.85,2.09 5.58,2.09"/><polygon points="9.40,1.40 9.62,2.09 10.35,2.09 9.76,2.52 9.99,3.21 9.40,2.78 8.81,3.21 9.04,2.52 8.45,2.09 9.18,2.09"/><polygon points="13.00,1.40 13.22,2.09 13.95,2.09 13.36,2.52 13.59,3.21 13.00,2.78 12.41,3.21 12.64,2.52 12.05,2.09 12.78,2.09"/><polygon points="16.60,1.40 16.82,2.09 17.55,2.09 16.96,2.52 17.19,3.21 16.60,2.78 16.01,3.21 16.24,2.52 15.65,2.09 16.38,2.09"/><polygon points="2.20,4.50 2.42,5.19 3.15,5.19 2.56,5.62 2.79,6.31 2.20,5.88 1.61,6.31 1.84,5.62 1.25,5.19 1.98,5.19"/><polygon points="5.80,4.50 6.02,5.19 6.75,5.19 6.16,5.62 6.39,6.31 5.80,5.88 5.21,6.31 5.44,5.62 4.85,5.19 5.58,5.19"/><polygon points="9.40,4.50 9.62,5.19 10.35,5.19 9.76,5.62 9.99,6.31 9.40,5.88 8.81,6.31 9.04,5.62 8.45,5.19 9.18,5.19"/><polygon points="13.00,4.50 13.22,5.19 13.95,5.19 13.36,5.62 13.59,6.31 13.00,5.88 12.41,6.31 12.64,5.62 12.05,5.19 12.78,5.19"/><polygon points="16.60,4.50 16.82,5.19 17.55,5.19 16.96,5.62 17.19,6.31 16.60,5.88 16.01,6.31 16.24,5.62 15.65,5.19 16.38,5.19"/><polygon points="2.20,7.60 2.42,8.29 3.15,8.29 2.56,8.72 2.79,9.41 2.20,8.98 1.61,9.41 1.84,8.72 1.25,8.29 1.98,8.29"/><polygon points="5.80,7.60 6.02,8.29 6.75,8.29 6.16,8.72 6.39,9.41 5.80,8.98 5.21,9.41 5.44,8.72 4.85,8.29 5.58,8.29"/><polygon points="9.40,7.60 9.62,8.29 10.35,8.29 9.76,8.72 9.99,9.41 9.40,8.98 8.81,9.41 9.04,8.72 8.45,8.29 9.18,8.29"/><polygon points="13.00,7.60 13.22,8.29 13.95,8.29 13.36,8.72 13.59,9.41 13.00,8.98 12.41,9.41 12.64,8.72 12.05,8.29 12.78,8.29"/><polygon points="16.60,7.60 16.82,8.29 17.55,8.29 16.96,8.72 17.19,9.41 16.60,8.98 16.01,9.41 16.24,8.72 15.65,8.29 16.38,8.29"/><polygon points="2.20,10.70 2.42,11.39 3.15,11.39 2.56,11.82 2.79,12.51 2.20,12.08 1.61,12.51 1.84,11.82 1.25,11.39 1.98,11.39"/><polygon points="5.80,10.70 6.02,11.39 6.75,11.39 6.16,11.82 6.39,12.51 5.80,12.08 5.21,12.51 5.44,11.82 4.85,11.39 5.58,11.39"/><polygon points="9.40,10.70 9.62,11.39 10.35,11.39 9.76,11.82 9.99,12.51 9.40,12.08 8.81,12.51 9.04,11.82 8.45,11.39 9.18,11.39"/><polygon points="13.00,10.70 13.22,11.39 13.95,11.39 13.36,11.82 13.59,12.51 13.00,12.08 12.41,12.51 12.64,11.82 12.05,11.39 12.78,11.39"/><polygon points="16.60,10.70 16.82,11.39 17.55,11.39 16.96,11.82 17.19,12.51 16.60,12.08 16.01,12.51 16.24,11.82 15.65,11.39 16.38,11.39"/><polygon points="2.20,13.80 2.42,14.49 3.15,14.49 2.56,14.92 2.79,15.61 2.20,15.18 1.61,15.61 1.84,14.92 1.25,14.49 1.98,14.49"/><polygon points="5.80,13.80 6.02,14.49 6.75,14.49 6.16,14.92 6.39,15.61 5.80,15.18 5.21,15.61 5.44,14.92 4.85,14.49 5.58,14.49"/><polygon points="9.40,13.80 9.62,14.49 10.35,14.49 9.76,14.92 9.99,15.61 9.40,15.18 8.81,15.61 9.04,14.92 8.45,14.49 9.18,14.49"/><polygon points="13.00,13.80 13.22,14.49 13.95,14.49 13.36,14.92 13.59,15.61 13.00,15.18 12.41,15.61 12.64,14.92 12.05,14.49 12.78,14.49"/><polygon points="16.60,13.80 16.82,14.49 17.55,14.49 16.96,14.92 17.19,15.61 16.60,15.18 16.01,15.61 16.24,14.92 15.65,14.49 16.38,14.49"/><polygon points="2.20,16.90 2.42,17.59 3.15,17.59 2.56,18.02 2.79,18.71 2.20,18.28 1.61,18.71 1.84,18.02 1.25,17.59 1.98,17.59"/><polygon points="5.80,16.90 6.02,17.59 6.75,17.59 6.16,18.02 6.39,18.71 5.80,18.28 5.21,18.71 5.44,18.02 4.85,17.59 5.58,17.59"/><polygon points="9.40,16.90 9.62,17.59 10.35,17.59 9.76,18.02 9.99,18.71 9.40,18.28 8.81,18.71 9.04,18.02 8.45,17.59 9.18,17.59"/><polygon points="13.00,16.90 13.22,17.59 13.95,17.59 13.36,18.02 13.59,18.71 13.00,18.28 12.41,18.71 12.64,18.02 12.05,17.59 12.78,17.59"/><polygon points="16.60,16.90 16.82,17.59 17.55,17.59 16.96,18.02 17.19,18.71 16.60,18.28 16.01,18.71 16.24,18.02 15.65,17.59 16.38,17.59"/></g></g><circle cx="20" cy="20" r="19.6" fill="none" stroke="#1B1B19" stroke-opacity=".22" stroke-width=".8"/></symbol>
+  <symbol id="flag-eu" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#003399"/><g fill="#FFCC00"><polygon points="34.00,17.70 34.52,19.29 36.19,19.29 34.84,20.27 35.35,21.86 34.00,20.88 32.65,21.86 33.16,20.27 31.81,19.29 33.48,19.29"/><polygon points="32.12,24.70 32.64,26.29 34.31,26.29 32.96,27.27 33.48,28.86 32.12,27.88 30.77,28.86 31.29,27.27 29.94,26.29 31.61,26.29"/><polygon points="27.00,29.82 27.52,31.41 29.19,31.41 27.84,32.40 28.35,33.99 27.00,33.00 25.65,33.99 26.16,32.40 24.81,31.41 26.48,31.41"/><polygon points="20.00,31.70 20.52,33.29 22.19,33.29 20.84,34.27 21.35,35.86 20.00,34.88 18.65,35.86 19.16,34.27 17.81,33.29 19.48,33.29"/><polygon points="13.00,29.82 13.52,31.41 15.19,31.41 13.84,32.40 14.35,33.99 13.00,33.00 11.65,33.99 12.16,32.40 10.81,31.41 12.48,31.41"/><polygon points="7.88,24.70 8.39,26.29 10.06,26.29 8.71,27.27 9.23,28.86 7.88,27.88 6.52,28.86 7.04,27.27 5.69,26.29 7.36,26.29"/><polygon points="6.00,17.70 6.52,19.29 8.19,19.29 6.84,20.27 7.35,21.86 6.00,20.88 4.65,21.86 5.16,20.27 3.81,19.29 5.48,19.29"/><polygon points="7.88,10.70 8.39,12.29 10.06,12.29 8.71,13.27 9.23,14.86 7.88,13.88 6.52,14.86 7.04,13.27 5.69,12.29 7.36,12.29"/><polygon points="13.00,5.58 13.52,7.16 15.19,7.16 13.84,8.15 14.35,9.74 13.00,8.75 11.65,9.74 12.16,8.15 10.81,7.16 12.48,7.16"/><polygon points="20.00,3.70 20.52,5.29 22.19,5.29 20.84,6.27 21.35,7.86 20.00,6.88 18.65,7.86 19.16,6.27 17.81,5.29 19.48,5.29"/><polygon points="27.00,5.58 27.52,7.16 29.19,7.16 27.84,8.15 28.35,9.74 27.00,8.75 25.65,9.74 26.16,8.15 24.81,7.16 26.48,7.16"/><polygon points="32.12,10.70 32.64,12.29 34.31,12.29 32.96,13.27 33.48,14.86 32.12,13.88 30.77,14.86 31.29,13.27 29.94,12.29 31.61,12.29"/></g><text x="20" y="24.6" text-anchor="middle" font-family="Archivo,Arial,sans-serif" font-size="12.5" font-weight="700" fill="#fff">EU</text><circle cx="20" cy="20" r="19.6" fill="none" stroke="#1B1B19" stroke-opacity=".22" stroke-width=".8"/></symbol>
+</svg>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/" aria-label="Millwright Data home"><img class="wordmark" src="/assets/wordmark.png" alt="Millwright" width="560" height="122"></a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Case studies</a>
+      <a href="/writing/" aria-current="page">Writing</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <span class="hdr-flags">
+      <button type="button" class="hdr-flag" aria-label="Operates as Millwright Data LLC, United States"><svg class="flag" aria-hidden="true"><use href="#flag-us"/></svg><span class="hdr-tip" aria-hidden="true">Operates as: <b>Millwright Data LLC, United States</b></span></button>
+      <button type="button" class="hdr-flag" aria-label="Operates as Millwright Data OÜ, European Union"><svg class="flag" aria-hidden="true"><use href="#flag-eu"/></svg><span class="hdr-tip" aria-hidden="true">Operates as: <b>Millwright Data OÜ, European Union</b></span></button>
+    </span>
+    <a class="btn" href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+</header>
+<main id="main">
+<section class="page-head q">
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/writing/">Writing</a><span>/</span><span aria-current="page">Do we need a semantic layer before we add AI to analytics?</span></nav>
+    <span class="eyebrow">Writing</span>
+    <h1>Do we need a semantic layer before we add AI to analytics?</h1>
+    <div class="meta-row"><span>By <b>Sid Srivastava</b></span><span>September 22, 2026</span><span>3 min read</span></div>
+  </div>
+</section>
+<section class="page-body">
+  <div class="container">
+    <article class="prose"><div class="answer"><span class="k">Short answer</span><p>Yes, if you want AI to answer questions about your business metrics. Without a semantic layer, an AI assistant writes its own SQL against raw tables and defines revenue, active users, or churn its own way, confidently and differently from your finance team.</p></div><h2>What a semantic layer is</h2>
+<p>A semantic layer is a single, shared definition of your business metrics that sits between your warehouse and everything that reads from it. Revenue, active customers, churn, and margin are each defined once, in code, along with the dimensions you can slice them by and the joins needed to get there. Dashboards, spreadsheets, and AI tools ask the semantic layer for a metric, and it writes the SQL.</p>
+<p>Open tools such as MetricFlow and Cube do this, and most BI platforms have their own version. The idea matters more than the product: one definition per metric, maintained like software, read by everything.</p>
+<h2>Why AI makes the problem worse</h2>
+<p>Inconsistent metrics are an old problem. Two teams bring different revenue numbers to the same meeting, someone reconciles them, and everyone moves on. People catch it because people know the business.</p>
+<p>An AI assistant does not. Large language models are good at writing SQL that runs. They are not good at knowing that your revenue excludes refunds, that "active" means a login in the last 28 days, or that one table is deprecated but still updated. Given raw tables, an assistant will make those choices silently, and the answer will look exactly as authoritative as a correct one. It also answers far more questions than an analyst team does, so every wrong definition spreads faster.</p>
+<h2>How grounding works</h2>
+<p>With a semantic layer in place, the assistant stops writing SQL from scratch. Its job becomes understanding the question and choosing the right metric, dimensions, and filters. The semantic layer turns that choice into SQL using the approved definition. If the question needs a metric that does not exist, the assistant can say so instead of inventing one.</p>
+<p>This is how I build agentic analytics: agents that give product, marketing, and finance plain-language access to governed metrics, grounded in the semantic layer rather than in the raw schema. The agent's answers match the dashboard because both read the same definition.</p>
+<h2>Built-in assistants versus a layer you own</h2>
+<p>Warehouse and BI vendors now ship their own AI assistants, and they are easy to switch on. The catch is that each one understands only its own platform. If your data lives on more than one warehouse, or you might move, a vendor-specific assistant fixes your metric definitions inside that vendor. A semantic layer you own is portable: the same definitions can serve any assistant, any BI tool, and whichever warehouse you run next.</p>
+<p>That does not make vendor assistants wrong. For a company on one platform with no plans to change, they can be the fastest route. Just make the choice on purpose.</p>
+<h2>Do not forget identity</h2>
+<p>An assistant that queries data on behalf of many people needs to respect what each person is allowed to see. The easy shortcut is a single service account with broad access, which quietly gives every user the union of everyone's permissions. Propagate each user's own identity to the warehouse, for example through per-user OAuth, so row-level and column-level policies still apply when the question comes through a chat window.</p>
+<h2>Start small</h2>
+<ol>
+<li><strong>Pick the metrics in your board deck.</strong> Usually ten to twenty. These are the numbers people already argue about and the ones an AI will be asked about first.</li>
+<li><strong>Write down the definition that finance signs off on,</strong> including the edge cases, then encode it.</li>
+<li><strong>Point one dashboard and one assistant at it.</strong> Compare the answers with what the business already trusts before widening access.</li>
+<li><strong>Add metrics when people ask for them,</strong> not in a big modeling project up front.</li>
+</ol>
+<h2>When you do not need one yet</h2>
+<p>If you have one BI tool, a small set of well-modeled tables, and no plans to put AI on top of them, a semantic layer can wait. It is also not the answer for exploratory work on new data, where the definitions do not exist yet. The trigger is scale of access: the more people and tools that read your metrics, the more a single definition is worth.</p><div class="author"><img src="/assets/sid.jpg" alt="" width="60" height="60" loading="lazy"><p><b>Sid Srivastava</b>Founder of Millwright Data. He has run data platforms in semiconductor manufacturing, digital health, hospitality, and AAA games, on Snowflake, Databricks, and AWS.</p></div></article>
+    <div class="related"><h2>Related</h2><ul class="cards"><li class="card"><div class="thumb"><img src="/assets/img/service-build-sm.webp" width="720" height="540" alt="" loading="lazy" decoding="async"></div><span class="card-k">Service</span><h3><a href="/services/build/">Build</a></h3><p>You know what you need and want it built properly. Designed, built with your engineers, documented, and running in your accounts.</p><span class="more">Read it</span></li><li class="card"><div class="thumb"><img src="/assets/img/service-retainer-sm.webp" width="720" height="540" alt="" loading="lazy" decoding="async"></div><span class="card-k">Service</span><h3><a href="/services/retainer/">Retainer</a></h3><p>Your team has the people, but you want a senior data and AI platform leader to stress-test the plan.</p><span class="more">Read it</span></li><li class="card"><div class="thumb"><img src="/assets/img/work-hospitality-governance-sm.webp" width="720" height="540" alt="" loading="lazy" decoding="async"></div><span class="card-k">Case study</span><div class="stat">25%</div><h3><a href="/work/hospitality-governance/">Governed reporting across a dozen systems for a resort operator</a></h3><p>A resort operator had a dozen marketing and finance systems and no agreed version of the numbers. A governed lakehouse cut report cycles by 25%.</p><span class="more">Read it</span></li><li class="card"><div class="thumb"><img src="/assets/img/work-games-metadata-catalog-sm.webp" width="720" height="540" alt="" loading="lazy" decoding="async"></div><span class="card-k">Case study</span><div class="stat">70,000+</div><h3><a href="/work/games-metadata-catalog/">Cataloging 70,000 datasets across two data platforms</a></h3><p>A publisher with several studios and two data platforms had no single place to find a dataset or see where it came from. A structured proof of concept picked the catalog, and the rollout finished early.</p><span class="more">Read it</span></li></ul></div>
+  </div>
+</section>
+<section class="cta-close band">
+  <div class="container">
+    <div class="box">
+      <div><h2>Want a second opinion on yours?</h2><p>Thirty minutes, free. Bring the question and the numbers. You will leave with a first read.</p></div>
+      <a class="btn" href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="/" aria-label="Millwright Data home"><img class="wordmark small" src="/assets/wordmark.png" alt="Millwright" width="560" height="122"></a><br>
+        <a class="foot-mail" href="mailto:sid@millwrightdata.com">sid@millwrightdata.com</a>
+        <p class="legal">© 2026 Millwright Data LLC · United States. Millwright Data OÜ · European Union. Views are my own and not those of any employer.</p>
+        <p class="legal"><a class="foot-privacy" href="/privacy.html">Privacy Policy</a></p>
+        <div class="foot-links">
+          <a href="https://www.linkedin.com/in/srivastava-sid" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+          <a href="https://github.com/koffee-bean" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a>
+        </div>
+      </div>
+      <div class="define">
+        <strong>millwright</strong><span class="ipa">/ˈmɪl.raɪt/</span><span class="pos">noun</span>
+        <p class="sense"><span class="n">1</span><span>the craftsman who designed, built, and kept the machinery of a mill, so that the whole works turned. The miller ground the flour. The millwright made sure he could.</span></p>
+        <p class="origin"><span class="origin-k">Origin</span>Middle English, from <i>mill</i> + <i>wright</i>, a maker or builder; Old English <i>wyrhta</i>, worker.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>

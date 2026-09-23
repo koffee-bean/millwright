@@ -1,0 +1,33 @@
+<!--
+title: Do we need a semantic layer before we add AI to analytics?
+order: 2
+date: 2026-09-22
+description: If you want AI to answer questions about business metrics, a semantic layer is what keeps the answers consistent with your finance team. What it is, why AI makes it urgent, and how to start small.
+summary: If you want AI to answer questions about your metrics, yes. What a semantic layer does, why AI makes it urgent, and how to start with the metrics in your board deck.
+answer: Yes, if you want AI to answer questions about your business metrics. Without a semantic layer, an AI assistant writes its own SQL against raw tables and defines revenue, active users, or churn its own way, confidently and differently from your finance team.
+services: build,retainer
+related: hospitality-governance,games-metadata-catalog
+-->
+<h2>What a semantic layer is</h2>
+<p>A semantic layer is a single, shared definition of your business metrics that sits between your warehouse and everything that reads from it. Revenue, active customers, churn, and margin are each defined once, in code, along with the dimensions you can slice them by and the joins needed to get there. Dashboards, spreadsheets, and AI tools ask the semantic layer for a metric, and it writes the SQL.</p>
+<p>Open tools such as MetricFlow and Cube do this, and most BI platforms have their own version. The idea matters more than the product: one definition per metric, maintained like software, read by everything.</p>
+<h2>Why AI makes the problem worse</h2>
+<p>Inconsistent metrics are an old problem. Two teams bring different revenue numbers to the same meeting, someone reconciles them, and everyone moves on. People catch it because people know the business.</p>
+<p>An AI assistant does not. Large language models are good at writing SQL that runs. They are not good at knowing that your revenue excludes refunds, that "active" means a login in the last 28 days, or that one table is deprecated but still updated. Given raw tables, an assistant will make those choices silently, and the answer will look exactly as authoritative as a correct one. It also answers far more questions than an analyst team does, so every wrong definition spreads faster.</p>
+<h2>How grounding works</h2>
+<p>With a semantic layer in place, the assistant stops writing SQL from scratch. Its job becomes understanding the question and choosing the right metric, dimensions, and filters. The semantic layer turns that choice into SQL using the approved definition. If the question needs a metric that does not exist, the assistant can say so instead of inventing one.</p>
+<p>This is how I build agentic analytics: agents that give product, marketing, and finance plain-language access to governed metrics, grounded in the semantic layer rather than in the raw schema. The agent's answers match the dashboard because both read the same definition.</p>
+<h2>Built-in assistants versus a layer you own</h2>
+<p>Warehouse and BI vendors now ship their own AI assistants, and they are easy to switch on. The catch is that each one understands only its own platform. If your data lives on more than one warehouse, or you might move, a vendor-specific assistant fixes your metric definitions inside that vendor. A semantic layer you own is portable: the same definitions can serve any assistant, any BI tool, and whichever warehouse you run next.</p>
+<p>That does not make vendor assistants wrong. For a company on one platform with no plans to change, they can be the fastest route. Just make the choice on purpose.</p>
+<h2>Do not forget identity</h2>
+<p>An assistant that queries data on behalf of many people needs to respect what each person is allowed to see. The easy shortcut is a single service account with broad access, which quietly gives every user the union of everyone's permissions. Propagate each user's own identity to the warehouse, for example through per-user OAuth, so row-level and column-level policies still apply when the question comes through a chat window.</p>
+<h2>Start small</h2>
+<ol>
+<li><strong>Pick the metrics in your board deck.</strong> Usually ten to twenty. These are the numbers people already argue about and the ones an AI will be asked about first.</li>
+<li><strong>Write down the definition that finance signs off on,</strong> including the edge cases, then encode it.</li>
+<li><strong>Point one dashboard and one assistant at it.</strong> Compare the answers with what the business already trusts before widening access.</li>
+<li><strong>Add metrics when people ask for them,</strong> not in a big modeling project up front.</li>
+</ol>
+<h2>When you do not need one yet</h2>
+<p>If you have one BI tool, a small set of well-modeled tables, and no plans to put AI on top of them, a semantic layer can wait. It is also not the answer for exploratory work on new data, where the definitions do not exist yet. The trigger is scale of access: the more people and tools that read your metrics, the more a single definition is worth.</p>

@@ -6,10 +6,34 @@ Millwright Data operates as Millwright Data LLC in the United States and Millwri
 
 ## Services
 
-- [Diagnostic](https://millwrightdata.com/#work): Two weeks, fixed fee. A written findings memo on architecture, cost, and governance, with a fix-first order.
-- [Build](https://millwrightdata.com/#work): Two to four sprints with a defined deliverable, built with the client's engineers and left running in the client's accounts.
-- [Retainer](https://millwrightdata.com/#work): On-call monthly advisory on roadmaps, vendor negotiations, and executive readouts.
-- [Head of Data](https://millwrightdata.com/#work): Fractional data platform leadership, two to three days a week.
+- [Diagnostic](https://millwrightdata.com/services/diagnostic/): A number moved and nobody can say why, or a big vendor contract is on the table. Two weeks, a written memo, and a fix-first order.
+- [Build](https://millwrightdata.com/services/build/): You know what you need and want it built properly. Designed, built with your engineers, documented, and running in your accounts.
+- [Retainer](https://millwrightdata.com/services/retainer/): Your team has the people, but you want a senior data and AI platform leader to stress-test the plan.
+- [Head of Data](https://millwrightdata.com/services/head-of-data/): You need a data platform leader before you are ready to hire one. Roadmap, hiring plan, and metrics, then a clean handoff.
+
+## Case studies
+
+- [Cataloging 70,000 datasets across two data platforms](https://millwrightdata.com/work/games-metadata-catalog/): A publisher with several studios and two data platforms had no single place to find a dataset or see where it came from. A structured proof of concept picked the catalog, and the rollout finished early.
+- [The data foundation behind a $425M acquisition](https://millwrightdata.com/work/health-data-foundation/): A fast-growing subscription health business needed governed data under HIPAA, PCI DSS, and SOX. The foundation supported its growth analytics and a $425M acquisition.
+- [Keeping ML training pipelines at 99.8% uptime](https://millwrightdata.com/work/semiconductor-ml-pipelines/): A semiconductor manufacturer's SaaS MLOps venture needed pipelines that customers could count on. They ran at 99.8% uptime while volumes grew across fabs.
+- [Governed reporting across a dozen systems for a resort operator](https://millwrightdata.com/work/hospitality-governance/): A resort operator had a dozen marketing and finance systems and no agreed version of the numbers. A governed lakehouse cut report cycles by 25%.
+
+## Articles
+
+- [Why is our Snowflake bill so high?](https://millwrightdata.com/writing/why-is-our-snowflake-bill-so-high/): Usually because warehouses run longer and larger than the work needs. How billing works, the six usual causes, and the order to fix them in.
+- [Do we need a semantic layer before we add AI to analytics?](https://millwrightdata.com/writing/do-we-need-a-semantic-layer-before-ai/): If you want AI to answer questions about your metrics, yes. What a semantic layer does, why AI makes it urgent, and how to start with the metrics in your board deck.
+- [When should we hire a fractional head of data?](https://millwrightdata.com/writing/when-to-hire-a-fractional-head-of-data/): When data decisions are piling up faster than anyone senior can make them, but a full-time executive is not yet justified. The signs, the first 90 days, and how it ends.
+- [Is our data ready for AI?](https://millwrightdata.com/writing/is-our-data-ready-for-ai/): Ready means you can find it, trust it, trace it, and control who sees it. Four checks, a five-question self-test, and what to fix first.
+
+## Industries
+
+- [Semiconductor](https://millwrightdata.com/industries/semiconductor/): High-volume manufacturing and sensor telemetry, pipeline cost that stays predictable as volumes grow, and ML that reaches production.
+- [Healthcare](https://millwrightdata.com/industries/healthcare/): Regulated customer data, fast growth, and controls that have to hold up in an audit or a due diligence room.
+- [Hospitality](https://millwrightdata.com/industries/hospitality/): A dozen source systems, three booking channels, and reports that have to reconcile before the Monday meeting.
+- [Games](https://millwrightdata.com/industries/games/): Telemetry across studios, player safety at scale, and cost control on a platform that never sleeps.
+- [SaaS](https://millwrightdata.com/industries/saas/): Subscription metrics everyone agrees on, pipelines that stay up, and models that ship like code.
+- [Compliance](https://millwrightdata.com/industries/compliance/): Regulated data under several rules at once, with access, lineage, and audit trails that hold up to scrutiny.
+- [Utilities](https://millwrightdata.com/industries/utilities/): Meter and grid telemetry, systems that outlive their vendors, and regulatory reports that cannot be late.
 
 ## Contact
 

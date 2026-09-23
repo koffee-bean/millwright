@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Millwright Data · Sid Srivastava · Data Platforms, Governance, and AI</title>
-<meta name="description" content="Data platform, governance, and AI advisory for companies that run on data. 15+ years across semiconductor, healthcare, hospitality, games, SaaS, and compliance. Seattle. Clients anywhere.">
+<meta name="description" content="Data platform, governance, and AI advisory for companies that run on data. 15+ years across semiconductor, healthcare, hospitality, games, SaaS, compliance, and utilities. Seattle. Clients anywhere.">
 <link rel="canonical" href="https://millwrightdata.com/">
 <meta property="og:title" content="Millwright Data · Sid Srivastava · Data Platforms, Governance, and AI">
-<meta property="og:description" content="Data platform, governance, and AI advisory. 15+ years across semiconductor, healthcare, hospitality, games, SaaS, and compliance.">
+<meta property="og:description" content="Data platform, governance, and AI advisory. 15+ years across semiconductor, healthcare, hospitality, games, SaaS, compliance, and utilities.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://millwrightdata.com/og-v2.png">
 <meta property="og:image:alt" content="Millwright Data. Sid Srivastava. Data platforms, governance, and AI advisory. millwrightdata.com">
@@ -25,258 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@100..900&display=swap">
 <script>document.documentElement.className="js"</script>
-<style>
-:root{
-  --bg:#F8F5EF;--bg2:#F0ECE3;--ink:#1B1B19;--muted:#5B584F;--accent:#35507A;--hairline:#DFDACE;
-  --face:"Archivo","Helvetica Neue",Arial,sans-serif;
-  --s1:8px;--s2:16px;--s3:24px;--s4:40px;--s5:64px;--s6:96px;
-  --band-y:clamp(48px,3.4vw + 22px,72px);--header-h:93px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:var(--header-h)}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--face);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;color-scheme:light}
-a{color:var(--accent);text-decoration:none;text-decoration-color:var(--accent)}
-a:hover{text-decoration:underline;text-underline-offset:3px}
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-h1,h2,h3{margin:0;font-family:var(--face);text-wrap:balance}
-h1{font-size:var(--h1-size,clamp(40px,5vw,68px));font-weight:730;letter-spacing:-0.028em;line-height:1.04}
-h2{font-size:clamp(32px,3.2vw,44px);font-weight:720;letter-spacing:-0.022em;line-height:1.1}
-h3{font-size:22px;font-weight:680;letter-spacing:-0.01em;line-height:1.25}
-p{margin:0 0 var(--s2)}
-ul,ol{margin:0;padding:0}
-.container{max-width:1064px;margin:0 auto;padding:0 24px}
-.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:8px 12px}
-.skip:focus{left:8px;top:8px;z-index:100}
-
-/* header */
-.site-header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--hairline)}
-.site-header .container{height:var(--header-h);display:flex;align-items:center;gap:28px}
-.site-header .brand{margin-right:auto}
-.hdr-flags{display:inline-flex;gap:8px;align-items:center;margin-right:-8px}
-.hdr-flag{position:relative;display:inline-flex;padding:0;border:0;background:none;cursor:help;border-radius:50%;line-height:0}
-.hdr-flag::before{content:"";position:absolute;inset:-4px;border-radius:50%}
-.hdr-flag .flag{width:22px;height:22px;border-radius:50%;display:block;transition:transform .18s ease}
-.hdr-flag:hover .flag,.hdr-flag:focus-visible .flag,.hdr-flag.is-open .flag{transform:scale(1.12)}
-.hdr-tip{position:absolute;top:calc(100% + 7px);right:-4px;z-index:40;width:max-content;max-width:min(215px,calc(100vw - 48px));background:var(--ink);color:rgba(255,255,255,.65);font-size:9.5px;font-weight:500;line-height:1.3;letter-spacing:.01em;text-align:left;padding:4px 7px;border-radius:5px;box-shadow:0 4px 12px rgba(27,27,25,.16);opacity:0;visibility:hidden;transform:translateY(-3px);transition:opacity .18s ease,transform .18s ease,visibility .18s;pointer-events:none}
-.hdr-tip b{display:block;color:#fff;font-weight:660;margin-top:0;font-size:10.5px}
-.hdr-tip::after{content:"";position:absolute;bottom:100%;right:10px;border:4px solid transparent;border-bottom-color:var(--ink)}
-.hdr-flag:hover .hdr-tip,.hdr-flag:focus-visible .hdr-tip,.hdr-flag.is-open .hdr-tip{opacity:1;visibility:visible;transform:none}
-@media (max-width:860px){
-.hdr-tip{right:auto;left:50%;transform:translate(-50%,-4px)}
-.hdr-tip::after{right:auto;left:50%;margin-left:-4px}
-.hdr-flag:hover .hdr-tip,.hdr-flag:focus-visible .hdr-tip,.hdr-flag.is-open .hdr-tip{transform:translateX(-50%)}
-}
-@media (prefers-reduced-motion:reduce){.hdr-flag .flag,.hdr-tip{transition:none}}
-.brand{font-weight:740;font-size:22px;letter-spacing:-0.02em;color:var(--ink)}
-.brand:hover{text-decoration:none}
-.brand{display:inline-flex;align-items:center}
-.wordmark{height:30px;width:auto;display:block}
-.wordmark.small{height:24px;margin-bottom:10px}
-@media (max-width:520px){.wordmark{height:24px}}
-.site-nav{display:flex;gap:28px;align-items:center}
-.site-nav a{color:var(--ink);font-size:15px;font-weight:520}
-.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:8px;padding:11px 20px;font:inherit;font-size:15px;font-weight:620;cursor:pointer;line-height:1.3}
-.btn:hover{text-decoration:none;background:#2C4468}
-.btn.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent)}
-.btn.secondary:hover{background:var(--bg2)}
-@media (max-width:860px){.site-nav{display:none}}
-
-/* hero */
-.hero{padding:56px 0 40px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:start}
-.hero-grid>*{min-width:0}
-.h1-rot{min-width:0}
-.hero .lede{font-size:clamp(18px,1.6vw,21px);line-height:1.5;color:var(--ink);max-width:60ch;margin-top:var(--s3)}
-.hero-cta{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap;margin-top:var(--s3)}
-.hero-cta .note{color:var(--muted);font-size:15px}
-.credits p{font-size:17px}
-.portrait img{width:300px;height:400px;max-width:100%;object-fit:cover;border-radius:8px;display:block;background:var(--bg2)}
-.portrait figcaption{margin-top:var(--s2);font-size:15px;color:var(--muted);line-height:1.45}
-.portrait figcaption b{display:block;color:var(--ink);font-weight:640;font-size:16px}
-.portrait figcaption .cap-1{display:block;font-size:15px}
-.portrait figcaption .cap-2{display:block;font-size:14px;margin-top:2px}
-@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.portrait{order:-1}.portrait img{width:220px;height:293px}}
-
-
-/* rotating word + gear */
-.h1-l{display:block}
-.h1-rot{display:flex;align-items:center;gap:.18em}
-.gear{width:.62em;height:.62em;fill:var(--accent);flex:none;animation:spin 9s linear infinite;transform-origin:50% 50%}
-@keyframes spin{to{transform:rotate(360deg)}}
-.rot-w{display:inline-grid;text-align:left}
-.rot-w>span{grid-area:1/1;opacity:0;transform:translateY(.35em);transition:opacity .45s ease,transform .45s ease;white-space:nowrap;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:.06em;text-underline-offset:.1em}
-.rot-w>span.is-on{opacity:1;transform:none}
-.rot-w>span.is-off{opacity:0;transform:translateY(-.35em)}
-.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-@media (prefers-reduced-motion:reduce){.gear{animation:none}.rot-w>span{transition:none}}
-/* tier icons */
-.wb-head{display:flex;align-items:center;gap:12px}
-.wb-ico{display:block;width:28px;height:28px;color:var(--muted);flex:none}
-.wb-ico svg{width:28px;height:28px;display:block}
-.wb-tier{font-size:28px;font-weight:700;letter-spacing:-0.015em}
-.wb-meta{margin-top:6px}
-.wx-cta a{font-weight:660;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
-/* logo row */
-.logo-row{list-style:none;display:flex;flex-wrap:wrap;gap:22px 40px;align-items:center;margin-top:var(--s3)}
-.logo-row li{display:flex;align-items:center}
-.logo-row img{height:28px;width:auto;opacity:.72;display:block}
-.logo-row img[alt="Puget Sound Energy"],.logo-row img[alt="ZS Associates"]{height:34px}
-.logo-row img[alt="Fontainebleau Las Vegas"]{height:38px}
-@media (max-width:520px){.logo-row{gap:16px 28px}.logo-row img{height:22px}}
-
-/* sections */
-section{padding:var(--band-y) 0;border-top:1px solid var(--hairline)}
-.eyebrow{display:block;font-size:13px;font-weight:660;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:var(--s2)}
-.sec-lede{font-size:clamp(18px,1.5vw,21px);color:var(--muted);max-width:66ch;margin-top:var(--s2)}
-.fn{font-size:.7em;color:var(--muted);line-height:0;margin-left:1px}
-
-/* background */
-.exp-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:var(--s4);margin-top:var(--s4);align-items:start}
-.exp-list{list-style:none}
-.exp-list li{padding:10px 0 10px 22px;position:relative;font-size:17px}
-.exp-list li::before{content:"";position:absolute;left:0;top:19px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
-.exp-list b{font-weight:660}
-.stats{background:var(--accent);color:#fff;border-radius:8px;padding:var(--s3);list-style:none;display:grid;gap:14px}
-.stat-head{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
-.stat-n{font-size:46px;font-weight:730;letter-spacing:-0.03em;line-height:1}
-.stat-u{font-size:22px;font-weight:680;letter-spacing:-0.01em}
-.stat-l{display:block;font-size:15px;color:rgba(255,255,255,.82);margin-top:4px;line-height:1.4}
-@media (max-width:860px){.exp-grid{grid-template-columns:1fr}}
-.credits{margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--hairline)}
-.credits p{color:var(--ink);font-size:17px}
-.credits small{display:block;margin-top:var(--s2);color:var(--muted);font-size:14px}
-
-/* work with me */
-.wb{list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:var(--s6);margin-top:var(--s3);border-top:2px solid var(--accent)}
-.wb-cell{padding:var(--s4) 0 var(--s4);border-bottom:1px solid var(--hairline)}
-.wb-meta{font-size:15px;color:var(--muted);margin:4px 0 var(--s2)}
-.wb-line{font-size:18px;margin-bottom:var(--s2)}
-.wb-eg{font-size:15px;color:var(--muted);margin-bottom:var(--s2)}
-.wx-cta{font-size:15px;margin:0}
-@media (max-width:760px){.wb{grid-template-columns:1fr;column-gap:0}}
-.caps{margin-top:var(--s5)}
-.caps h3{font-size:26px}
-.caps > p{color:var(--muted);margin-top:var(--s1)}
-.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);margin-top:var(--s3)}
-.cap-grid p{font-size:18px;font-weight:660;margin-bottom:var(--s1)}
-.cap-grid ul{list-style:none}
-.cap-grid li{font-size:17px;color:var(--muted);padding:5px 0 5px 18px;position:relative;line-height:1.5}
-.cap-grid li::before{content:"";position:absolute;left:0;top:calc(.75em + 3px);width:5px;height:5px;background:var(--ink)}
-@media (max-width:760px){.cap-grid{grid-template-columns:1fr}}
-.cta-row{display:flex;gap:var(--s2);align-items:center;justify-content:space-between;margin-top:var(--s5);flex-wrap:wrap}
-.cta-row span a{font-weight:660;text-decoration:underline;text-underline-offset:4px}
-.cta-row span{color:var(--muted);font-size:15px}
-
-/* how */
-.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0 var(--s4);margin-top:var(--s4);border-top:1px solid var(--hairline)}
-.steps li{position:relative;padding:var(--s3) 0 var(--s2)}
-.steps li::before{content:"";position:absolute;left:0;top:-2px;width:40px;height:3px;background:var(--ink)}
-.step-n{display:block;font-size:13px;font-weight:660;color:var(--muted);letter-spacing:.08em;margin-bottom:var(--s2)}
-.steps h3{font-size:22px;margin-bottom:var(--s2)}
-.steps p{font-size:17px;color:var(--muted);margin:0;line-height:1.5}
-@media (max-width:860px){.steps{grid-template-columns:1fr 1fr;border-top:0}.steps li{border-top:1px solid var(--hairline)}}
-@media (max-width:520px){.steps{grid-template-columns:1fr}}
-
-/* contact */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:var(--s4)}
-.contact-grid > div{padding-right:var(--s5);min-width:0}
-.contact-grid > div + div{border-left:1px solid var(--hairline);padding-left:var(--s5);padding-right:0}
-.contact-grid p{color:var(--ink);font-size:18px}
-.c-eyebrow{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:660;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:var(--s3)}
-.c-eyebrow svg{width:18px;height:18px;flex:none}
-.picker{margin-top:var(--s3)}
-.pk-title{font-size:22px;font-weight:680;letter-spacing:-.01em;margin:0 0 6px}
-.pk-note{font-size:15px;color:var(--muted);margin:0 0 var(--s2)}
-.pk-days{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;list-style:none}
-.pk-days::-webkit-scrollbar{display:none}
-.pk-day{flex:none;border:1px solid var(--hairline);background:var(--bg2);border-radius:10px;padding:9px 12px;text-align:center;cursor:pointer;font:inherit;color:var(--ink);min-width:78px;white-space:nowrap}
-.pk-day small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:660}
-.pk-day b{display:block;font-size:16px;font-weight:660;margin-top:2px}
-.pk-day[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
-.pk-day[aria-pressed="true"] small{color:rgba(255,255,255,.7)}
-.pk-times{display:flex;flex-wrap:nowrap;gap:10px;margin-top:var(--s2);list-style:none;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
-.pk-times::-webkit-scrollbar{display:none}
-.pk-time{display:inline-block;flex:none;white-space:nowrap;border:1.5px solid var(--ink);border-radius:10px;padding:11px 16px;font-size:16px;font-weight:640;color:var(--ink);background:transparent}
-.pk-time:hover{background:var(--ink);color:#fff;text-decoration:none}
-.pk-foot{font-size:14px;color:var(--muted);margin:var(--s2) 0 0}
-.pk-foot a{color:var(--ink);font-weight:640;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
-.field label .opt{font-weight:400;color:var(--muted)}
-.field{display:grid;gap:6px;margin-bottom:var(--s2)}
-.field label{font-size:16px;font-weight:640}
-.field input,.field textarea{font:inherit;font-size:16px;background:var(--bg);border:1px solid var(--muted);border-radius:6px;padding:14px 12px;color:var(--ink);width:100%}
-.field textarea{min-height:120px;resize:vertical}
-.form-note{font-size:13px;color:var(--muted);margin-top:var(--s2)}
-.form-status{margin:var(--s2) 0 0;font-size:15px;color:var(--ink);min-height:1.5em}
-.entities{margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--hairline);display:flex;gap:var(--s4) var(--s5);flex-wrap:wrap}
-.ent{display:flex;gap:12px;align-items:center}
-.ent .flag{width:36px;height:36px;flex:none;border-radius:50%}
-.ent b{font-size:17px;font-weight:660}
-.form-status.err{color:#9B2C2C}
-.form-done{font-size:18px;color:var(--ink);margin:0}
-.btn[disabled]{opacity:.6;cursor:default}
-.form-note a{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:3px}
-@media (max-width:760px){.contact-grid{grid-template-columns:1fr;gap:var(--s4)}.contact-grid > div{padding-right:0}.contact-grid > div + div{border-left:0;padding-left:0}.field-row{grid-template-columns:1fr}}
-
-/* writing */
-.writing .sec-lede{max-width:66ch}
-.post{margin-top:var(--s3)}
-.post-embed{display:block;width:100%;max-width:none;height:600px;border:1px solid var(--hairline);border-radius:8px;background:#fff}
-.post-links{margin:var(--s2) 0 0;font-size:15px;color:var(--muted)}
-.post-links a{font-weight:660;text-decoration:underline;text-underline-offset:3px}
-@media (max-width:520px){.post-embed{height:620px}}
-
-/* bands (sand blocks) */
-section.band{background:var(--bg2);border-top:0}
-section.band + section{border-top:0}
-.box{background:var(--bg);border:1px solid var(--hairline);border-radius:12px;padding:var(--s4)}
-@media (max-width:520px){.box{padding:var(--s3)}}
-
-/* achievements carousel */
-.ach{background:var(--accent);color:#fff;border-radius:8px;padding:var(--s3);position:relative}
-.ach-k{display:block;font-size:13px;font-weight:660;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:14px}
-.stats{list-style:none;display:grid;margin:0;padding:0;background:transparent;border-radius:0}
-.stats li{grid-area:1/1;opacity:0;transform:translateY(10px);transition:opacity .55s ease,transform .55s ease;pointer-events:none}
-.stats li.is-on{opacity:1;transform:none;pointer-events:auto}
-.stat-n{font-size:56px;font-weight:730;letter-spacing:-0.03em;line-height:1}
-.stat-l{font-size:16px;margin-top:10px}
-.ach-dots{display:flex;gap:0;margin-top:calc(var(--s3) - 8px);margin-left:-8px}
-.ach-dots button{position:relative;width:24px;height:24px;border-radius:50%;border:0;padding:0;background:none;cursor:pointer}
-.ach-dots button::before{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:rgba(255,255,255,.35);transition:background .3s ease,transform .3s ease}
-.ach-dots button[aria-selected="true"]::before{background:#fff;transform:scale(1.25)}
-.ach-dots button:focus-visible{outline-color:#fff}
-@media (prefers-reduced-motion:reduce){.stats li{transition:none}}
-
-/* scroll-in reveals */
-html.js .rv{opacity:0;transform:translateY(18px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
-html.js .rv.rv-x{transform:translateX(-22px)}
-html.js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){html.js .rv{opacity:1;transform:none;transition:none}}
-
-/* footer */
-footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--muted);font-size:16px}
-.foot-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--s6);align-items:start}
-@media (max-width:860px){.foot-grid{grid-template-columns:1fr;gap:var(--s4)}}
-.foot-mail{display:inline-block;margin-top:var(--s2);color:var(--ink);font-size:17px;font-weight:500;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:4px}
-.foot-grid .brand{font-size:20px}
-.foot-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:var(--s4)}
-.foot-links a{color:var(--muted);display:inline-flex}
-.foot-links a:hover{color:var(--ink)}
-.foot-links svg{width:24px;height:24px;display:block}
-.legal{margin-top:var(--s4);font-size:15px;max-width:60ch;line-height:1.55}
-.legal + .legal{margin-top:var(--s2)}
-.foot-privacy{color:var(--ink);font-size:16px;font-weight:500;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
-.define{margin:0;background:var(--bg2);border:1px solid var(--hairline);border-radius:3px;padding:14px 16px 16px;font-family:Georgia,"Times New Roman",Times,serif;color:var(--ink)}
-.define strong{font-size:18px;font-weight:700;color:var(--ink);font-family:inherit;letter-spacing:-0.01em}
-.define .ipa{margin-left:6px;color:var(--muted);font-size:12px}
-.define .pos{margin-left:6px;font-style:italic;font-size:12px}
-.define p{margin:8px 0 0;color:var(--ink);line-height:1.45;font-size:13px}
-.define .sense{display:flex;gap:8px}
-.define .sense .n{font-size:11px;line-height:1.75;flex:none}
-.define .origin{font-size:12px;margin-top:10px;color:var(--muted)}
-.define .origin-k{font-variant:small-caps;font-weight:700;letter-spacing:.08em;margin-right:5px;color:var(--ink)}
-</style>
+<link rel="stylesheet" href="/assets/site.css">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -357,18 +106,21 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
 <header class="site-header">
   <div class="container">
     <a class="brand" href="#top" aria-label="Millwright Data home"><img class="wordmark" src="data:image/png;base64,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" alt="Millwright" width="560" height="122"></a>
-    <nav class="site-nav" aria-label="Main">
-      <a href="#experience">Background</a>
-      <a href="#work">Services</a>
-      <a href="#how">How I work</a>
-      <a href="#contact">Contact</a>
-      <a href="#writing">Writing</a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+<!-- build:nav -->
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Case studies</a>
+      <a href="/writing/">Writing</a>
+      <a href="/#contact">Contact</a>
+<!-- /build:nav -->
     </nav>
     <span class="hdr-flags">
       <button type="button" class="hdr-flag" aria-label="Operates as Millwright Data LLC, United States"><svg class="flag" aria-hidden="true"><use href="#flag-us"/></svg><span class="hdr-tip" aria-hidden="true">Operates as: <b>Millwright Data LLC, United States</b></span></button>
       <button type="button" class="hdr-flag" aria-label="Operates as Millwright Data OÜ, European Union"><svg class="flag" aria-hidden="true"><use href="#flag-eu"/></svg><span class="hdr-tip" aria-hidden="true">Operates as: <b>Millwright Data OÜ, European Union</b></span></button>
     </span>
     <a class="btn" href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
 </header>
 
@@ -377,7 +129,7 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
   <div class="container hero-grid">
     <div>
       <h1><span class="h1-l">Machinery that</span><span class="h1-l">keeps your</span><span class="h1-l h1-rot"><svg class="gear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.7 7.7 0 0 0-1.7-1L15 3.3H9l-.3 2.6a7.7 7.7 0 0 0-1.7 1l-2.5-1-2 3.5L4.6 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.7 7.7 0 0 0 1.7 1L9 20.7h6l.3-2.6a7.7 7.7 0 0 0 1.7-1l2.5 1 2-3.5L19.4 13ZM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7Z"/></svg><span class="visually-hidden">business</span><span class="rot-w" aria-hidden="true"><span data-word="game studio" class="is-on">game studio</span><span data-word="semiconductor fab">semiconductor fab</span><span data-word="clinic">clinic</span><span data-word="casino">casino</span><span data-word="SaaS product">SaaS product</span><span data-word="utility">utility</span><span data-word="compliance team">compliance team</span></span></span><span class="h1-l">turning.</span></h1>
-      <p class="lede">After 15 years running data platforms in semiconductor manufacturing, healthcare, hospitality, AAA games, SaaS, and compliance, I now bring that work to you. Architecture, governance, cost, and the path from a model to production, built to hold up when the business leans on it.</p>
+      <p class="lede">After 15 years running data platforms in semiconductor manufacturing, healthcare, hospitality, games, SaaS, compliance, and utilities, I now bring that work to you. Architecture, governance, cost, and the path from model to production, built to hold up when the business leans on it.</p>
       <div class="hero-cta">
         <a class="btn" href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a>
         <span class="note">Thirty minutes, free. No pitch.</span>
@@ -395,6 +147,9 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
     <span class="eyebrow">Background</span>
     <h2>Seven industries. One discipline.</h2>
     <p class="sec-lede">Every one of these had different regulators, different data volumes, and different ideas about what "done" means. What carried across was the platform work: governed storage, reliable pipelines, a semantic layer people trust, and a clean path from a model to production. I have built that machinery at fab scale, under HIPAA, on a casino floor, and inside live games.</p>
+    <ul class="chips" aria-label="Industries"><!-- build:industries -->
+<li><a href="/industries/semiconductor/">Semiconductor</a></li><li><a href="/industries/healthcare/">Healthcare</a></li><li><a href="/industries/hospitality/">Hospitality</a></li><li><a href="/industries/games/">Games</a></li><li><a href="/industries/saas/">SaaS</a></li><li><a href="/industries/compliance/">Compliance</a></li><li><a href="/industries/utilities/">Utilities</a></li>
+<!-- /build:industries --></ul>
     <div class="exp-grid">
       <ul class="exp-list rv">
         <li>Built and scaled data architecture, governance, quality, and MLOps teams at 2K Games, serving multiple studios on AWS, Snowflake, and Databricks</li>
@@ -407,7 +162,7 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
       <span class="ach-k">Selected results</span>
       <ul class="stats">
         <li class="is-on"><span class="stat-head"><span class="stat-n">7</span><span class="stat-u">industries</span></span><span class="stat-l">semiconductor, healthcare, hospitality, games, SaaS, compliance, and utilities.</span></li>
-        <li><span class="stat-head"><span class="stat-n">70,000+</span><span class="stat-u">datasets</span></span><span class="stat-l">catalogued across Snowflake and Databricks in one metadata rollout, ahead of schedule.</span></li>
+        <li><span class="stat-head"><span class="stat-n">70,000+</span><span class="stat-u">datasets</span></span><span class="stat-l">cataloged across Snowflake and Databricks in one metadata rollout, ahead of schedule.</span></li>
         <li><span class="stat-head"><span class="stat-n">99.8%</span><span class="stat-u">uptime</span></span><span class="stat-l">on production pipelines feeding high-volume ML training for a SaaS MLOps venture.</span></li>
         <li><span class="stat-head"><span class="stat-n">$425M</span><span class="stat-u">acquisition</span></span><span class="stat-l">supported by the growth analytics foundation I built for a regulated DTC health business.</span></li>
         <li><span class="stat-head"><span class="stat-n">30%</span><span class="stat-u">lift</span></span><span class="stat-l">in data discovery, quality, and reliability from SLAs, monitoring, and CI/CD gate checks.</span></li>
@@ -431,32 +186,32 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
     <h3 style="margin-top:var(--s4)">Four ways to work together.</h3>
     <ul class="wb">
       <li class="wb-cell rv" style="--d:0.00s">
-        <div class="wb-head"><span class="wb-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></span><h3 class="wb-tier">Diagnostic</h3></div>
+        <div class="wb-head"><span class="wb-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></span><h3 class="wb-tier"><a href="/services/diagnostic/">Diagnostic</a></h3></div>
         <p class="wb-meta">Two weeks, fixed fee.</p>
-        <p class="wb-line">A number moved and nobody can say why, or you are about to sign a large vendor contract. I read your architecture, cost data, and governance as it actually runs and hand you a written findings memo with a fix-first order.</p>
+        <p class="wb-line">A number moved and nobody can say why, or you are about to sign a large vendor contract. I read your architecture, cost data, and governance as they actually run, and hand you a written findings memo with a fix-first order.</p>
         <p class="wb-eg">Warehouse and cluster spend review, catalog and lineage gap analysis, or a second opinion on an AI vendor shortlist.</p>
-        <p class="wx-cta"><a href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a></p>
+        <p class="wx-cta"><a href="/services/diagnostic/">How it works</a><span class="sep">·</span><a href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a></p>
       </li>
       <li class="wb-cell rv" style="--d:0.08s">
-        <div class="wb-head"><span class="wb-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.1 2.1 0 1 1-3-3L12 9"/><path d="M17.6 12.4 20 10l-6-6-2.4 2.4"/><path d="M14 4 8 10"/><path d="m18 3 3 3"/></svg></span><h3 class="wb-tier">Build</h3></div>
+        <div class="wb-head"><span class="wb-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.1 2.1 0 1 1-3-3L12 9"/><path d="M17.6 12.4 20 10l-6-6-2.4 2.4"/><path d="M14 4 8 10"/><path d="m18 3 3 3"/></svg></span><h3 class="wb-tier"><a href="/services/build/">Build</a></h3></div>
         <p class="wb-meta">Two to four sprints, defined deliverable.</p>
         <p class="wb-line">You know what you need and want it built properly. I design it, build it with your engineers, document it, and leave it running in your accounts. Your team owns it on day one.</p>
         <p class="wb-eg">A metadata catalog rollout, FinOps dashboards and workload policies, a semantic layer with governed metrics, or a model-to-production pipeline with CI gates.</p>
-        <p class="wx-cta"><a href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a></p>
+        <p class="wx-cta"><a href="/services/build/">How it works</a><span class="sep">·</span><a href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a></p>
       </li>
       <li class="wb-cell rv" style="--d:0.16s">
-        <div class="wb-head"><span class="wb-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h5"/><path d="M17.5 17.5 16 16.3V14"/><circle cx="16" cy="16" r="6"/></svg></span><h3 class="wb-tier">Retainer</h3></div>
+        <div class="wb-head"><span class="wb-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h5"/><path d="M17.5 17.5 16 16.3V14"/><circle cx="16" cy="16" r="6"/></svg></span><h3 class="wb-tier"><a href="/services/retainer/">Retainer</a></h3></div>
         <p class="wb-meta">On-call, monthly advisory.</p>
         <p class="wb-line">Your team has the people, but you want a senior data and AI platform leader to stress-test the plan. Roadmaps, vendor negotiations, executive readouts, and hiring plans.</p>
         <p class="wb-eg">Build-versus-buy calls on AI tooling, org design for your first governance and MLOps functions, or reviewing the data platform line in the budget.</p>
-        <p class="wx-cta"><a href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a></p>
+        <p class="wx-cta"><a href="/services/retainer/">How it works</a><span class="sep">·</span><a href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a></p>
       </li>
       <li class="wb-cell rv" style="--d:0.24s">
-        <div class="wb-head"><span class="wb-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span><h3 class="wb-tier">Head of Data</h3></div>
+        <div class="wb-head"><span class="wb-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span><h3 class="wb-tier"><a href="/services/head-of-data/">Head of Data</a></h3></div>
         <p class="wb-meta">Two to three days a week.</p>
-        <p class="wb-line">You need a data platform leader before you are ready to hire one. I set the roadmap with your leadership team, then the hiring plan and the metrics you run on, and hand it to whoever comes next.</p>
+        <p class="wb-line">You need a data platform leader before you are ready to hire one. I set the roadmap with your leadership team, then the hiring plan and the metrics you run on, and hand them to whoever comes next.</p>
         <p class="wb-eg">The platform roadmap for a new product, hiring your first data engineer, or getting AI spend under control.</p>
-        <p class="wx-cta"><a href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a></p>
+        <p class="wx-cta"><a href="/services/head-of-data/">How it works</a><span class="sep">·</span><a href="https://cal.com/millwright-data" target="_blank" rel="noopener">Book a call</a></p>
       </li>
     </ul>
     <div class="caps">
@@ -509,6 +264,18 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
   </div>
 </section>
 
+<section id="case-studies">
+  <div class="container rv">
+    <span class="eyebrow">Case studies</span>
+    <h2>Selected work</h2>
+    <p class="sec-lede">Four platforms I led, what was broken when I arrived, and what changed. Company names are withheld. Every figure is one I can walk you through.</p>
+    <ul class="cards"><!-- build:work -->
+<li class="card"><div class="thumb"><img src="/assets/img/work-games-metadata-catalog-sm.webp" width="720" height="540" alt="" loading="lazy" decoding="async"></div><span class="card-k">Games</span><div class="stat">70,000+</div><h3><a href="/work/games-metadata-catalog/">Cataloging 70,000 datasets across two data platforms</a></h3><p>A publisher with several studios and two data platforms had no single place to find a dataset or see where it came from. A structured proof of concept picked the catalog, and the rollout finished early.</p><span class="more">Read the case study</span></li><li class="card"><div class="thumb"><img src="/assets/img/work-health-data-foundation-sm.webp" width="720" height="540" alt="" loading="lazy" decoding="async"></div><span class="card-k">Healthcare</span><div class="stat">$425M</div><h3><a href="/work/health-data-foundation/">The data foundation behind a $425M acquisition</a></h3><p>A fast-growing subscription health business needed governed data under HIPAA, PCI DSS, and SOX. The foundation supported its growth analytics and a $425M acquisition.</p><span class="more">Read the case study</span></li><li class="card"><div class="thumb"><img src="/assets/img/work-semiconductor-ml-pipelines-sm.webp" width="720" height="540" alt="" loading="lazy" decoding="async"></div><span class="card-k">Semiconductor</span><div class="stat">99.8%</div><h3><a href="/work/semiconductor-ml-pipelines/">Keeping ML training pipelines at 99.8% uptime</a></h3><p>A semiconductor manufacturer&#x27;s SaaS MLOps venture needed pipelines that customers could count on. They ran at 99.8% uptime while volumes grew across fabs.</p><span class="more">Read the case study</span></li><li class="card"><div class="thumb"><img src="/assets/img/work-hospitality-governance-sm.webp" width="720" height="540" alt="" loading="lazy" decoding="async"></div><span class="card-k">Hospitality</span><div class="stat">25%</div><h3><a href="/work/hospitality-governance/">Governed reporting across a dozen systems for a resort operator</a></h3><p>A resort operator had a dozen marketing and finance systems and no agreed version of the numbers. A governed lakehouse cut report cycles by 25%.</p><span class="more">Read the case study</span></li>
+<!-- /build:work --></ul>
+    <p class="wx-cta" style="margin-top:var(--s3)"><a href="/work/">All case studies</a></p>
+  </div>
+</section>
+
 <section id="how" class="band">
   <div class="container rv">
     <span class="eyebrow">Process</span>
@@ -522,7 +289,7 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
       <li class="rv rv-x" style="--d:0.10s">
         <span class="step-n">02</span>
         <h3>Scope on one page.</h3>
-        <p>The problem, what done looks like, the timeline, and the price, on a single page. If anything changes, the page changes first. No surprises in the invoice.</p>
+        <p>The problem, what done looks like, the timeline, and the price, on a single page. If anything changes, the page changes first. No surprises on the invoice.</p>
       </li>
       <li class="rv rv-x" style="--d:0.20s">
         <span class="step-n">03</span>
@@ -576,14 +343,15 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
 
 <section id="writing" class="writing band">
   <div class="container rv">
-    <div class="box">
     <span class="eyebrow">Writing</span>
-    <h2>Latest from LinkedIn</h2>
-    <p class="sec-lede">I write about what I am learning and working on: data platform economics, governance that actually gets used, and where AI earns its keep in a data organization.</p>
-    <div class="post">
-      <iframe class="post-embed" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7507253132435902464" title="Latest LinkedIn post by Sid Srivastava" loading="lazy" allowfullscreen></iframe>
-      <p class="post-links"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7507253132435902464/" target="_blank" rel="noopener">Read it on LinkedIn</a> · <a href="https://www.linkedin.com/in/srivastava-sid" target="_blank" rel="noopener">Follow for more</a></p>
-    </div>
+    <h2>Straight answers to the questions buyers ask</h2>
+    <p class="sec-lede">Each piece answers the question in its first two sentences, then goes as deep as the problem needs.</p>
+    <ul class="post-list"><!-- build:writing -->
+<li><div class="thumb"><img src="/assets/img/writing-why-is-our-snowflake-bill-so-high-sm.webp" width="720" height="540" alt="" loading="lazy" decoding="async"></div><div><h3><a href="/writing/why-is-our-snowflake-bill-so-high/">Why is our Snowflake bill so high?</a></h3><p>Usually because warehouses run longer and larger than the work needs. How billing works, the six usual causes, and the order to fix them in.</p><span class="meta">September 22, 2026 · 4 min read</span></div></li><li><div class="thumb"><img src="/assets/img/writing-do-we-need-a-semantic-layer-before-ai-sm.webp" width="720" height="540" alt="" loading="lazy" decoding="async"></div><div><h3><a href="/writing/do-we-need-a-semantic-layer-before-ai/">Do we need a semantic layer before we add AI to analytics?</a></h3><p>If you want AI to answer questions about your metrics, yes. What a semantic layer does, why AI makes it urgent, and how to start with the metrics in your board deck.</p><span class="meta">September 22, 2026 · 3 min read</span></div></li><li><div class="thumb"><img src="/assets/img/writing-when-to-hire-a-fractional-head-of-data-sm.webp" width="720" height="540" alt="" loading="lazy" decoding="async"></div><div><h3><a href="/writing/when-to-hire-a-fractional-head-of-data/">When should we hire a fractional head of data?</a></h3><p>When data decisions are piling up faster than anyone senior can make them, but a full-time executive is not yet justified. The signs, the first 90 days, and how it ends.</p><span class="meta">September 22, 2026 · 3 min read</span></div></li><li><div class="thumb"><img src="/assets/img/writing-is-our-data-ready-for-ai-sm.webp" width="720" height="540" alt="" loading="lazy" decoding="async"></div><div><h3><a href="/writing/is-our-data-ready-for-ai/">Is our data ready for AI?</a></h3><p>Ready means you can find it, trust it, trace it, and control who sees it. Four checks, a five-question self-test, and what to fix first.</p><span class="meta">September 22, 2026 · 3 min read</span></div></li>
+<!-- /build:writing --></ul>
+    <div class="cta-row" style="margin-top:var(--s3)">
+      <a class="btn secondary" href="/writing/">All writing</a>
+      <span>I share each piece on <a href="https://www.linkedin.com/in/srivastava-sid" target="_blank" rel="noopener">LinkedIn</a> too.</span>
     </div>
   </div>
 </section>
@@ -612,6 +380,7 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
   </div>
 </footer>
 
+<script src="/assets/site.js"></script>
 <script>
 (function(){
   var h1=document.querySelector('.hero h1'),rot=h1&&h1.querySelector('.rot-w'),gear=h1&&h1.querySelector('.gear');
@@ -637,28 +406,6 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
     nxt.classList.remove('is-off');nxt.classList.add('is-on');
     setTimeout(function(){cur.classList.remove('is-off')},500);
   },2600);
-})();
-(function(C,A,L){var p=function(a,ar){a.q.push(ar)};var d=C.document;C.Cal=C.Cal||function(){var cal=C.Cal;var ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){var api=function(){p(api,arguments)};var namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace])}else p(cal,ar);return}p(cal,ar)}})(window,"https://app.cal.com/embed/embed.js","init");
-(function(){
-  Cal("init",{origin:"https://cal.com"});
-  Cal("ui",{styles:{branding:{brandColor:"#35507A"}},hideEventTypeDetails:false,layout:"month_view"});
-  var sc=document.querySelector('script[src="https://app.cal.com/embed/embed.js"]'),ready=false;
-  if(sc){sc.addEventListener('load',function(){ready=true});sc.addEventListener('error',function(){ready=false})}
-  document.addEventListener('click',function(e){
-    var a=e.target.closest&&e.target.closest('a[href^="https://cal.com/millwright-data"]');
-    if(!a||!ready||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
-    e.preventDefault();
-    Cal("modal",{calLink:a.getAttribute('href').replace('https://cal.com/','')});
-  });
-})();
-(function(){
-  var flags=[].slice.call(document.querySelectorAll('.hdr-flag'));if(!flags.length)return;
-  function closeAll(except){flags.forEach(function(f){if(f!==except)f.classList.remove('is-open')})}
-  flags.forEach(function(f){
-    f.addEventListener('click',function(e){e.preventDefault();var on=f.classList.contains('is-open');closeAll();if(!on)f.classList.add('is-open')});
-  });
-  document.addEventListener('click',function(e){if(!e.target.closest||!e.target.closest('.hdr-flag'))closeAll()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
 })();
 (function(){
   var box=document.getElementById('picker'),fallback=document.getElementById('book-call');
@@ -746,14 +493,6 @@ footer{border-top:1px solid var(--hairline);padding:88px 0 96px;color:var(--mute
   box.addEventListener('mouseenter',stop);box.addEventListener('mouseleave',start);
   box.addEventListener('focusin',stop);box.addEventListener('focusout',start);
   start();
-})();
-(function(){
-  var els=[].slice.call(document.querySelectorAll('.rv'));if(!els.length)return;
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
-  },{rootMargin:'0px 0px -10% 0px',threshold:0.08});
-  els.forEach(function(e){io.observe(e)});
 })();
 </script>
 </body>
