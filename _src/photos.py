@@ -16,13 +16,13 @@ SHADOW, MID, HIGHLIGHT = (31, 45, 69), (178, 168, 152), (250, 246, 238)
 # Horizontal focal point (0 = left edge, 1 = right edge) for the 4:3 crop.
 FOCUS = {
     "industry-healthcare": .62, "industry-hospitality": .4, "industry-saas": .36,
-    "service-retainer": .62, "service-diagnostic": .45, "work-health-data-foundation": .78,
+    "service-retainer": .62, "service-diagnostic": .45, "work-games-metadata-catalog": .42,
     "work-hospitality-governance": .55, "writing-hub": .55, "writing-is-our-data-ready-for-ai": .3,
     "writing-why-is-our-snowflake-bill-so-high": .45,
 }
 # Photos that arrive very saturated get pulled back further.
 LOUD = {"industry-semiconductor", "writing-why-is-our-snowflake-bill-so-high",
-        "writing-do-we-need-a-semantic-layer-before-ai", "work-games-metadata-catalog", "services-hub", "industry-saas"}
+        "writing-do-we-need-a-semantic-layer-before-ai", "work-health-data-foundation", "industry-saas"}
 
 
 def crop43(im, fx):
