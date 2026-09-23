@@ -16,6 +16,7 @@ import re
 import subprocess
 import sys
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -23,7 +24,9 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://millwrightdata.com"
 HOST = "millwrightdata.com"
 KEY = "8b9bdfe224d722798d99dc9c073b68f6"  # also the name and content of /<KEY>.txt
-ENDPOINT = "https://api.indexnow.org/indexnow"
+# api.indexnow.org shares submissions with every IndexNow engine. Set INDEXNOW_ENDPOINT
+# to https://www.bing.com/indexnow to send straight to Bing.
+ENDPOINT = os.environ.get("INDEXNOW_ENDPOINT") or "https://api.indexnow.org/indexnow"
 
 
 def sitemap_urls():
@@ -94,8 +97,12 @@ def submit(urls):
     body = json.dumps({"host": HOST, "key": KEY, "keyLocation": f"{SITE}/{KEY}.txt", "urlList": urls}).encode()
     req = urllib.request.Request(ENDPOINT, data=body, method="POST",
                                  headers={"Content-Type": "application/json; charset=utf-8"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return r.status
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return r.status
+    except urllib.error.HTTPError as exc:  # 400 bad request, 403 key not valid, 422 URL not on host, 429 too many
+        print("IndexNow error body:", exc.read().decode(errors="replace")[:500])
+        return exc.code
 
 
 def main(args):
@@ -109,6 +116,7 @@ def main(args):
         return 0
     wait_for_pages(os.environ.get("GITHUB_SHA"))
     status = submit(urls)
+    print("IndexNow endpoint:", ENDPOINT)
     print("IndexNow responded", status)  # 200 or 202 means accepted
     return 0 if status in (200, 202) else 1
 

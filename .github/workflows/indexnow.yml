@@ -11,6 +11,13 @@ on:
         description: Submit every URL in sitemap.xml
         type: boolean
         default: false
+      endpoint:
+        description: Where to submit
+        type: choice
+        options:
+          - https://api.indexnow.org/indexnow
+          - https://www.bing.com/indexnow
+        default: https://api.indexnow.org/indexnow
 
 permissions:
   contents: read
@@ -30,4 +37,5 @@ jobs:
       - name: Submit changed pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INDEXNOW_ENDPOINT: ${{ inputs.endpoint }}
         run: python3 _src/indexnow.py ${{ inputs.all && '--all' || '' }}
