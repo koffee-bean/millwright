@@ -384,3 +384,7 @@ html.menu-open .menu-btn .x{display:block}
 .post-list .thumb img{display:block;width:100%;height:100%;object-fit:cover}
 @media (max-width:620px){.post-list li{grid-template-columns:96px minmax(0,1fr);gap:16px;align-items:start}}
 @media (prefers-reduced-motion:reduce){.card .thumb img{transition:none}.card:hover .thumb img{transform:none}}
+.linkedin-latest{margin-top:var(--s5);max-width:720px}
+.linkedin-latest h2{font-size:clamp(24px,2.4vw,30px);margin:0}
+.share-line{margin-top:var(--s2);font-size:16px;color:var(--muted)}
+.share-line a{font-weight:660;text-decoration:underline;text-underline-offset:3px}
