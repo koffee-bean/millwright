@@ -238,6 +238,30 @@ def lookup(pages, section, slug):
 PHOTO_PREFIX = {"services": "service", "industries": "industry", "work": "work", "writing": "writing"}
 
 
+# Alt text for every photo in assets/img. The build stops if a photo has none.
+PHOTO_ALT = {
+    "industry-compliance": "A hand signing a printed document with a fountain pen",
+    "industry-games": "A black game controller on a white surface",
+    "industry-healthcare": "A stethoscope on a white desk beside a small potted succulent",
+    "industry-hospitality": "A made hotel bed with white linen beside a tall window",
+    "industry-saas": "A laptop and a pair of glasses on a wooden desk, seen from above",
+    "industry-semiconductor": "Close-up of a silicon wafer showing rows of chips",
+    "industry-utilities": "Electricity pylons and power lines under a pale sky",
+    "service-build": "A pencil and a scale ruler resting on a technical drawing",
+    "service-diagnostic": "A magnifying glass, a notepad, and a pencil on a white desk",
+    "service-head-of-data": "A leather notebook, a spiral notepad, and a pen on a concrete desk",
+    "service-retainer": "An open monthly planner with a pen and a sticky note",
+    "work-games-metadata-catalog": "Close-up of the face buttons on a game controller",
+    "work-health-data-foundation": "Three amber supplement bottles on a light surface",
+    "work-hospitality-governance": "A long, quiet hotel corridor",
+    "work-semiconductor-ml-pipelines": "Close-up of a dark circuit board with gold contacts",
+    "writing-why-is-our-snowflake-bill-so-high": "A calculator and a white pen on a desk",
+    "writing-do-we-need-a-semantic-layer-before-ai": "Sheets of paper fanned out in overlapping layers",
+    "writing-when-to-hire-a-fractional-head-of-data": "An empty desk and chair between two tall windows",
+    "writing-is-our-data-ready-for-ai": "A clipboard holding a bulleted list, beside a pen and a laptop",
+}
+
+
 def photo_name(section, slug=None):
     """assets/img/<name>.webp for a page, or None if there is no photo."""
     name = f"{section}-hub" if slug is None else f"{PHOTO_PREFIX[section]}-{slug}"
@@ -248,8 +272,10 @@ def thumb(p):
     name = photo_name(p["section"], p["slug"])
     if not name:
         return ""
+    if name not in PHOTO_ALT:
+        raise SystemExit(f"assets/img/{name}.webp has no alt text. Add it to PHOTO_ALT in _src/build.py")
     return (f'<div class="thumb"><img src="/assets/img/{name}-sm.webp" width="720" height="540" '
-            f'alt="" loading="lazy" decoding="async"></div>')
+            f'alt="{esc(PHOTO_ALT[name])}" loading="lazy" decoding="async"></div>')
 
 
 SINGULAR = {"services": "Service", "industries": "Industry", "work": "Case study", "writing": "Article"}
@@ -365,7 +391,7 @@ def build_article(p, pages):
             f'<span>{p["date_label"]}</span><span>{minutes} min read</span></div>')
     head = page_head("Writing", esc(p["title"]), "", trail, extra=meta, cls="q")
     answer = f'<div class="answer"><span class="k">Short answer</span><p>{p["answer"]}</p></div>'
-    author = ('<div class="author"><img src="/assets/sid.jpg" alt="" width="60" height="60" loading="lazy">'
+    author = ('<div class="author"><img src="/assets/sid.jpg" alt="Portrait of Sid Srivastava" width="60" height="60" loading="lazy">'
               '<p><b>Sid Srivastava</b>Founder of Millwright Data. He has run data platforms in semiconductor '
               'manufacturing, digital health, hospitality, and AAA games, on Snowflake, Databricks, and AWS.</p></div>')
     rel = related_block(pages, [lookup(pages, "services", s) for s in p.get("services", "").split(",") if s.strip()]
