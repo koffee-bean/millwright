@@ -59,14 +59,14 @@ def build():
     data = json.loads(DATA.read_text(encoding="utf-8"))
     whisky = [b for b in data["bottles"] if b["region"] != "Not whisky"]
     aged = [b for b in whisky if b.get("age")]
-    stats = [f"<b>{len(whisky)}</b> whiskies", f"<b>{len({b['country'] for b in whisky})}</b> countries",
-             f"<b>{len(aged)}</b> with an age statement"]
+    stats = [(len(whisky), "Whiskies"), (len({b["country"] for b in whisky}), "Countries"),
+             (len(aged), "With an age statement")]
     if aged:
-        stats.append(f"Oldest <b>{max(b['age'] for b in aged)} yr</b>")
+        stats.append((max(b["age"] for b in aged), "Years, the oldest"))
     updated = datetime.date.fromisoformat(data["updated"]).strftime("%B %-d, %Y")
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     page = (PAGE_TEMPLATE.read_text(encoding="utf-8")
-                .replace("__STATS__", "".join(f"<li>{s}</li>" for s in stats))
+                .replace("__STATS__", "".join(f"<li><b>{n}</b><span>{label}</span></li>" for n, label in stats))
                 .replace("__UPDATED__", html.escape(updated))
                 .replace("__DATA__", payload))
     OUT.mkdir(exist_ok=True)
