@@ -391,7 +391,8 @@
    "id": "twelve33-oak-valor",
    "name": "Twelve 33 Oak & Valor Bottled-in-Bond",
    "country": "USA",
-   "region": "Washington",
+   "region": "Other USA",
+   "state": "South Carolina",
    "style": "Bourbon",
    "age_note": "bottled-in-bond, at least 4 years",
    "abv": "50% (100 proof)"
@@ -400,7 +401,8 @@
    "id": "twelve33-big-six",
    "name": "Twelve 33 Big Six Triple Oak",
    "country": "USA",
-   "region": "Washington",
+   "region": "Other USA",
+   "state": "South Carolina",
    "style": "Bourbon",
    "abv": "50% (100 proof)",
    "notes": "Finished with French and American oak spirals"
