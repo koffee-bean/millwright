@@ -525,6 +525,9 @@ def main():
     for section in ORDER:
         build_hub(section, pages[section])
     update_home(pages)
+    whisky = ROOT / "whisky" / "index.html"  # unlisted page built by _src/whisky.py, kept out of nav and sitemap
+    if whisky.exists():
+        whisky.write_text(asset_versions(whisky.read_text(encoding="utf-8")), encoding="utf-8")
     n = write_sitemap(pages)
     write_llms(pages)
     counts = ", ".join(f"{len(pages[s])} {s}" for s in ORDER)
