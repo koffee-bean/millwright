@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Griffin's Loot</title>
+<meta name="theme-color" content="#2a190e">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap">
+<style>
+:root{
+  --wood-0:#1c1109;--wood-1:#2a190e;--wood-2:#3d2515;--plank-hi:#a06c3b;--plank:#6e4424;--plank-lo:#3f2513;
+  --paper:#f0e2c3;--paper-2:#e2cfa4;--ink:#2a1a0e;--ink-2:#5b4229;--rule:#8a6a3d;
+  --brass-hi:#e2c172;--brass:#c49a48;--brass-lo:#7e5f25;--oxblood:#7c2617;--oxblood-d:#4e150b;--cream:#f2e4c4;--cream-2:#cdb68e;
+  --serif:"EB Garamond",Garamond,"Times New Roman",serif;
+  --fell:"IM Fell English",Garamond,"Times New Roman",serif;
+  --fell-sc:"IM Fell English SC","IM Fell English",Garamond,serif;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2000' height='900'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.005 0.38' numOctaves='3' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.10 0 0 0 0 0.05 0 0 0 0 0.02 0 0 0 0.62 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --paper-tex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.24 0 0 0 0 0.12 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:150px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;color:var(--cream);font-family:var(--serif);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  background-color:var(--wood-1);background-image:radial-gradient(120% 70% at 50% 0%,rgba(214,140,60,.16),transparent 60%),var(--grain),linear-gradient(180deg,var(--wood-2),var(--wood-1) 45%,var(--wood-0))}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--brass-hi);outline-offset:3px}
+
+/* the label */
+.sign{padding:44px 0 30px}
+.sign .wrap{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.label{flex:1 1 460px;max-width:640px;position:relative;text-align:center;color:var(--ink);padding:30px 34px 26px;border-radius:4px;
+  background:var(--paper-tex),radial-gradient(130% 120% at 50% 40%,var(--paper),var(--paper-2));
+  box-shadow:inset 0 0 0 7px var(--paper),inset 0 0 0 8px var(--rule),inset 0 0 0 11px var(--paper),inset 0 0 0 12px var(--rule),inset 0 0 50px rgba(120,80,30,.28),0 18px 40px rgba(0,0,0,.55)}
+.label .kicker{font-family:var(--fell-sc);font-size:15px;letter-spacing:.18em;color:var(--oxblood);margin:0}
+.label h1{font-family:var(--fell);font-weight:400;font-size:clamp(46px,7vw,78px);line-height:1;margin:8px 0 4px;letter-spacing:.005em;color:var(--ink)}
+.orn{font-family:var(--fell);color:var(--rule);font-size:24px;line-height:1;margin:6px 0}
+.orn::before,.orn::after{content:"";display:inline-block;width:56px;height:1px;background:var(--rule);vertical-align:middle;margin:0 12px}
+.label .tag{font-style:italic;font-size:20px;color:var(--ink-2);margin:2px 0 14px}
+.tally{list-style:none;margin:0;padding:10px 0 0;border-top:1px solid rgba(138,106,61,.45);display:flex;flex-wrap:wrap;justify-content:center;gap:4px 0;font-family:var(--fell-sc);font-size:16px;color:var(--ink-2)}
+.tally li+li::before{content:"·";margin:0 12px;color:var(--rule)}
+@media (max-width:620px){.tally{flex-direction:column;gap:2px}.tally li+li::before{content:none}}
+.tally b{font-family:var(--fell);font-weight:400;color:var(--oxblood);font-size:19px}
+
+/* the keepers */
+.keepers{flex:0 1 auto;display:flex;flex-direction:column;align-items:center;gap:10px;margin:0 auto}
+.keepers .by{font-family:var(--fell);font-style:italic;font-size:22px;color:var(--cream-2)}
+.keepers .who{font-family:var(--fell-sc);font-size:26px;color:var(--brass-hi);letter-spacing:.04em;margin-top:-6px;text-shadow:0 2px 6px rgba(0,0,0,.6)}
+.faces{display:flex;gap:18px}
+.faces button{appearance:none;border:0;background:none;padding:0;cursor:zoom-in;display:flex;flex-direction:column;align-items:center;gap:8px}
+.frame{display:block;padding:5px;border-radius:50%;background:linear-gradient(145deg,var(--brass-hi),var(--brass) 40%,var(--brass-lo) 75%,var(--brass));box-shadow:0 10px 22px rgba(0,0,0,.6)}
+.frame img{display:block;width:104px;height:126px;object-fit:cover;border-radius:50%;border:3px solid var(--wood-0);filter:sepia(.18) saturate(.95)}
+.faces .name{font-family:var(--fell-sc);font-size:17px;color:var(--cream);letter-spacing:.06em}
+
+/* the bar */
+.bar{position:sticky;top:0;z-index:5;background-color:var(--wood-0);background-image:var(--grain),linear-gradient(180deg,#2c1a0e,#1a0f08);border-top:1px solid rgba(255,214,150,.08);border-bottom:2px solid #120a05;box-shadow:0 8px 18px rgba(0,0,0,.45)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;padding-top:12px;padding-bottom:12px}
+.seg{display:inline-flex;gap:4px;padding:4px;border-radius:6px;background:rgba(0,0,0,.35);box-shadow:inset 0 1px 3px rgba(0,0,0,.6)}
+.seg button{appearance:none;border:0;background:transparent;color:var(--cream-2);font-family:var(--fell-sc);font-size:17px;letter-spacing:.04em;padding:6px 16px;border-radius:4px;cursor:pointer}
+.seg button[aria-pressed="true"]{color:#2a1a0c;background:linear-gradient(180deg,var(--brass-hi),var(--brass) 55%,var(--brass-lo));box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 1px 2px rgba(0,0,0,.5)}
+.search{flex:1 1 230px;min-width:0;position:relative}
+.search input{width:100%;border:1px solid var(--rule);border-radius:4px;padding:9px 14px 9px 40px;font-family:var(--serif);font-size:17px;color:var(--ink);background:var(--paper-tex),var(--paper);box-shadow:inset 0 2px 4px rgba(90,60,25,.25)}
+.search input::placeholder{color:#8a7350;font-style:italic}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:var(--ink-2)}
+.jump{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;width:100%}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;color:var(--cream-2);font-family:var(--fell-sc);font-size:15px;letter-spacing:.03em;text-decoration:none;border:1px solid rgba(196,154,72,.45);border-radius:3px;padding:2px 10px}
+.jump a:hover{color:var(--brass-hi);border-color:var(--brass-hi)}
+.jump span{opacity:.65}
+
+/* the shelves */
+.group{padding:46px 0 10px;text-align:center}
+.plaque{display:inline-flex;align-items:baseline;gap:12px;position:relative;padding:7px 30px 6px;border-radius:4px;color:#2a1a0c;font-family:var(--fell-sc);
+  background:linear-gradient(180deg,var(--brass-hi),var(--brass) 50%,var(--brass-lo));box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -2px 0 rgba(0,0,0,.25),0 6px 14px rgba(0,0,0,.55)}
+.plaque::before,.plaque::after{content:"";position:absolute;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f6e2a8,#6d5020);box-shadow:0 1px 1px rgba(0,0,0,.5)}
+.plaque::before{left:10px}.plaque::after{right:10px}
+.plaque h2{margin:0;font-weight:400;font-size:clamp(22px,2.6vw,28px);letter-spacing:.04em;line-height:1.1}
+.plaque .count{font-family:var(--fell);font-size:18px;opacity:.75}
+.group .sub{display:block;font-style:italic;color:var(--cream-2);font-size:17px;margin-top:8px}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));column-gap:0;row-gap:40px;margin-top:26px;text-align:left}
+.slot{padding:0 10px;display:flex;flex-direction:column;justify-content:flex-end}
+.slot::after{content:"";display:block;height:16px;margin:0 -10px;border-radius:1px;background-image:var(--grain),linear-gradient(180deg,var(--plank-hi),var(--plank) 35%,var(--plank-lo));box-shadow:inset 0 1px 0 rgba(255,220,170,.35),0 10px 12px -4px rgba(0,0,0,.7)}
+.bottle{appearance:none;cursor:pointer;text-align:left;padding:8px 8px 12px;border:1px solid #b5976a;border-bottom:0;border-radius:3px 3px 0 0;display:flex;flex-direction:column;position:relative;color:var(--ink);
+  background:var(--paper-tex),linear-gradient(180deg,var(--paper),var(--paper-2));box-shadow:inset 0 0 22px rgba(120,80,30,.22),0 -2px 10px rgba(0,0,0,.25);transition:transform .25s ease,box-shadow .25s ease}
+.bottle:hover{transform:translateY(-6px);box-shadow:inset 0 0 22px rgba(120,80,30,.22),0 14px 18px rgba(0,0,0,.45)}
+.shot{aspect-ratio:2/3;display:grid;place-items:center}
+.shot img{width:100%;height:100%;object-fit:contain;display:block;mix-blend-mode:multiply}
+.seal{position:absolute;top:8px;right:8px;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;text-align:center;line-height:1;
+  font-family:var(--fell);font-size:14px;color:#f6e3c2;background:radial-gradient(circle at 38% 32%,#a63a26,var(--oxblood) 55%,var(--oxblood-d));
+  box-shadow:inset 0 0 0 3px rgba(0,0,0,.18),inset 0 0 0 5px rgba(255,200,170,.12),0 2px 4px rgba(0,0,0,.45);transform:rotate(-8deg)}
+.seal b{display:block;font-weight:400;font-size:19px}
+.seal.nas{background:radial-gradient(circle at 38% 32%,#6b4a2c,#41290f 60%,#2a1909);font-size:13px;letter-spacing:.04em}
+.bottle .nm{font-family:var(--fell);font-size:17px;line-height:1.2;margin-top:6px}
+.bottle .facts{font-style:italic;font-size:15px;color:var(--ink-2);line-height:1.3;margin-top:3px}
+.empty{text-align:center;font-style:italic;color:var(--cream-2);padding:70px 0;font-size:20px}
+
+/* the detail card */
+dialog{border:0;padding:0;border-radius:4px;color:var(--ink);width:min(780px,calc(100vw - 24px));max-height:calc(100dvh - 24px);
+  background:var(--paper-tex),radial-gradient(130% 120% at 50% 40%,var(--paper),var(--paper-2));
+  box-shadow:inset 0 0 0 7px var(--paper),inset 0 0 0 8px var(--rule),inset 0 0 50px rgba(120,80,30,.25),0 30px 60px rgba(0,0,0,.6)}
+dialog::backdrop{background:rgba(18,10,4,.72)}
+.dlg{display:grid;grid-template-columns:1fr}
+@media (min-width:640px){.dlg{grid-template-columns:290px 1fr}}
+.dlg .shot{aspect-ratio:auto;min-height:340px;padding:22px}
+.dlg .body{padding:30px 32px 30px 18px;display:flex;flex-direction:column;gap:14px}
+@media (max-width:639px){.dlg .body{padding:6px 26px 28px}}
+.dlg h3{font-family:var(--fell);font-weight:400;font-size:30px;line-height:1.12;margin:0;padding-right:40px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:0;font-size:18px}
+.kv dt{font-family:var(--fell-sc);color:var(--oxblood);font-size:16px;letter-spacing:.06em;padding-top:2px}
+.kv dd{margin:0}
+.pet-view{grid-column:1/-1;padding:16px}
+.pet-view img{display:block;width:100%;border-radius:2px;filter:sepia(.12)}
+.pet-view h3{text-align:center;padding:14px 0 4px}
+.close{position:absolute;top:14px;right:14px;z-index:1;width:38px;height:38px;border-radius:50%;border:1px solid var(--rule);background:var(--paper);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+.foot{text-align:center;color:var(--cream-2);font-style:italic;font-size:16px;padding:64px 20px 48px}
+.foot .orn{color:var(--brass)}
+.foot .orn::before,.foot .orn::after{background:var(--brass-lo)}
+
+@media (max-width:620px){
+  body{font-size:17px}
+  .sign{padding-top:24px}
+  .label{padding:24px 22px 20px}
+  .frame img{width:84px;height:102px}
+  .shelf{grid-template-columns:repeat(auto-fill,minmax(148px,1fr));row-gap:32px}
+  .slot{padding:0 7px}.slot::after{margin:0 -7px}
+  .bottle .nm{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){.bottle{transition:none}.bottle:hover{transform:none}}
+</style>
+</head>
+<body>
+<header class="sign">
+  <div class="wrap">
+    <div class="label">
+      <p class="kicker">A private collection</p>
+      <h1>Griffin's Loot</h1>
+      <p class="orn" aria-hidden="true">&#10086;</p>
+      <p class="tag">Every bottle on our shelf, by region and by age.</p>
+      <ul class="tally">__STATS__</ul>
+    </div>
+    <div class="keepers">
+      <div class="faces">
+        <button type="button" data-pet="griffin" data-name="Griffin"><span class="frame"><img src="pets/griffin-sm.webp" width="240" height="240" alt="Griffin, our Yorkie"></span><span class="name">Griffin</span></button>
+        <button type="button" data-pet="blu" data-name="Blu"><span class="frame"><img src="pets/blu-sm.webp" width="240" height="240" alt="Blu, our French bulldog"></span><span class="name">Blu</span></button>
+      </div>
+      <span class="by">Guarded by</span>
+      <span class="who">Griffin &amp; Blu</span>
+    </div>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Group bottles by">
+      <button type="button" data-mode="region" aria-pressed="true">By region</button>
+      <button type="button" data-mode="age" aria-pressed="false">By age</button>
+    </div>
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search the shelf" autocomplete="off" aria-label="Search bottles">
+    </label>
+    <nav class="jump" id="jump" aria-label="Jump to shelf"></nav>
+  </div>
+</div>
+
+<main class="wrap" id="list" aria-live="polite"></main>
+<footer class="foot"><p class="orn" aria-hidden="true">&#10086;</p>Catalogued __UPDATED__ from shelf photos.</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <button class="close" type="button" aria-label="Close" data-close>&times;</button>
+  <div class="dlg" id="dlg-body"></div>
+</dialog>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+const REGIONS = [["Speyside","Scotland"],["Highlands","Scotland"],["Lowlands","Scotland"],["Islands","Scotland"],
+  ["Blended Scotch","Scotland"],["England",""],["Ireland",""],["Japan",""],["New Zealand",""],
+  ["Kentucky","USA"],["Tennessee","USA"],["Washington","USA"],["Other USA","USA"],["Not whisky","Also on the shelf"]];
+const AGES = [["15+ years",b=>b.age>=15],["10 to 14 years",b=>b.age>=10&&b.age<15],["Under 10 years",b=>b.age&&b.age<10],["No age statement",b=>!b.age]];
+const DATA = JSON.parse(document.getElementById("data").textContent).bottles;
+const get = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+const put = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
+let mode = get("gl-mode") === "age" ? "age" : "region";
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+const isWhisky = b => b.region !== "Not whisky";
+const place = b => b.region === "Other USA" ? b.state : b.region;
+const byAge = (a, b) => (b.age || 0) - (a.age || 0) || a.name.localeCompare(b.name);
+
+const card = b => `<div class="slot"><button class="bottle" type="button" data-id="${esc(b.id)}">
+  <span class="shot"><img loading="lazy" src="img/${esc(b.id)}.webp" width="600" height="900" alt="${esc(b.name)}"></span>
+  ${b.age ? `<span class="seal"><span><b>${b.age}</b>yrs</span></span>` : `<span class="seal nas">NAS</span>`}
+  <span class="nm">${esc(b.name)}</span><span class="facts">${esc([place(b), b.style].filter(Boolean).join(" · "))}</span>
+</button></div>`;
+
+function render() {
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const rows = DATA.filter(b => !q || [b.name, b.region, b.country, b.style, b.state, b.notes].join(" ").toLowerCase().includes(q));
+  let groups;
+  if (mode === "region") {
+    groups = REGIONS.map(([r, sub]) => ({ title: r, sub, rows: rows.filter(b => b.region === r).sort(byAge) }));
+  } else {
+    groups = AGES.map(([t, f]) => ({ title: t, sub: "", rows: rows.filter(b => isWhisky(b) && f(b)).sort(byAge) }));
+    groups.push({ title: "Also on the shelf", sub: "Not whisky", rows: rows.filter(b => !isWhisky(b)) });
+  }
+  groups = groups.filter(g => g.rows.length);
+  document.getElementById("jump").innerHTML = groups.map(g => `<a href="#g-${slug(g.title)}">${esc(g.title)} <span>${g.rows.length}</span></a>`).join("");
+  document.getElementById("list").innerHTML = groups.length ? groups.map(g => `<section class="group" id="g-${slug(g.title)}">
+    <div class="plaque"><h2>${esc(g.title)}</h2><span class="count">${g.rows.length}</span></div>
+    ${g.sub ? `<span class="sub">${esc(g.sub)}</span>` : ""}
+    <div class="shelf">${g.rows.map(card).join("")}</div></section>`).join("")
+    : `<p class="empty">Nothing on the shelf matches &ldquo;${esc(q)}&rdquo;.</p>`;
+}
+
+function show(b) {
+  const where = b.region === "Other USA" ? `${b.state}, USA` : (b.region === b.country || b.region === "Not whisky" ? b.country : `${b.region}, ${b.country}`);
+  const age = (b.age ? `${b.age} years` : "No age statement") + (b.age_note ? ` (${b.age_note})` : "");
+  const kv = [["Region", where], ["Style", b.style], ["Age", age], ["Strength", b.abv], ["Size", b.size], ["Notes", b.notes]].filter(r => r[1]);
+  document.getElementById("dlg-body").innerHTML = `<div class="shot"><img src="img/${esc(b.id)}.webp" alt="${esc(b.name)}"></div>
+    <div class="body"><h3 id="dlg-title">${esc(b.name)}</h3><dl class="kv">${kv.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}</dl></div>`;
+  document.getElementById("dlg").showModal();
+}
+
+document.addEventListener("click", e => {
+  const pet = e.target.closest("[data-pet]");
+  if (pet) {
+    document.getElementById("dlg-body").innerHTML = `<div class="pet-view"><img src="pets/${pet.dataset.pet}.webp" alt="${esc(pet.dataset.name)}"><h3 id="dlg-title">${esc(pet.dataset.name)}</h3></div>`;
+    document.getElementById("dlg").showModal(); return;
+  }
+  const c = e.target.closest(".bottle"); if (c) { show(DATA.find(b => b.id === c.dataset.id)); return; }
+  if (e.target.closest("[data-close]") || e.target.id === "dlg") { document.getElementById("dlg").close(); return; }
+  const m = e.target.closest(".seg button");
+  if (m) { mode = m.dataset.mode; put("gl-mode", mode); document.querySelectorAll(".seg button").forEach(x => x.setAttribute("aria-pressed", x === m)); render(); }
+});
+document.getElementById("q").addEventListener("input", render);
+document.querySelectorAll(".seg button").forEach(x => x.setAttribute("aria-pressed", x.dataset.mode === mode));
+render();
+</script>
+</body>
+</html>
